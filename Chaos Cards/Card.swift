@@ -29,4 +29,8 @@ extension Card {
             Card(prompt: "Saturday", answer: "wan sao"),
         ]
     }
+    
+    static var manySampleCards: [Card] {
+        return (sampleCards + sampleCards + sampleCards).shuffled()
+    }
 }

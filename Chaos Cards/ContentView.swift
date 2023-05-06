@@ -10,9 +10,11 @@ import SwiftUI
 struct ContentView: View {
     let cards: [Card]
     var body: some View {
-        VStack {
-            ForEach(cards) { card in
-                CardView(card: card)
+        ScrollView {
+            VStack {
+                ForEach(cards) { card in
+                    CardView(card: card)
+                }
             }
         }
     }
@@ -20,6 +22,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(cards: Card.sampleCards)
+        ContentView(cards: Card.manySampleCards)
     }
 }

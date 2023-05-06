@@ -23,17 +23,8 @@ struct CardView: View {
                     .font(.title)
                     .foregroundColor(.gray)
             }
-            .padding(20)
+            .padding([.top, .bottom], 42)
         }
-        
-        //        VStack(alignment: .leading) {
-        //            Text("Wednesday")
-        //                .font(.largeTitle)
-        //                .accessibilityAddTraits(.isHeader)
-        //            Text("wan phut")
-        //                .font(.title)
-        //        }
-        //        .padding()
     }
 }
 
