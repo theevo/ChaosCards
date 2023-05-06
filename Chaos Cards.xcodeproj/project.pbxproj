@@ -14,6 +14,8 @@
 		AC14F8E72A06CD870049D669 /* Chaos_CardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F8E62A06CD870049D669 /* Chaos_CardsTests.swift */; };
 		AC14F8F12A06CD870049D669 /* Chaos_CardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F8F02A06CD870049D669 /* Chaos_CardsUITests.swift */; };
 		AC14F8F32A06CD870049D669 /* Chaos_CardsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F8F22A06CD870049D669 /* Chaos_CardsUITestsLaunchTests.swift */; };
+		AC14F9002A06D2E30049D669 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F8FF2A06D2E30049D669 /* CardView.swift */; };
+		AC14F9022A06D7C80049D669 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F9012A06D7C80049D669 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		AC14F8EC2A06CD870049D669 /* Chaos CardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chaos CardsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC14F8F02A06CD870049D669 /* Chaos_CardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chaos_CardsUITests.swift; sourceTree = "<group>"; };
 		AC14F8F22A06CD870049D669 /* Chaos_CardsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chaos_CardsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AC14F8FF2A06D2E30049D669 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AC14F9012A06D7C80049D669 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
 				AC14F8D72A06CD860049D669 /* ContentView.swift */,
+				AC14F8FF2A06D2E30049D669 /* CardView.swift */,
+				AC14F9012A06D7C80049D669 /* Card.swift */,
 				AC14F8D92A06CD870049D669 /* Assets.xcassets */,
 				AC14F8DB2A06CD870049D669 /* Preview Content */,
 			);
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC14F8D82A06CD860049D669 /* ContentView.swift in Sources */,
+				AC14F9002A06D2E30049D669 /* CardView.swift in Sources */,
 				AC14F8D62A06CD860049D669 /* Chaos_CardsApp.swift in Sources */,
+				AC14F9022A06D7C80049D669 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
