@@ -25,6 +25,12 @@ struct CardListView: View {
                 EditCardView(card: card)
                     .toolbarRole(.editor)
             }
+            .toolbar {
+                NavigationLink("Settings") {
+                    SettingsView()
+                        .toolbarRole(.editor)
+                }
+            }
         }
     }
 }
