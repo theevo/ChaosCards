@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct EditCardView: View {
-    @State private var prompt: String = ""
-    @State private var answer: String = ""
+    @State private var prompt: String
+    @State private var answer: String
     var card: Card
     var body: some View {
         NavigationView {
@@ -22,6 +22,7 @@ struct EditCardView: View {
                     Button("Switch places") {
                         print("switch button pressed")
                     }
+                    .disabled(true)
                 }
                 Section(header: Text("Answer")) {
                     TextField(text: $answer) {
@@ -31,6 +32,12 @@ struct EditCardView: View {
             }
             .navigationTitle("Edit card")
         }
+    }
+    
+    init(card: Card) {
+        self.card = card
+        _prompt = State(initialValue: card.prompt)
+        _answer = State(initialValue: card.answer)
     }
 }
 
