@@ -23,6 +23,7 @@ struct CardListView: View {
             .navigationTitle("🇹🇭 days of the week")
             .navigationDestination(for: Card.self) { card in
                 EditCardView(card: card)
+                    .toolbarRole(.editor)
             }
         }
     }

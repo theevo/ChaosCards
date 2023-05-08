@@ -21,8 +21,9 @@ struct EditCardView: View {
                     TextField(text: $answer) { }
                 }
             }
-            .navigationTitle("Edit card")
         }
+        .navigationTitle("Edit card")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     init(card: Card) {
