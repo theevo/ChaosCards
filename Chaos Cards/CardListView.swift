@@ -14,11 +14,16 @@ struct CardListView: View {
             ScrollView {
                 VStack {
                     ForEach(cards) { card in
-                        CardView(card: card)
+                        NavigationLink(value: card) {
+                            CardView(card: card)
+                        }
                     }
                 }
             }
             .navigationTitle("🇹🇭 days of the week")
+            .navigationDestination(for: Card.self) { card in
+                EditCardView(card: card)
+            }
         }
     }
 }
