@@ -15,19 +15,10 @@ struct EditCardView: View {
         NavigationView {
             Form {
                 Section(header: Text("Prompt")) {
-                    TextField(text: $prompt) {
-                    }
-                }
-                Section {
-                    Button("Switch places") {
-                        print("switch button pressed")
-                    }
-                    .disabled(true)
+                    TextField(text: $prompt) { }
                 }
                 Section(header: Text("Answer")) {
-                    TextField(text: $answer) {
-                        
-                    }
+                    TextField(text: $answer) { }
                 }
             }
             .navigationTitle("Edit card")
