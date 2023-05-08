@@ -11,7 +11,7 @@ import SwiftUI
 struct Chaos_CardsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(cards: Card.sampleCards)
+            CardListView(cards: Card.sampleCards)
         }
     }
 }
