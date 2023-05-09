@@ -1,4 +1,33 @@
-Chaos Cards
+# Chaos Cards
+
+## 05.08
+
+Chaos Cards | Trello
+https://trello.com/b/mQzwnEWa/chaos-cards
+
+How to add custom actions for iOS push and local notifications
+https://tanaschita.com/20220321-how-to-add-and-handle-actions-for-ios-notifications/
+
+Scheduling local notifications - a free Hacking with iOS: SwiftUI Edition tutorial
+https://www.hackingwithswift.com/books/ios-swiftui/scheduling-local-notifications
+
+How to add bar items to a navigation view - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-bar-items-to-a-navigation-view
+
+Asking permission to use notifications | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications
+
+How to Get Push Notification while iOS App is in Foreground | Sarunw
+https://sarunw.com/posts/notification-in-foreground/
+
+Scheduling local notifications - a free Hacking with iOS: SwiftUI Edition tutorial
+https://www.hackingwithswift.com/books/ios-swiftui/scheduling-local-notifications
+
+Live Preview Window - Show/Hide? | Apple Developer Forums
+https://developer.apple.com/forums/thread/665338
+
+
+## Undated
 
 How to add text input actions to iOS push and local notifications
 https://tanaschita.com/20220328-how-to-add-textinput-to-ios-notifications/
