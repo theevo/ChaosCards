@@ -17,20 +17,4 @@ extension Card {
     static var example: Card {
         return Card(prompt: "Thursday", answer: "wan pha-rue-hat")
     }
-    
-    static var sampleCards: [Card] {
-        return [
-            Card(prompt: "Sunday", answer: "wan aa-thit"),
-            Card(prompt: "Monday", answer: "wan jan"),
-            Card(prompt: "Tuesday", answer: "wan ang-kaan"),
-            Card(prompt: "Wednesday", answer: "wan phut"),
-            Card(prompt: "Thursday", answer: "wan pha-rue-hat"),
-            Card(prompt: "Friday", answer: "wan sook"),
-            Card(prompt: "Saturday", answer: "wan sao"),
-        ]
-    }
-    
-    static var manySampleCards: [Card] {
-        return (sampleCards + sampleCards + sampleCards)
-    }
 }

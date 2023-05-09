@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct CardListView: View {
-    let cards: [Card]
+    let deck: Deck
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    ForEach(cards) { card in
+                    ForEach(deck.cards) { card in
                         NavigationLink(value: card) {
                             CardView(card: card)
                         }
                     }
                 }
             }
-            .navigationTitle("🇹🇭 days of the week")
+            .navigationTitle(deck.name)
             .navigationDestination(for: Card.self) { card in
                 EditCardView(card: card)
                     .toolbarRole(.editor)
@@ -37,6 +37,6 @@ struct CardListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardListView(cards: Card.manySampleCards)
+        CardListView(deck: Deck.example)
     }
 }
