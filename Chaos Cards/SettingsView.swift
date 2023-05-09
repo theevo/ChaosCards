@@ -21,8 +21,18 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section(footer: Text("When this is on, you'll receive push notifications. A multiple choice question will be sent for each card in your deck. Long press a notification to answer it.")) {
-                Toggle(isOn: $isNotificationsOn.animation()) { Text("Notifications")
-                }
+                Toggle("Notifications", isOn: $isNotificationsOn.animation())
+                    .onChange(of: isNotificationsOn) { newValue in
+                        guard newValue else { return }
+                        
+                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                            if success {
+                                print("All set!")
+                            } else if let error = error {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
             }
             if isNotificationsOn {
                 Section {
@@ -35,7 +45,19 @@ struct SettingsView: View {
                         }
                     }
                     Button("Begin the quiz") {
-                        print("Begin button tapped")
+                        let content = UNMutableNotificationContent()
+                        content.title = "Feed the cat"
+                        content.subtitle = "It looks hungry"
+                        content.sound = UNNotificationSound.default
+
+                        // show this notification five seconds from now
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+                        // choose a random identifier
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                        // add our notification request
+                        UNUserNotificationCenter.current().add(request)
                     }
                 }
             }
