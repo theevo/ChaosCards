@@ -35,6 +35,6 @@ struct EditCardView: View {
 
 struct EditCardView_Previews: PreviewProvider {
     static var previews: some View {
-        EditCardView(card: Card.random)
+        EditCardView(card: Card.example)
     }
 }

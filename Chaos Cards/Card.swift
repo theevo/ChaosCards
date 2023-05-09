@@ -14,8 +14,8 @@ struct Card: Identifiable, Hashable {
 }
 
 extension Card {
-    static var random: Card {
-        return sampleCards.randomElement() ?? Card(prompt: "Sunday", answer: "wan aa-thit")
+    static var example: Card {
+        return Card(prompt: "Thursday", answer: "wan pha-rue-hat")
     }
     
     static var sampleCards: [Card] {
@@ -31,6 +31,6 @@ extension Card {
     }
     
     static var manySampleCards: [Card] {
-        return (sampleCards + sampleCards + sampleCards).shuffled()
+        return (sampleCards + sampleCards + sampleCards)
     }
 }
