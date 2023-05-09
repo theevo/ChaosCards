@@ -18,6 +18,7 @@ enum NotificationFrequency: String, CaseIterable {
 struct SettingsView: View {
     @State private var isNotificationsOn = false
     @State private var notificationFrequency: NotificationFrequency = .Seconds5
+    
     var body: some View {
         Form {
             Section(footer: Text("When this is on, you'll receive push notifications. A multiple choice question will be sent for each card in your deck. Long press a notification to answer it.")) {
@@ -45,23 +46,29 @@ struct SettingsView: View {
                         }
                     }
                     Button("Begin the quiz") {
-                        let content = UNMutableNotificationContent()
-                        content.title = "Feed the cat"
-                        content.subtitle = "It looks hungry"
-                        content.sound = UNNotificationSound.default
-
-                        // show this notification five seconds from now
-                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-
-                        // choose a random identifier
-                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-                        // add our notification request
-                        UNUserNotificationCenter.current().add(request)
+                        queueNotifications()
                     }
                 }
             }
         }
+    }
+}
+
+extension SettingsView {
+    fileprivate func queueNotifications() {
+        let content = UNMutableNotificationContent()
+        content.title = "Feed the cat"
+        content.subtitle = "It looks hungry"
+        content.sound = UNNotificationSound.default
+        
+        // show this notification five seconds from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        // add our notification request
+        UNUserNotificationCenter.current().add(request)
     }
 }
 
