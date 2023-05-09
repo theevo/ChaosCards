@@ -19,6 +19,8 @@
 		AC14F90A2A0953780049D669 /* EditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F9092A0953780049D669 /* EditCardView.swift */; };
 		AC14F9262A09A2DD0049D669 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F9252A09A2DD0049D669 /* SettingsView.swift */; };
 		AC14F92A2A0ADBB80049D669 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F9292A0ADBB80049D669 /* Deck.swift */; };
+		AC14F92C2A0ADE550049D669 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F92B2A0ADE550049D669 /* Quiz.swift */; };
+		AC14F92E2A0ADEC30049D669 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F92D2A0ADEC30049D669 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		AC14F9092A0953780049D669 /* EditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
 		AC14F9252A09A2DD0049D669 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AC14F9292A0ADBB80049D669 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		AC14F92B2A0ADE550049D669 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		AC14F92D2A0ADEC30049D669 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +88,6 @@
 		AC14F8C92A06CD860049D669 = {
 			isa = PBXGroup;
 			children = (
-				AC14F9292A0ADBB80049D669 /* Deck.swift */,
 				AC14F8D42A06CD860049D669 /* Chaos Cards */,
 				AC14F8E52A06CD870049D669 /* Chaos CardsTests */,
 				AC14F8EF2A06CD870049D669 /* Chaos CardsUITests */,
@@ -106,11 +109,12 @@
 			isa = PBXGroup;
 			children = (
 				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
+				AC14F9302A0AE5A80049D669 /* Card */,
+				AC14F92F2A0AE5950049D669 /* Quiz */,
 				AC14F8D72A06CD860049D669 /* CardListView.swift */,
 				AC14F9252A09A2DD0049D669 /* SettingsView.swift */,
 				AC14F9092A0953780049D669 /* EditCardView.swift */,
 				AC14F8FF2A06D2E30049D669 /* CardView.swift */,
-				AC14F9012A06D7C80049D669 /* Card.swift */,
 				AC14F8D92A06CD870049D669 /* Assets.xcassets */,
 				AC14F8DB2A06CD870049D669 /* Preview Content */,
 			);
@@ -140,6 +144,24 @@
 				AC14F8F22A06CD870049D669 /* Chaos_CardsUITestsLaunchTests.swift */,
 			);
 			path = "Chaos CardsUITests";
+			sourceTree = "<group>";
+		};
+		AC14F92F2A0AE5950049D669 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				AC14F92B2A0ADE550049D669 /* Quiz.swift */,
+				AC14F92D2A0ADEC30049D669 /* Question.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		AC14F9302A0AE5A80049D669 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				AC14F9292A0ADBB80049D669 /* Deck.swift */,
+				AC14F9012A06D7C80049D669 /* Card.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,9 +297,11 @@
 				AC14F92A2A0ADBB80049D669 /* Deck.swift in Sources */,
 				AC14F8D82A06CD860049D669 /* CardListView.swift in Sources */,
 				AC14F9002A06D2E30049D669 /* CardView.swift in Sources */,
+				AC14F92E2A0ADEC30049D669 /* Question.swift in Sources */,
 				AC14F90A2A0953780049D669 /* EditCardView.swift in Sources */,
 				AC14F9262A09A2DD0049D669 /* SettingsView.swift in Sources */,
 				AC14F8D62A06CD860049D669 /* Chaos_CardsApp.swift in Sources */,
+				AC14F92C2A0ADE550049D669 /* Quiz.swift in Sources */,
 				AC14F9022A06D7C80049D669 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
