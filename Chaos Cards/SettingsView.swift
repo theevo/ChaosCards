@@ -21,23 +21,24 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section(footer: Text("When this is on, you'll receive push notifications. A multiple choice question will be sent for each card in your deck. Long press a notification to answer it.")) {
-                Toggle(isOn: $isNotificationsOn) { Text("Notifications")
+                Toggle(isOn: $isNotificationsOn.animation()) { Text("Notifications")
                 }
             }
-            Section {
-                Picker(
-                    selection: $notificationFrequency,
-                    label: Text("Quiz me every")
-                ) {
-                    ForEach(NotificationFrequency.allCases, id: \.self) {
-                        Text($0.rawValue).tag($0)
+            if isNotificationsOn {
+                Section {
+                    Picker(
+                        selection: $notificationFrequency,
+                        label: Text("Quiz me every")
+                    ) {
+                        ForEach(NotificationFrequency.allCases, id: \.self) {
+                            Text($0.rawValue).tag($0)
+                        }
+                    }
+                    Button("Begin the quiz") {
+                        print("Begin button tapped")
                     }
                 }
-                Button("Begin the quiz") {
-                    print("Begin button tapped")
-                }
             }
-            
         }
     }
 }
