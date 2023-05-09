@@ -9,12 +9,6 @@ import Foundation
 
 struct Question {
     let prompt: String
-    let correctAnswer: String
-    let wrongAnswers: [String]
-}
-
-extension Question {
-    var choices: [String] {
-        ([correctAnswer] + wrongAnswers).shuffled()
-    }
+    let correctChoice: Choice
+    let wrongChoices: [Choice]
 }

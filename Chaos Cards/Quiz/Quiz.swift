@@ -15,7 +15,10 @@ struct Quiz {
         self.deck = deck
         
         let questions: [Question] = deck.cards.map { card in
-            Question(prompt: card.prompt, correctAnswer: card.answer, wrongAnswers: ["wrong answer", "don't pick me"])
+            Question(
+                prompt: card.prompt,
+                correctChoice: Choice(card.answer, isCorrect: true),
+                wrongChoices: [Choice("wrong answer"), Choice("don't pick me")])
         }
         
         self.questions = questions
