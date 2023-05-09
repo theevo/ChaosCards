@@ -17,12 +17,14 @@ enum NotificationFrequency: String, CaseIterable {
 
 struct SettingsView: View {
     @State private var isNotificationsOn = false
-    @State private var notificationFrequency: NotificationFrequency = .Minutes1
+    @State private var notificationFrequency: NotificationFrequency = .Seconds5
     var body: some View {
         Form {
-            Section(header: Text("Notifications")) {
+            Section(footer: Text("When this is on, you'll receive push notifications. A multiple choice question will be sent for each card in your deck. Long press a notification to answer it.")) {
                 Toggle(isOn: $isNotificationsOn) { Text("Notifications")
                 }
+            }
+            Section {
                 Picker(
                     selection: $notificationFrequency,
                     label: Text("Quiz me every")
@@ -30,6 +32,9 @@ struct SettingsView: View {
                     ForEach(NotificationFrequency.allCases, id: \.self) {
                         Text($0.rawValue).tag($0)
                     }
+                }
+                Button("Begin the quiz") {
+                    print("Begin button tapped")
                 }
             }
             
