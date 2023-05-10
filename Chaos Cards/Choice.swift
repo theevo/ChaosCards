@@ -10,13 +10,13 @@ import Foundation
 struct Choice: Hashable {
     let id = UUID()
     let rawValue: String
-    let isCorrect: Bool
     
-    init(_ string: String, isCorrect: Bool = false) {
+    init(_ string: String) {
         self.rawValue = string
-        self.isCorrect = isCorrect
     }
-    
+}
+
+extension Choice {
     init(card: Card) {
         self.init(card.answer)
     }

@@ -107,7 +107,7 @@ final class UNMutableNotificationContent__Question: XCTestCase {
     func makeQuestion() -> Question {
         return Question(
             prompt: "Capital of England",
-            correctChoice: Choice("London", isCorrect: true),
+            correctChoice: Choice("London"),
             wrongChoices: [Choice("Paris"), Choice("Milan"), Choice("Beijing"), Choice("Bangkok")]
         )
     }

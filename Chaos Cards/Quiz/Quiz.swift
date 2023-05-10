@@ -16,7 +16,7 @@ extension Quiz {
         deck.cards.map { card in
             Question(
                 prompt: card.prompt,
-                correctChoice: Choice(card.answer, isCorrect: true),
+                correctChoice: Choice(card: card),
                 wrongChoices: makeWrongChoices(card: card))
         }
     }
