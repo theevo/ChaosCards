@@ -11,7 +11,7 @@ import XCTest
 final class UNMutableNotificationContent__Question: XCTestCase {
     
     func test_UNMutableNotifcationContentInit_withQuestion() {
-        let question = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
+        let question = makeQuestion()
         let notification = UNMutableNotificationContent(question: question)
         
         XCTAssertEqual(notification.title, question.prompt)
@@ -19,14 +19,14 @@ final class UNMutableNotificationContent__Question: XCTestCase {
     }
     
     func test_questionCategoryIdentifier_isUnique() {
-        let question1 = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
-        let question2 = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
+        let question1 = makeQuestion()
+        let question2 = makeQuestion()
         
         XCTAssertNotEqual(question1.categoryIdentifier, question2.categoryIdentifier)
     }
     
     func test_makeNotificationActions_synthesizesUNActionsFromQuestionChoices() {
-        let question = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
+        let question = makeQuestion()
         
         let actions = question.makeNotificationActions()
         let titles = actions.map { $0.title }
@@ -36,7 +36,7 @@ final class UNMutableNotificationContent__Question: XCTestCase {
     }
     
     func test_makeNotificationActions_randomizesQuestionChoices() {
-        let question = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
+        let question = makeQuestion()
         
         let actions1 = question.makeNotificationActions()
         let titles1 = actions1.map { $0.title }
