@@ -44,7 +44,7 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         let actions2 = question.makeNotificationActions()
         let titles2 = actions2.map { $0.title }
         
-        XCTAssertNotEqual(titles1, titles2) // flaky
+        XCTAssertNotEqual(titles1, titles2)
         
         XCTAssertTrue(titles2.contains(question.correctChoice.rawValue))
     }
@@ -68,7 +68,7 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         return Question(
             prompt: "Capital of England",
             correctChoice: Choice("London", isCorrect: true),
-            wrongChoices: [Choice("Paris"), Choice("Milan")]
+            wrongChoices: [Choice("Paris"), Choice("Milan"), Choice("Beijing"), Choice("Bangkok")]
         )
     }
 }
