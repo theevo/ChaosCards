@@ -34,6 +34,6 @@ extension Question {
             UNNotificationAction(choice: choice)
         }
         
-        return [correctAction] + incorrectActions
+        return ([correctAction] + incorrectActions).shuffled()
     }
 }

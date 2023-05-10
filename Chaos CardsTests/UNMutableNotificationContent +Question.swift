@@ -29,10 +29,9 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         let question = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
         
         let actions = question.makeNotificationActions()
+        let titles = actions.map { $0.title }
         
-        XCTAssertFalse(actions.isEmpty)
-        
-        XCTAssertEqual(actions.first?.title, question.correctChoice.rawValue)
+        XCTAssertTrue(titles.contains(question.correctChoice.rawValue))
         
 //        let current = UNUserNotificationCenter.current()
 //
@@ -41,5 +40,19 @@ final class UNMutableNotificationContent__Question: XCTestCase {
 //        XCTAssertTrue(categories.contains(where: { category in
 //            category.identifier == question.categoryIdentifier
 //        }))
+    }
+    
+    func test_makeNotificationActions_randomizesQuestionChoices() {
+        let question = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
+        
+        let actions1 = question.makeNotificationActions()
+        let titles1 = actions1.map { $0.title }
+        
+        let actions2 = question.makeNotificationActions()
+        let titles2 = actions2.map { $0.title }
+        
+        XCTAssertNotEqual(titles1, titles2) // flaky
+        
+        XCTAssertTrue(titles2.contains(question.correctChoice.rawValue))
     }
 }
