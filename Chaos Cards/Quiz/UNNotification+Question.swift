@@ -47,3 +47,16 @@ extension Question {
         UNUserNotificationCenter.current().setNotificationCategories([category])
     }
 }
+
+extension Quiz {
+    /// Initializes and adds a non-repeating `UNNotificationRequest` based on the question (self)
+    /// - Parameter seconds: number of seconds from now when this notification will trigger
+    func queueNotification(in seconds: TimeInterval) {
+        let question1 = self.questions.first!
+        let content = UNMutableNotificationContent(question: question1)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+    }
+}
