@@ -62,6 +62,16 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         }), "expected \(question.categoryIdentifier) to be registered, but it was not found.")
     }
     
+    func test_makeWrongChoices_extractsAnswersFromOtherCards() {
+        let quiz = Quiz(deck: Deck.example)
+        guard let sunday = quiz.questions.first else { fatalError("") }
+        
+        XCTAssertFalse(sunday.wrongChoices.contains { $0.rawValue == "wrong answer"
+        })
+        XCTAssertFalse(sunday.wrongChoices.contains { $0.rawValue == "don't pick me"
+        })
+    }
+    
     // MARK: - Helpers
     
     func makeQuestion() -> Question {

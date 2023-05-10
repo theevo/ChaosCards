@@ -9,18 +9,19 @@ import Foundation
 
 struct Quiz {
     let deck: Deck
-    let questions: [Question]
-    
-    init(deck: Deck) {
-        self.deck = deck
-        
-        let questions: [Question] = deck.cards.map { card in
+}
+
+extension Quiz {
+    var questions: [Question] {
+        deck.cards.map { card in
             Question(
                 prompt: card.prompt,
                 correctChoice: Choice(card.answer, isCorrect: true),
-                wrongChoices: [Choice("wrong answer"), Choice("don't pick me")])
+                wrongChoices: makeWrongChoices(card: card))
         }
-        
-        self.questions = questions
+    }
+    
+    func makeWrongChoices(card: Card) -> [Choice] {
+        return []
     }
 }
