@@ -8,6 +8,13 @@
 import XCTest
 @testable import Chaos_Cards
 
+extension Array<Choice> {
+    var isUnique: Bool {
+        let set = Set(arrayLiteral: self)
+        return self.count == set.count
+    }
+}
+
 final class UNMutableNotificationContent__Question: XCTestCase {
     
     func test_UNMutableNotifcationContentInit_withQuestion() {
@@ -67,6 +74,20 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         guard let sunday = quiz.questions.first else { fatalError("") }
         
         XCTAssertFalse(sunday.wrongChoices.contains { $0.rawValue == sunday.correctChoice.rawValue }, "Expected wrongChoices array NOT to contain the correct choice. The correct choice was found in the wrongChoices array!")
+    }
+    
+    func test_makeWrongChoices_containsAtLeast1WrongChoice() {
+        let quiz = Quiz(deck: Deck.example)
+        guard let sunday = quiz.questions.first else { fatalError("") }
+        
+        XCTAssertFalse(sunday.wrongChoices.isEmpty)
+    }
+    
+    func test_makeWrongChoices_doesNotContainDuplicates() {
+        let quiz = Quiz(deck: Deck.example)
+        guard let sunday = quiz.questions.first else { fatalError("") }
+        
+        XCTAssertTrue(sunday.wrongChoices.isUnique)
     }
     
     // MARK: - Helpers

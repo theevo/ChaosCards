@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Choice {
+struct Choice: Hashable {
     let id = UUID()
     let rawValue: String
     let isCorrect: Bool
@@ -15,5 +15,9 @@ struct Choice {
     init(_ string: String, isCorrect: Bool = false) {
         self.rawValue = string
         self.isCorrect = isCorrect
+    }
+    
+    init(card: Card) {
+        self.init(card.answer)
     }
 }

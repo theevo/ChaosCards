@@ -22,6 +22,8 @@ extension Quiz {
     }
     
     func makeWrongChoices(card: Card) -> [Choice] {
-        return []
+        let wrongCards = deck.cards.filter { $0 != card }
+        let oneCard = wrongCards.first!
+        return [Choice(card: oneCard)]
     }
 }
