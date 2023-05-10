@@ -115,11 +115,7 @@
 				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
 				AC14F9302A0AE5A80049D669 /* Card */,
 				AC14F92F2A0AE5950049D669 /* Quiz */,
-				AC14F8D72A06CD860049D669 /* CardListView.swift */,
 				AC14F9252A09A2DD0049D669 /* SettingsView.swift */,
-				AC14F9332A0AEE830049D669 /* Choice.swift */,
-				AC14F9092A0953780049D669 /* EditCardView.swift */,
-				AC14F8FF2A06D2E30049D669 /* CardView.swift */,
 				AC14F8D92A06CD870049D669 /* Assets.xcassets */,
 				AC14F8DB2A06CD870049D669 /* Preview Content */,
 			);
@@ -156,6 +152,7 @@
 			children = (
 				AC14F92B2A0ADE550049D669 /* Quiz.swift */,
 				AC14F92D2A0ADEC30049D669 /* Question.swift */,
+				AC14F9332A0AEE830049D669 /* Choice.swift */,
 				ACB1B39C2A0BDEB000607F12 /* UNNotification+Question.swift */,
 			);
 			path = Quiz;
@@ -164,6 +161,9 @@
 		AC14F9302A0AE5A80049D669 /* Card */ = {
 			isa = PBXGroup;
 			children = (
+				AC14F8D72A06CD860049D669 /* CardListView.swift */,
+				AC14F9092A0953780049D669 /* EditCardView.swift */,
+				AC14F8FF2A06D2E30049D669 /* CardView.swift */,
 				AC14F9292A0ADBB80049D669 /* Deck.swift */,
 				AC14F9012A06D7C80049D669 /* Card.swift */,
 			);
