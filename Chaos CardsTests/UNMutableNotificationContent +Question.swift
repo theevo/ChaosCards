@@ -25,21 +25,14 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         XCTAssertNotEqual(question1.categoryIdentifier, question2.categoryIdentifier)
     }
     
-    func test_question_synthesizesUNActionsFromChoices() async {
+    func test_makeNotificationActions_synthesizesUNActionsFromQuestionChoices() async {
         let question = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
         
         let actions = question.makeNotificationActions()
         let titles = actions.map { $0.title }
         
+        XCTAssertEqual(titles.count, question.wrongChoices.count + 1)
         XCTAssertTrue(titles.contains(question.correctChoice.rawValue))
-        
-//        let current = UNUserNotificationCenter.current()
-//
-//        let categories = await current.notificationCategories()
-//
-//        XCTAssertTrue(categories.contains(where: { category in
-//            category.identifier == question.categoryIdentifier
-//        }))
     }
     
     func test_makeNotificationActions_randomizesQuestionChoices() {
