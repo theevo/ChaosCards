@@ -21,7 +21,9 @@ extension Quiz {
         }
     }
     
-    func makeWrongChoices(card: Card, count: Int = 2) -> [Choice] {
+    func makeWrongChoices(card: Card, count: UInt = 2) -> [Choice] {
+        guard count > 0 else { return [] }
+        
         var wrongCards = deck.cards.filter { $0 != card }.shuffled()
         var choices: [Choice] = []
         
