@@ -21,9 +21,15 @@ extension Quiz {
         }
     }
     
-    func makeWrongChoices(card: Card) -> [Choice] {
-        let wrongCards = deck.cards.filter { $0 != card }
-        let oneCard = wrongCards.first!
-        return [Choice(card: oneCard)]
+    func makeWrongChoices(card: Card, count: Int = 2) -> [Choice] {
+        var wrongCards = deck.cards.filter { $0 != card }.shuffled()
+        var choices: [Choice] = []
+        
+        for _ in 1...count {
+            let oneCard = wrongCards.removeFirst()
+            choices.append(Choice(card: oneCard))
+        }
+        
+        return choices
     }
 }

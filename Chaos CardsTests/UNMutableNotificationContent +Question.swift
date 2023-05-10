@@ -10,7 +10,7 @@ import XCTest
 
 extension Array<Choice> {
     var isUnique: Bool {
-        let set = Set(arrayLiteral: self)
+        let set = Set(self)
         return self.count == set.count
     }
 }
@@ -87,7 +87,19 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         let quiz = Quiz(deck: Deck.example)
         guard let sunday = quiz.questions.first else { fatalError("") }
         
-        XCTAssertTrue(sunday.wrongChoices.isUnique)
+        XCTAssertTrue(sunday.wrongChoices.isUnique, "Expected this wrongChoices array to be unique \(sunday.wrongChoices)")
+    }
+    
+    func test_makeWrongChoices_givesRandomChoicesEachTime() {
+        let quiz = Quiz(deck: Deck.example)
+        guard let sunday1 = quiz.questions.first,
+            let sunday2 = quiz.questions.first else { fatalError("")
+        }
+        
+        let wrongChoices1 = sunday1.wrongChoices.map { $0.rawValue }
+        let wrongChoices2 = sunday2.wrongChoices.map { $0.rawValue }
+        
+        XCTAssertNotEqual(wrongChoices1, wrongChoices2)
     }
     
     // MARK: - Helpers
