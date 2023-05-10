@@ -1,5 +1,5 @@
 //
-//  UNMutableNotificationContent +Question.swift
+//  UNNotification+QuestionTests.swift
 //  Chaos CardsTests
 //
 //  Created by Theo Vora on 5/9/23.
@@ -15,7 +15,7 @@ extension Array<Choice> {
     }
 }
 
-final class UNMutableNotificationContent__Question: XCTestCase {
+final class UNNotification_QuestionTests: XCTestCase {
     
     func test_UNMutableNotifcationContentInit_withQuestion() {
         let question = makeQuestion()

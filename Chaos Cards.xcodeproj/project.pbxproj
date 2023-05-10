@@ -21,8 +21,8 @@
 		AC14F92C2A0ADE550049D669 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F92B2A0ADE550049D669 /* Quiz.swift */; };
 		AC14F92E2A0ADEC30049D669 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F92D2A0ADEC30049D669 /* Question.swift */; };
 		AC14F9342A0AEE830049D669 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F9332A0AEE830049D669 /* Choice.swift */; };
-		ACB1B39B2A0AFD7300607F12 /* UNMutableNotificationContent +Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1B39A2A0AFD7300607F12 /* UNMutableNotificationContent +Question.swift */; };
-		ACB1B39D2A0BDEB000607F12 /* UNMutableNotificationContent+Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1B39C2A0BDEB000607F12 /* UNMutableNotificationContent+Question.swift */; };
+		ACB1B39B2A0AFD7300607F12 /* UNMutableNotificationCategory+QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1B39A2A0AFD7300607F12 /* UNMutableNotificationCategory+QuestionTests.swift */; };
+		ACB1B39D2A0BDEB000607F12 /* UNNotification+Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1B39C2A0BDEB000607F12 /* UNNotification+Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,8 @@
 		AC14F92B2A0ADE550049D669 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		AC14F92D2A0ADEC30049D669 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		AC14F9332A0AEE830049D669 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
-		ACB1B39A2A0AFD7300607F12 /* UNMutableNotificationContent +Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNMutableNotificationContent +Question.swift"; sourceTree = "<group>"; };
-		ACB1B39C2A0BDEB000607F12 /* UNMutableNotificationContent+Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNMutableNotificationContent+Question.swift"; sourceTree = "<group>"; };
+		ACB1B39A2A0AFD7300607F12 /* UNMutableNotificationCategory+QuestionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNMutableNotificationCategory+QuestionTests.swift"; sourceTree = "<group>"; };
+		ACB1B39C2A0BDEB000607F12 /* UNNotification+Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotification+Question.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 		AC14F8E52A06CD870049D669 /* Chaos CardsTests */ = {
 			isa = PBXGroup;
 			children = (
-				ACB1B39A2A0AFD7300607F12 /* UNMutableNotificationContent +Question.swift */,
+				ACB1B39A2A0AFD7300607F12 /* UNMutableNotificationCategory+QuestionTests.swift */,
 			);
 			path = "Chaos CardsTests";
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 			children = (
 				AC14F92B2A0ADE550049D669 /* Quiz.swift */,
 				AC14F92D2A0ADEC30049D669 /* Question.swift */,
-				ACB1B39C2A0BDEB000607F12 /* UNMutableNotificationContent+Question.swift */,
+				ACB1B39C2A0BDEB000607F12 /* UNNotification+Question.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				AC14F92A2A0ADBB80049D669 /* Deck.swift in Sources */,
 				AC14F8D82A06CD860049D669 /* CardListView.swift in Sources */,
 				AC14F9002A06D2E30049D669 /* CardView.swift in Sources */,
-				ACB1B39D2A0BDEB000607F12 /* UNMutableNotificationContent+Question.swift in Sources */,
+				ACB1B39D2A0BDEB000607F12 /* UNNotification+Question.swift in Sources */,
 				AC14F92E2A0ADEC30049D669 /* Question.swift in Sources */,
 				AC14F90A2A0953780049D669 /* EditCardView.swift in Sources */,
 				AC14F9262A09A2DD0049D669 /* SettingsView.swift in Sources */,
@@ -318,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACB1B39B2A0AFD7300607F12 /* UNMutableNotificationContent +Question.swift in Sources */,
+				ACB1B39B2A0AFD7300607F12 /* UNMutableNotificationCategory+QuestionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
