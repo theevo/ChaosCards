@@ -25,7 +25,7 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         XCTAssertNotEqual(question1.categoryIdentifier, question2.categoryIdentifier)
     }
     
-    func test_makeNotificationActions_synthesizesUNActionsFromQuestionChoices() async {
+    func test_makeNotificationActions_synthesizesUNActionsFromQuestionChoices() {
         let question = Question(prompt: "Capital of England", correctChoice: Choice("London", isCorrect: true), wrongChoices: [Choice("Paris"), Choice("Milan")])
         
         let actions = question.makeNotificationActions()
@@ -47,5 +47,28 @@ final class UNMutableNotificationContent__Question: XCTestCase {
         XCTAssertNotEqual(titles1, titles2) // flaky
         
         XCTAssertTrue(titles2.contains(question.correctChoice.rawValue))
+    }
+    
+    func test_registerNotificationCategory_categoryIsInTheNotificationCenterSharedInstance() async {
+        let question = makeQuestion()
+        question.registerNotificationCategory()
+        
+        let current = UNUserNotificationCenter.current()
+
+        let categories = await current.notificationCategories()
+
+        XCTAssertTrue(categories.contains(where: { category in
+            category.identifier == question.categoryIdentifier
+        }), "expected \(question.categoryIdentifier) to be registered, but it was not found.")
+    }
+    
+    // MARK: - Helpers
+    
+    func makeQuestion() -> Question {
+        return Question(
+            prompt: "Capital of England",
+            correctChoice: Choice("London", isCorrect: true),
+            wrongChoices: [Choice("Paris"), Choice("Milan")]
+        )
     }
 }
