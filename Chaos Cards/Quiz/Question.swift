@@ -8,11 +8,27 @@
 import Foundation
 
 struct Question {
-    // TODO: - can we borrow the Card's UUID?
-    let id = UUID()
+    let id: UUID
     let prompt: String
     let correctChoice: Choice
     let wrongChoices: [Choice]
+    
+    init(id: UUID = UUID(),
+         prompt: String,
+         correctChoice: Choice,
+         wrongChoices: [Choice]) {
+        self.id = id
+        self.prompt = prompt
+        self.correctChoice = correctChoice
+        self.wrongChoices = wrongChoices
+    }
+    
+    init(card: Card, wrongChoices: [Choice]) {
+        self.id = card.id
+        self.prompt = card.prompt
+        self.correctChoice = Choice(card.answer)
+        self.wrongChoices = wrongChoices
+    }
 }
 
 extension Question {

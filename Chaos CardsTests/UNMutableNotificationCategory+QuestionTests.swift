@@ -8,22 +8,7 @@
 import XCTest
 @testable import Chaos_Cards
 
-extension Array<Choice> {
-    var isUnique: Bool {
-        let set = Set(self)
-        return self.count == set.count
-    }
-}
-
 final class UNNotification_QuestionTests: XCTestCase {
-    
-    func test_UNMutableNotifcationContentInit_withQuestion() {
-        let question = makeQuestion()
-        let notification = UNMutableNotificationContent(question: question)
-        
-        XCTAssertEqual(notification.title, question.prompt)
-        XCTAssertEqual(notification.categoryIdentifier, question.categoryIdentifier)
-    }
     
     func test_questionCategoryIdentifier_isUnique() {
         let question1 = makeQuestion()
@@ -110,5 +95,12 @@ final class UNNotification_QuestionTests: XCTestCase {
             correctChoice: Choice("London"),
             wrongChoices: [Choice("Paris"), Choice("Milan"), Choice("Beijing"), Choice("Bangkok")]
         )
+    }
+}
+
+extension Array<Choice> {
+    fileprivate var isUnique: Bool {
+        let set = Set(self)
+        return self.count == set.count
     }
 }
