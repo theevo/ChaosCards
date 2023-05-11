@@ -21,4 +21,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print(response.actionIdentifier)
         completionHandler()
     }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        // Update the app interface directly
+        
+        completionHandler([.banner, .sound])
+    }
 }
