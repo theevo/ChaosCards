@@ -25,4 +25,12 @@ extension Deck {
             Card(prompt: "Saturday", answer: "wan sao"),
         ])
     }
+    
+    func getCard(from actionIdentifier: String) -> Card? {
+        print("look for \(actionIdentifier)")
+        print(cards.map { $0.id.uuidString })
+        let card = cards.first { $0.id.uuidString == actionIdentifier
+        }
+        return card
+    }
 }

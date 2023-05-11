@@ -16,9 +16,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("got something")
-        print(response.actionIdentifier)
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        switch response.actionIdentifier {
+        case QuizStrings.userTappedBanner:
+            print("you tapped on the banner, silly")
+        default:
+            print("you tapped on \(Deck.example.getCard(from: response.actionIdentifier))")
+        }
         completionHandler()
     }
     
