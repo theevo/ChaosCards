@@ -39,14 +39,16 @@ struct SettingsView: View {
                 Section {
                     Picker(
                         selection: $notificationFrequency,
-                        label: Text("Quiz me every")
+                        label: Text("Start quiz in")
                     ) {
                         ForEach(NotificationFrequency.allCases, id: \.self) {
                             Text($0.rawValue).tag($0)
                         }
                     }
                     Button("Begin the quiz") {
-                        queueNotifications()
+                        print("Begin tapped")
+                        let quiz = Quiz(deck: Deck.example)
+                        quiz.queueNotification(in: 5)
                     }
                 }
             }

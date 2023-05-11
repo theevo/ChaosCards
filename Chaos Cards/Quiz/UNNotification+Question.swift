@@ -26,6 +26,8 @@ extension UNNotificationAction {
 }
 
 extension Question {
+    // TODO: - make this private.
+    /// This is not meant to be called directly
     func makeNotificationActions() -> [UNNotificationAction] {
         
         let correctAction = UNNotificationAction(choice: correctChoice)
@@ -53,6 +55,9 @@ extension Quiz {
     /// - Parameter seconds: number of seconds from now when this notification will trigger
     func queueNotification(in seconds: TimeInterval) {
         let question1 = self.questions.first!
+        
+        question1.registerNotificationCategory()
+        
         let content = UNMutableNotificationContent(question: question1)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
