@@ -102,6 +102,7 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertNotEqual(wrongChoices1, wrongChoices2)
     }
     
+    /// Flaky test. Passes only on "My Mac" simulator. Does not pass when simulator is set to iPhone or iPad.
     func test_queueNotification_putsQuestionNotificationinNotificationCenter() async {
         let quiz = Quiz(deck: Deck.example)
         quiz.queueNotification(in: oneMinute)
