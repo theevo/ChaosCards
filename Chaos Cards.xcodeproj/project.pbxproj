@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0541CF2A0D555600E24804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0541CE2A0D555600E24804 /* AppDelegate.swift */; };
 		AC14F8D62A06CD860049D669 /* Chaos_CardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */; };
 		AC14F8D82A06CD860049D669 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F8D72A06CD860049D669 /* CardListView.swift */; };
 		AC14F8DA2A06CD870049D669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC14F8D92A06CD870049D669 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0541CE2A0D555600E24804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC14F8D22A06CD860049D669 /* Chaos Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chaos Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chaos_CardsApp.swift; sourceTree = "<group>"; };
 		AC14F8D72A06CD860049D669 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
+				AC0541CE2A0D555600E24804 /* AppDelegate.swift */,
 				AC14F9302A0AE5A80049D669 /* Card */,
 				AC14F92F2A0AE5950049D669 /* Quiz */,
 				AC14F9252A09A2DD0049D669 /* SettingsView.swift */,
@@ -311,6 +314,7 @@
 				AC14F90A2A0953780049D669 /* EditCardView.swift in Sources */,
 				AC14F9262A09A2DD0049D669 /* SettingsView.swift in Sources */,
 				AC2F70FA2A0D3FD000AE36D2 /* QuizStrings.swift in Sources */,
+				AC0541CF2A0D555600E24804 /* AppDelegate.swift in Sources */,
 				AC14F8D62A06CD860049D669 /* Chaos_CardsApp.swift in Sources */,
 				AC14F9342A0AEE830049D669 /* Choice.swift in Sources */,
 				AC14F92C2A0ADE550049D669 /* Quiz.swift in Sources */,

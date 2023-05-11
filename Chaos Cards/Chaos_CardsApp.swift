@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct Chaos_CardsApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             CardListView(deck: Deck.example)
