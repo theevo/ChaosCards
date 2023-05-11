@@ -12,8 +12,8 @@ extension UNMutableNotificationContent {
     convenience init(question: Question) {
         self.init()
         
-        self.title = question.prompt
-        self.body = Question.longPressMe
+        self.title = QuizStrings.title_quizFromChaosCards
+        self.body = QuizStrings.body(prompt: question.prompt)
         self.sound = .default
         self.categoryIdentifier = question.categoryIdentifier
     }
