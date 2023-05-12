@@ -95,12 +95,16 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertEqual(service.remainingQuestions.count, service.deck.cards.count)
     }
     
-//    func test_popAndQueue() {
-//        let question = QuizService.remainingQuestions.pop()
-        // questions can pull answer choices from ALL available cards, not just the choices that have are remaining in the queue
+    func test_quizServicePop_willTakeFirstQuestionFromRemainingQuestions() {
+        let service = makeQuizService()
+        service.setupQuestions()
+        let countBeforePop = service.remainingQuestions.count
         
+        let question = service.pop()
         
-//    }
+        XCTAssertNotNil(question)
+        XCTAssertEqual(service.remainingQuestions.count, countBeforePop - 1)
+    }
     
     // MARK: - Helpers
     

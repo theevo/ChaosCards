@@ -17,6 +17,12 @@ class QuizService: ObservableObject {
 }
 
 extension QuizService {
+    func pop() -> Question? {
+        guard !remainingQuestions.isEmpty else { return nil }
+        
+        return remainingQuestions.removeFirst()
+    }
+    
     func setupQuestions(numberOfWrongChoices: Int = 2) {
         let quiz = Quiz(deck: deck)
         remainingQuestions = quiz.questions
