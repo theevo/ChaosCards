@@ -47,8 +47,23 @@ struct SettingsView: View {
                     }
                     Button("Begin the quiz") {
                         print("Begin tapped")
-                        let quiz = Quiz(deck: Deck.example)
-                        quiz.queueNotification(in: 5)
+                        Task {
+                            let service = QuizService(deck: Deck.example)
+                            service.setupQuestions()
+                            do {
+                                let question = try await service.popAndSend(in: 5)
+                                print("question \(question.prompt) sent!")
+                            } catch {
+                                switch error {
+                                case QuizService.ServiceError.NoMoreQuestions:
+                                    print("no more questions")
+                                case QuizService.ServiceError.NotificationCenter(let error):
+                                    print("Error with Notification Center: \(error)")
+                                default:
+                                    print("Error no idea what went wrong: \(error)")
+                                }
+                            }
+                        }
                     }
                 }
             }
