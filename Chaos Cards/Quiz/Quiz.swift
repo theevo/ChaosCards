@@ -9,28 +9,38 @@ import Foundation
 
 struct Quiz {
     let deck: Deck
+    var allChoices: [Choice] = []
+    
+    init(deck: Deck) {
+        self.deck = deck
+        setChoices()
+    }
 }
 
 extension Quiz {
-    func makeQuestions() -> [Question] {
+    func makeQuestions(numberOfWrongChoices count: UInt = 2) -> [Question] {
         deck.cards.map { card in
             Question(
                 card: card,
-                wrongChoices: makeWrongChoices(card: card))
+                wrongChoices: makeWrongChoices(card: card, count: count))
         }.shuffled()
     }
     
-    func makeWrongChoices(card: Card, count: UInt = 2) -> [Choice] {
+    private mutating func setChoices() {
+        allChoices = deck.cards.map { card in
+            Choice(card: card)
+        }
+    }
+    
+    func makeWrongChoices(card: Card, count: UInt) -> [Choice] {
         guard count > 0 else { return [] }
         
-        var wrongCards = deck.cards.filter { $0 != card }.shuffled()
-        var choices: [Choice] = []
+        let count = Int(count)
         
-        for _ in 1...count {
-            let oneCard = wrongCards.removeFirst()
-            choices.append(Choice(card: oneCard))
-        }
+        let wrongChoices = allChoices.filter { $0.id != card.id }.shuffled()
         
-        return choices
+        let wrongChoicesOfSizeCount = Array<Choice>(wrongChoices.prefix(count))
+        
+        return wrongChoicesOfSizeCount
     }
 }

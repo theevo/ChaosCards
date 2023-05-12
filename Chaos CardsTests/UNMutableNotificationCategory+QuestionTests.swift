@@ -87,6 +87,15 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertNotEqual(wrongChoices1, wrongChoices2)
     }
     
+    func test_makeWrongChoices_returnsTheSameNumberOfChoicesAsDeclaredInCountParameter() {
+        let count = 2
+        
+        let quiz = Quiz(deck: Deck.example)
+        guard let sunday = quiz.makeQuestions().first else { fatalError("Error getting the first question") }
+        
+        XCTAssertEqual(count, sunday.wrongChoices.count)
+    }
+    
     func test_quizQuestions_isRandom() {
         let quiz1 = Quiz(deck: Deck.example)
         let quiz2 = Quiz(deck: Deck.example)
