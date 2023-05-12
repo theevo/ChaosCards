@@ -1,5 +1,101 @@
 # Chaos Cards
 
+## 05.12
+
+XCTUnwrap Optionals In Your Tests
+https://useyourloaf.com/blog/xctunwrap-optionals-in-your-tests/
+
+unit test UNUserNotificationCenter getpendingnotificationrequests - Google Search
+
+ios - Is UNUserNotification have option to show notification only on apple watch? - Stack Overflow
+https://stackoverflow.com/questions/44626300/is-unusernotification-have-option-to-show-notification-only-on-apple-watch
+
+Notifications | Apple Developer Documentation
+https://developer.apple.com/documentation/watchos-apps/notifications/
+
+UNMutableNotificationContent | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent
+
+How to add custom actions for iOS push and local notifications
+https://tanaschita.com/20220321-how-to-add-and-handle-actions-for-ios-notifications/
+
+UNNotificationActionOptions | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unnotificationactionoptions
+
+Handling local notification in SwiftUI - TechChee.com
+https://blog.techchee.com/handling-local-notification-in-swiftui/
+
+How to add an AppDelegate to a SwiftUI app - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-an-appdelegate-to-a-swiftui-app
+
+How to perform action when user tap on push notification (foreground and background)
+https://fluffy.es/perform-action-notification-tap/
+
+How to Get Push Notification while iOS App is in Foreground | Sarunw
+https://sarunw.com/posts/notification-in-foreground/
+
+How to Store a Custom Object in User Defaults in Swift
+https://cocoacasts.com/ud-5-how-to-store-a-custom-object-in-user-defaults-in-swift
+
+How to configure Core Data to work with SwiftUI - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-configure-core-data-to-work-with-swiftui
+
+Store array of custom object in CoreData | by Reza Farahani | Medium
+https://medium.com/@rezafarahani/store-array-of-custom-object-in-coredata-bea77b9eb629
+
+ios - How do you view TestFlight crash logs? - Stack Overflow
+https://stackoverflow.com/questions/29728516/how-do-you-view-testflight-crash-logs
+
+Core Data - One Entity has an array of another Entity – Swift – Hacking with Swift forums
+https://www.hackingwithswift.com/forums/swift/core-data-one-entity-has-an-array-of-another-entity/3246
+
+@State variable initialization in SwiftUI | Sarunw
+https://sarunw.com/posts/state-variable-initialization/
+
+One-to-many relationships with Core Data, SwiftUI, and @FetchRequest - a free Hacking with iOS: SwiftUI Edition tutorial
+https://www.hackingwithswift.com/books/ios-swiftui/one-to-many-relationships-with-core-data-swiftui-and-fetchrequest
+
+State | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/state
+
+Avoiding singletons in Swift | Swift by Sundell
+https://www.swiftbysundell.com/articles/avoiding-singletons-in-swift/
+
+swift - How does "public private(set)" access modifiers work? - Stack Overflow
+https://stackoverflow.com/questions/37264824/how-does-public-privateset-access-modifiers-work
+
+What’s the difference between @ObservedObject, @State, and @EnvironmentObject? - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-observedobject-state-and-environmentobject
+
+swift - SwiftUI: Access @EnvironmentObject from AppDelegate - Stack Overflow
+https://stackoverflow.com/questions/56693003/swiftui-access-environmentobject-from-appdelegate
+
+Using Result type with async/await - Using Swift - Swift Forums
+https://forums.swift.org/t/using-result-type-with-async-await/57003
+
+Launch iOS simulator from Xcode and getting a black screen, followed by Xcode hanging and unable to stop tasks - Stack Overflow
+https://stackoverflow.com/questions/14668445/launch-ios-simulator-from-xcode-and-getting-a-black-screen-followed-by-xcode-ha
+
+What is a throwing function? - free Swift 5.4 example code and tips
+https://www.hackingwithswift.com/example-code/language/what-is-a-throwing-function
+
+Returning Error vs Throwing Error in Swift | by Jimmy Liu | Medium
+https://medium.com/@kuopingl/returning-error-vs-throwing-error-in-swift-8d3657e1330d
+
+What is @discardableResult | Sarunw
+https://sarunw.com/posts/what-is-discardableresult/
+
+class - How to use my @EnvironmentObject in AppDelegate in Swiftui (iOS 15 / Xcode 13.2.1)? - Stack Overflow
+https://stackoverflow.com/questions/70815788/how-to-use-my-environmentobject-in-appdelegate-in-swiftui-ios-15-xcode-13-2
+
+swift - Cannot convert value of type 'subSequence' (aka 'String.CharacterView') to type 'String' in collection - Stack Overflow
+https://stackoverflow.com/questions/44078449/cannot-convert-value-of-type-subsequence-aka-string-characterview-to-type
+
+How to get the first N elements of array in Swift | Sarunw
+https://sarunw.com/posts/how-to-get-first-n-elements-of-swift-array/
+
+
+
 ## 05.11
 
 Chaos Cards | Trello
