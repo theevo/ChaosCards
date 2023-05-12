@@ -8,17 +8,17 @@
 import Foundation
 
 class QuizService: ObservableObject {
-    let quiz: Quiz
-    private(set) var remainingQuestions: [Question]
+    let deck: Deck
+    private(set) var remainingQuestions: [Question] = []
     
-    init(quiz: Quiz, remainingQuestions: [Question] = []) {
-        self.quiz = quiz
-        self.remainingQuestions = remainingQuestions
+    init(deck: Deck) {
+        self.deck = deck
     }
 }
 
 extension QuizService {
     func setupQuestions(numberOfWrongChoices: Int = 2) {
+        let quiz = Quiz(deck: deck)
         remainingQuestions = quiz.questions
     }
 }

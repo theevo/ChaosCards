@@ -87,27 +87,12 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertNotEqual(wrongChoices1, wrongChoices2)
     }
     
-    func test_quizService_init() {
-        let quiz = Quiz(deck: Deck.example)
-        let service = QuizService(quiz: quiz)
-        
-        XCTAssertFalse(service.quiz.questions.isEmpty)
-    }
-    
-    func test_quizService_knowsItsQuestions() {
-        var service = QuizService(quiz: Quiz(deck: Deck.example))
+    func test_quizServiceSetupQuestions_numberOfQuestionsEqualsNumberOfCards() {
+        let service = makeQuizService()
         
         service.setupQuestions()
         
-        XCTAssertFalse(service.remainingQuestions.isEmpty)
-    }
-    
-    func test_quizService_numberOfQuestionsEqualsNumberOfCards() {
-        var service = QuizService(quiz: Quiz(deck: Deck.example))
-        
-        service.setupQuestions()
-        
-        XCTAssertEqual(service.remainingQuestions.count, service.quiz.questions.count)
+        XCTAssertEqual(service.remainingQuestions.count, service.deck.cards.count)
     }
     
 //    func test_popAndQueue() {
@@ -118,6 +103,10 @@ final class UNNotification_QuestionTests: XCTestCase {
 //    }
     
     // MARK: - Helpers
+    
+    func makeQuizService() -> QuizService {
+        QuizService(deck: Deck.example)
+    }
     
     func makeQuestion() -> Question {
         return Question(
