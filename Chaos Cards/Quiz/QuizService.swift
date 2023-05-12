@@ -14,10 +14,6 @@ struct QuizService {
 
 extension QuizService {
     mutating func setupQuestions(numberOfWrongChoices: Int = 2) {
-        let question = Question(
-            prompt: "Capital of England",
-            correctChoice: Choice("London"),
-            wrongChoices: [Choice("Paris"), Choice("Milan"), Choice("Beijing"), Choice("Bangkok")])
-        remainingQuestions = [question]
+        remainingQuestions = quiz.questions
     }
 }

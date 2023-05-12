@@ -102,6 +102,14 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertFalse(service.remainingQuestions.isEmpty)
     }
     
+    func test_quizService_numberOfQuestionsEqualsNumberOfCards() {
+        var service = QuizService(quiz: Quiz(deck: Deck.example))
+        
+        service.setupQuestions()
+        
+        XCTAssertEqual(service.remainingQuestions.count, service.quiz.questions.count)
+    }
+    
 //    func test_popAndQueue() {
 //        let question = QuizService.remainingQuestions.pop()
         // questions can pull answer choices from ALL available cards, not just the choices that have are remaining in the queue
