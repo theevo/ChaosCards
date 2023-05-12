@@ -27,7 +27,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         case QuizStrings.userTappedBanner:
             print("you tapped on the banner, silly")
         default:
-            print("you tapped on \(Deck.example.getCard(from: response.actionIdentifier))")
+            print("you tapped on \(quizService.deck.getCard(from: response.actionIdentifier))")
         }
         completionHandler()
     }
