@@ -16,6 +16,7 @@ enum NotificationFrequency: String, CaseIterable {
 }
 
 struct SettingsView: View {
+    @EnvironmentObject var quizService: QuizService
     @State private var isNotificationsOn = false
     @State private var notificationFrequency: NotificationFrequency = .Seconds5
     
@@ -48,7 +49,7 @@ struct SettingsView: View {
                     Button("Begin the quiz") {
                         print("Begin tapped")
                         Task {
-                            let service = QuizService(deck: Deck.example)
+                            let service = quizService
                             service.setupQuestions()
                             do {
                                 let question = try await service.popAndSend(in: 5)
@@ -74,5 +75,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(QuizService(deck: Deck.example))
     }
 }

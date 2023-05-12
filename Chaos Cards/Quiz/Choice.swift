@@ -8,16 +8,18 @@
 import Foundation
 
 struct Choice: Hashable {
-    let id = UUID()
+    let id: UUID
     let rawValue: String
-    
-    init(_ string: String) {
-        self.rawValue = string
-    }
 }
 
 extension Choice {
     init(card: Card) {
-        self.init(card.answer)
+        self.id = card.id
+        self.rawValue = card.answer
+    }
+    
+    init(_ string: String) {
+        self.id = UUID()
+        self.rawValue = string
     }
 }

@@ -118,8 +118,8 @@
 		AC14F8D42A06CD860049D669 /* Chaos Cards */ = {
 			isa = PBXGroup;
 			children = (
-				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
 				AC0541CE2A0D555600E24804 /* AppDelegate.swift */,
+				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
 				AC14F9302A0AE5A80049D669 /* Card */,
 				AC14F92F2A0AE5950049D669 /* Quiz */,
 				AC14F9252A09A2DD0049D669 /* SettingsView.swift */,

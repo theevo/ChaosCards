@@ -27,7 +27,7 @@ extension Deck {
     }
     
     func getCard(from actionIdentifier: String) -> Card? {
-        print("look for \(actionIdentifier)")
+        print("looking for \(actionIdentifier)")
         print(cards.map { $0.id.uuidString })
         let card = cards.first { $0.id.uuidString == actionIdentifier
         }

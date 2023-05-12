@@ -26,7 +26,7 @@ struct Question {
     init(card: Card, wrongChoices: [Choice]) {
         self.id = card.id
         self.prompt = card.prompt
-        self.correctChoice = Choice(card.answer)
+        self.correctChoice = Choice(card: card)
         self.wrongChoices = wrongChoices
     }
 }

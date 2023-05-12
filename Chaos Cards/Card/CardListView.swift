@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CardListView: View {
-    let deck: Deck
+    @EnvironmentObject var quizService: QuizService
+//    let deck: Deck
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -29,14 +30,23 @@ struct CardListView: View {
                 NavigationLink("Settings") {
                     SettingsView()
                         .toolbarRole(.editor)
+                        .environmentObject(quizService)
                 }
             }
         }
     }
 }
 
+extension CardListView {
+    var deck: Deck {
+        quizService.deck
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardListView(deck: Deck.example)
+        let quizService = QuizService(deck: Deck.example)
+        CardListView()
+            .environmentObject(quizService)
     }
 }

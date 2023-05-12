@@ -13,7 +13,8 @@ struct Chaos_CardsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CardListView(deck: Deck.example)
+            CardListView()
+                .environmentObject(appDelegate.quizService)
         }
     }
 }

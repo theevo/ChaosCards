@@ -116,6 +116,12 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertEqual(service.remainingQuestions.count, countBeforePop - 1)
     }
     
+    func test_cardIDisTheSameAsChoiceID() {
+        let card = Card(prompt: "foo", answer: "bar")
+        let choice = Choice(card: card)
+        XCTAssertEqual(card.id, choice.id)
+    }
+    
     // MARK: - Helpers
     
     func makeQuizService() -> QuizService {
