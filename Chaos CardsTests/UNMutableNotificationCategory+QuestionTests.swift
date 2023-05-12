@@ -87,6 +87,20 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertNotEqual(wrongChoices1, wrongChoices2)
     }
     
+    func test_quizService_init() {
+        let quiz = Quiz(deck: Deck.example)
+        let service = QuizService(quiz: quiz)
+        
+        XCTAssertFalse(service.quiz.questions.isEmpty)
+    }
+    
+//    func test_popAndQueue() {
+//        let question = QuizService.remainingQuestions.pop()
+        // questions can pull answer choices from ALL available cards, not just the choices that have are remaining in the queue
+        
+        
+//    }
+    
     // MARK: - Helpers
     
     func makeQuestion() -> Question {
