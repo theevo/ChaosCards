@@ -12,12 +12,12 @@ struct Quiz {
 }
 
 extension Quiz {
-    var questions: [Question] {
+    func makeQuestions() -> [Question] {
         deck.cards.map { card in
             Question(
                 card: card,
                 wrongChoices: makeWrongChoices(card: card))
-        }
+        }.shuffled()
     }
     
     func makeWrongChoices(card: Card, count: UInt = 2) -> [Choice] {

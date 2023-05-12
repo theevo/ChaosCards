@@ -25,6 +25,6 @@ extension QuizService {
     
     func setupQuestions(numberOfWrongChoices: Int = 2) {
         let quiz = Quiz(deck: deck)
-        remainingQuestions = quiz.questions
+        remainingQuestions = quiz.makeQuestions()
     }
 }

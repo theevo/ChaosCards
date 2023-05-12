@@ -56,35 +56,45 @@ final class UNNotification_QuestionTests: XCTestCase {
     
     func test_makeWrongChoices_doesNotContainTheCorrectChoice() {
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday = quiz.questions.first else { fatalError("") }
+        guard let sunday = quiz.makeQuestions().first else { fatalError("") }
         
         XCTAssertFalse(sunday.wrongChoices.contains { $0.rawValue == sunday.correctChoice.rawValue }, "Expected wrongChoices array NOT to contain the correct choice. The correct choice was found in the wrongChoices array!")
     }
     
     func test_makeWrongChoices_containsAtLeast1WrongChoice() {
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday = quiz.questions.first else { fatalError("") }
+        guard let sunday = quiz.makeQuestions().first else { fatalError("") }
         
         XCTAssertFalse(sunday.wrongChoices.isEmpty)
     }
     
     func test_makeWrongChoices_doesNotContainDuplicates() {
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday = quiz.questions.first else { fatalError("") }
+        guard let sunday = quiz.makeQuestions().first else { fatalError("Error getting the first question") }
         
         XCTAssertTrue(sunday.wrongChoices.isUnique, "Expected this wrongChoices array to be unique \(sunday.wrongChoices)")
     }
     
     func test_makeWrongChoices_givesRandomChoicesEachTime() {
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday1 = quiz.questions.first,
-            let sunday2 = quiz.questions.first else { fatalError("")
+        guard let sunday1 = quiz.makeQuestions().first,
+            let sunday2 = quiz.makeQuestions().first else { fatalError("Error getting the first question")
         }
         
         let wrongChoices1 = sunday1.wrongChoices.map { $0.rawValue }
         let wrongChoices2 = sunday2.wrongChoices.map { $0.rawValue }
         
         XCTAssertNotEqual(wrongChoices1, wrongChoices2)
+    }
+    
+    func test_quizQuestions_isRandom() {
+        let quiz1 = Quiz(deck: Deck.example)
+        let quiz2 = Quiz(deck: Deck.example)
+        
+        let prompts1 = quiz1.makeQuestions().map { $0.prompt }
+        let prompts2 = quiz2.makeQuestions().map { $0.prompt }
+        
+        XCTAssertNotEqual(prompts1, prompts2)
     }
     
     func test_quizServiceSetupQuestions_numberOfQuestionsEqualsNumberOfCards() {

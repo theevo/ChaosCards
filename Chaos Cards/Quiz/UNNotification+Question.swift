@@ -54,7 +54,7 @@ extension Quiz {
     /// Initializes and adds a non-repeating `UNNotificationRequest` based on the question (self)
     /// - Parameter seconds: number of seconds from now when this notification will trigger
     func queueNotification(in seconds: TimeInterval) {
-        let question1 = self.questions.first!
+        let question1 = self.makeQuestions().first!
         
         question1.registerNotificationCategory()
         
