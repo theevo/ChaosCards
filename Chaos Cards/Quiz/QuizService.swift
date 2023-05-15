@@ -37,6 +37,7 @@ extension QuizService {
     func handle(response: UNNotificationResponse) {
         do {
             try handle(actionIdentifier: response.actionIdentifier, userInfo: response.notification.request.content.userInfo)()
+            Task { try await popAndSend(in: 0.1) }
         } catch {
             print(error)
         }
