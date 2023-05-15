@@ -18,11 +18,13 @@ class QuizService: ObservableObject {
     }
 }
 
+enum ServiceError: Error {
+    case NoMoreQuestions
+    case NotificationCenter(Error)
+    case CorrectChoiceKeyNotFound
+}
+
 extension QuizService {
-    enum ServiceError: Error {
-        case NoMoreQuestions
-        case NotificationCenter(Error)
-    }
     
     enum QuizAction {
         case BannerWasLongPressed
@@ -33,22 +35,35 @@ extension QuizService {
 
 extension QuizService {
     func handle(response: UNNotificationResponse) {
-        handle(string: response.actionIdentifier)()
+        do {
+            try handle(actionIdentifier: response.actionIdentifier, userInfo: response.notification.request.content.userInfo)()
+        } catch {
+            print(error)
+        }
     }
     
-    internal func handle(string: String) -> () -> Void {
-        switch string {
-        case QuizStrings.userTappedBanner:
+    internal func handle(actionIdentifier: String, userInfo: [AnyHashable : Any]) throws -> () -> Void {
+        guard actionIdentifier != QuizStrings.userTappedBanner else {
             return {
                 print("you tapped on the banner, silly")
-                self.action = QuizAction.BannerWasLongPressed
-            }
-        default:
-            return {
-                print("you tapped on \(self.deck.getCard(from: string))")
-                self.action = QuizAction.Correct
+                self.action = .BannerWasLongPressed
             }
         }
+        
+        // we got an actual action
+        
+        guard let correctChoice = userInfo["correctChoice"] as? String else { throw ServiceError.CorrectChoiceKeyNotFound }
+        
+        if actionIdentifier == correctChoice {
+            return {
+                self.action = .Correct
+            }
+        } else {
+            return {
+                self.action = .Incorrect
+            }
+        }
+        
     }
     
     func pop() -> Question? {
