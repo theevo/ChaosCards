@@ -1,5 +1,96 @@
 # Chaos Cards
 
+## 05.15
+
+User Action Handler
+https://docs.kii.com/en/guides/cloudsdk/ios/managing-push-notification/implementation/implementation-action/
+
+> This confirmed that the `completionHandler()` provided as a param by `userNotificationCenter(_, didReceive response:, withCompletionHandler completionHandler)` does indeed need to be called by YOU.
+
+mock UNNotificationResponse - Google Search
+https://www.google.com/search?client=safari&rls=en&q=mock+UNNotificationResponse&ie=UTF-8&oe=UTF-8#cobssid=s
+
+swift - Mock UNNotificationResponse & UNNotification (and other iOS platform classes with init() marked as unavailable) - Stack Overflow
+https://stackoverflow.com/questions/47438257/mock-unnotificationresponse-unnotification-and-other-ios-platform-classes-wit
+
+> I like the accepted answer.
+
+> decompose your implementation of
+> 
+> `func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void)`
+> 
+> and test the methods you call from there, instead.
+> 
+> Happy testing :)
+
+UNNotificationContent | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unnotificationcontent
+
+Handling notifications and notification-related actions | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/handling_notifications_and_notification-related_actions
+
+> userInfo property is a dictionary we can throw anything we want into!
+
+> Apple confirms that the `completionHandler()` provided as a param by `userNotificationCenter(_, didReceive response:, withCompletionHandler completionHandler)` does indeed need to be called by YOU.
+
+Declaring your actionable notification types | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/declaring_your_actionable_notification_types
+
+userInfo | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent/1649867-userinfo
+
+UNNotificationResponse | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unnotificationresponse
+
+Testing error code paths in Swift | Swift by Sundell
+https://www.swiftbysundell.com/articles/testing-error-code-paths-in-swift/
+
+> Great breakdown of how to catch a thrown error in XCTest
+
+XCTest Error Handling Improvements
+https://useyourloaf.com/blog/xctest-error-handling-improvements/
+
+xcode - How to unit test throwing functions in Swift? - Stack Overflow
+https://stackoverflow.com/questions/32860338/how-to-unit-test-throwing-functions-in-swift
+
+ios - Is there a better way to compare errors in Swift? - Stack Overflow
+https://stackoverflow.com/questions/49658919/is-there-a-better-way-to-compare-errors-in-swift
+
+> i don't want to conform my custom `Error` to Equatable because compiler forces me to define func == for this custom Error. I can still detect the exact error message as follows:
+> 
+> ```swift
+> public enum AuthenticationError: Error {
+    case unknownError
+    case canceledByUser
+    case userOrPasswordMismatch
+    case unableToExtractOneTimeCode
+    case unableToExchangeOneTimeCodeForToken
+    case credentialsUnavailable
+    case expired
+    case webRequestFailed(error: Error)
+}
+
+func test(_ error: Error) {
+    if case AuthenticationError.expired = error {
+        print("it's expired; error = \(error)")
+    } else if case AuthenticationError.webRequestFailed(error: let innerError) = error {
+        print("web request failed due to \(innerError.localizedDescription); error = \(error)")
+    } else {
+        print("no match; error = \(error)")
+    }
+}
+
+test(AuthenticationError.expired)
+test(AuthenticationError.webRequestFailed(error: AuthenticationError.credentialsUnavailable))
+test(NSError(domain: NSPOSIXErrorDomain, code: Int(ENOENT), userInfo: [:]))
+> ```
+
+swift Enum case is not a member of type '(any Error)?' - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swift+Enum+case+is+not+a+member+of+type+%27(any+Error)%3F%27&ie=UTF-8&oe=UTF-8
+
+> This error is saying that you're trying to compare an error case against an optional error, which is true. Becuase the received error I defined was indeed optional. I worked around this by force casting it as I had previously verified beforehand that A) an error was indeed thrown and B) the error was of custom Error type I created.
+
+
 ## 05.12
 
 XCTUnwrap Optionals In Your Tests
