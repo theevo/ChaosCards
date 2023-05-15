@@ -7,18 +7,39 @@
 
 import SwiftUI
 
-enum NotificationFrequency: String, CaseIterable {
+enum NotificationStartsIn: String, CaseIterable {
+    case Now = "Now"
     case Seconds5 = "5 seconds"
-    case Seconds10 = "10 seconds"
     case Minutes1 = "1 minute"
-    case Minutes3 = "3 minutes"
+    case Minutes5 = "5 minutes"
     case Surprise = "Surprise me"
+}
+
+extension NotificationStartsIn {
+    var timeInterval: TimeInterval {
+        switch self {
+        case .Now:
+            return 0.1
+        case .Seconds5:
+            return 5
+        case .Minutes1:
+            return 60
+        case .Minutes5:
+            return 300
+        case .Surprise:
+            return surpriseValue
+        }
+    }
+    
+    var surpriseValue: TimeInterval {
+        Double(Int.random(in: 600..<1800))
+    }
 }
 
 struct SettingsView: View {
     @EnvironmentObject var quizService: QuizService
     @State private var isNotificationsOn = false
-    @State private var notificationFrequency: NotificationFrequency = .Seconds5
+    @State private var startsIn: NotificationStartsIn = .Now
     
     var body: some View {
         Form {
@@ -39,33 +60,37 @@ struct SettingsView: View {
             if isNotificationsOn {
                 Section {
                     Picker(
-                        selection: $notificationFrequency,
+                        selection: $startsIn,
                         label: Text("Start quiz in")
                     ) {
-                        ForEach(NotificationFrequency.allCases, id: \.self) {
+                        ForEach(NotificationStartsIn.allCases, id: \.self) {
                             Text($0.rawValue).tag($0)
                         }
                     }
-                    Button("Begin the quiz") {
-                        print("Begin tapped")
-                        Task {
-                            let service = quizService
-                            service.setupQuestions()
-                            do {
-                                let question = try await service.popAndSend(in: 5)
-                                print("question \(question.prompt) sent!")
-                            } catch {
-                                switch error {
-                                case QuizService.ServiceError.NoMoreQuestions:
-                                    print("no more questions")
-                                case QuizService.ServiceError.NotificationCenter(let error):
-                                    print("Error with Notification Center: \(error)")
-                                default:
-                                    print("Error no idea what went wrong: \(error)")
-                                }
-                            }
-                        }
+                    Button("Schedule the quiz") {
+                        tappedScheduleButton()
                     }
+                }
+            }
+        }
+    }
+    
+    fileprivate func tappedScheduleButton() {
+        print("Begin tapped")
+        Task {
+            let service = quizService
+            service.setupQuestions()
+            do {
+                let question = try await service.popAndSend(in: startsIn.timeInterval)
+                print("question \(question.prompt) sent!")
+            } catch {
+                switch error {
+                case QuizService.ServiceError.NoMoreQuestions:
+                    print("no more questions")
+                case QuizService.ServiceError.NotificationCenter(let error):
+                    print("Error with Notification Center: \(error)")
+                default:
+                    print("Error no idea what went wrong: \(error)")
                 }
             }
         }

@@ -131,6 +131,12 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertEqual(card.id, choice.id)
     }
     
+    func test_notificationStartsIn_doesNotAllowZero() {
+        let allTimeIntervals = NotificationStartsIn.allCases.map { $0.timeInterval }
+        
+        XCTAssertFalse(allTimeIntervals.contains(0), "You'll receive a runtime crash if 0 is passed to UNTimeIntervalNotificationTrigger")
+    }
+    
     // MARK: - Helpers
     
     func makeQuizService() -> QuizService {
