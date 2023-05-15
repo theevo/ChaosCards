@@ -23,12 +23,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
-        switch response.actionIdentifier {
-        case QuizStrings.userTappedBanner:
-            print("you tapped on the banner, silly")
-        default:
-            print("you tapped on \(quizService.deck.getCard(from: response.actionIdentifier))")
-        }
+        quizService.handle(response: response)
         completionHandler()
     }
     

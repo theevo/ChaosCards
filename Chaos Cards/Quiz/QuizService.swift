@@ -25,6 +25,15 @@ extension QuizService {
 }
 
 extension QuizService {
+    func handle(response: UNNotificationResponse) {
+        switch response.actionIdentifier {
+        case QuizStrings.userTappedBanner:
+            print("you tapped on the banner, silly")
+        default:
+            print("you tapped on \(deck.getCard(from: response.actionIdentifier))")
+        }
+    }
+    
     func pop() -> Question? {
         guard !remainingQuestions.isEmpty else { return nil }
         
