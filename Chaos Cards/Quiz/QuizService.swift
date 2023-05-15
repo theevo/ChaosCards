@@ -11,6 +11,7 @@ import UserNotifications
 class QuizService: ObservableObject {
     let deck: Deck
     private(set) var remainingQuestions: [Question] = []
+    var action: QuizAction?
     
     init(deck: Deck) {
         self.deck = deck
@@ -22,15 +23,31 @@ extension QuizService {
         case NoMoreQuestions
         case NotificationCenter(Error)
     }
+    
+    enum QuizAction {
+        case BannerWasLongPressed
+        case Correct
+        case Incorrect
+    }
 }
 
 extension QuizService {
     func handle(response: UNNotificationResponse) {
-        switch response.actionIdentifier {
+        handle(string: response.actionIdentifier)()
+    }
+    
+    internal func handle(string: String) -> () -> Void {
+        switch string {
         case QuizStrings.userTappedBanner:
-            print("you tapped on the banner, silly")
+            return {
+                print("you tapped on the banner, silly")
+                self.action = QuizAction.BannerWasLongPressed
+            }
         default:
-            print("you tapped on \(deck.getCard(from: response.actionIdentifier))")
+            return {
+                print("you tapped on \(self.deck.getCard(from: string))")
+                self.action = QuizAction.Correct
+            }
         }
     }
     
