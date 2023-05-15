@@ -57,10 +57,12 @@ extension QuizService {
         if actionIdentifier == correctChoice {
             return {
                 self.action = .Correct
+                print("✅ That was the correct answer.")
             }
         } else {
             return {
                 self.action = .Incorrect
+                print("🚫 That was incorrect.")
             }
         }
         
