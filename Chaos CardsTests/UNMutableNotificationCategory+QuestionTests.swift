@@ -137,6 +137,12 @@ final class UNNotification_QuestionTests: XCTestCase {
         XCTAssertFalse(allTimeIntervals.contains(0), "You'll receive a runtime crash if 0 is passed to UNTimeIntervalNotificationTrigger")
     }
     
+    func test_content_userInfoNotEmpty() {
+        let content = UNMutableNotificationContent(question: makeQuestion())
+        
+        XCTAssertFalse(content.userInfo.isEmpty)
+    }
+    
     // MARK: - Helpers
     
     func makeQuizService() -> QuizService {
