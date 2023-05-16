@@ -16,7 +16,8 @@ struct CardListView: View {
                 VStack {
                     ForEach(deck.cards) { card in
                         NavigationLink(value: card) {
-                            CardView(card: card)
+                            let viewModel = CardViewModel(card: card)
+                            CardView(viewModel: viewModel)
                         }
                     }
                 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
-    let card: Card
+    let viewModel: CardViewModel
     var body: some View {
         ZStack {
             RoundedRectangle(
@@ -18,11 +18,11 @@ struct CardView: View {
                 .fill(.background)
                 .shadow(color: .secondary, radius: 10)
             VStack {
-                Text(card.prompt)
+                Text(viewModel.largeTitle)
                     .font(.largeTitle)
                     .foregroundColor(.primary)
                 
-                Text(card.answer)
+                Text(viewModel.title1)
                     .font(.title)
                     .foregroundColor(.secondary)
             }
@@ -34,6 +34,9 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: Card.example)
+        let viewModel = CardViewModel(card: Card.example)
+        
+        CardView(viewModel: viewModel)
+            .previewLayout(.sizeThatFits)
     }
 }
