@@ -43,7 +43,7 @@ extension CardListView {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CardListView_Previews: PreviewProvider {
     static var previews: some View {
         let quizService = QuizService(deck: Deck.example)
         CardListView()

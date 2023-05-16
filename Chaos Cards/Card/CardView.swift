@@ -11,20 +11,24 @@ struct CardView: View {
     let card: Card
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 25, style: .continuous)
+            RoundedRectangle(
+                cornerRadius: 25,
+                style: .continuous
+            )
                 .fill(.background)
-                .shadow(radius: 10)
+                .shadow(color: .secondary, radius: 10)
             VStack {
                 Text(card.prompt)
                     .font(.largeTitle)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 
                 Text(card.answer)
                     .font(.title)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
             }
             .padding([.top, .bottom], 42)
         }
+        .padding([.leading, .trailing])
     }
 }
 
