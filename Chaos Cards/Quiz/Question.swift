@@ -35,8 +35,4 @@ extension Question {
     var categoryIdentifier: String {
         "question_\(id.uuidString)"
     }
-    
-    var userInfo: [AnyHashable: Any] {
-        ["correctChoice": correctChoice.id.uuidString]
-    }
 }

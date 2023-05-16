@@ -16,7 +16,6 @@ extension UNMutableNotificationContent {
         self.body = QuizStrings.body(prompt: question.prompt)
         self.sound = .default
         self.categoryIdentifier = question.categoryIdentifier
-        self.userInfo = question.userInfo
     }
 }
 
