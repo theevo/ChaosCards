@@ -43,7 +43,10 @@ extension QuizResult {
             print("✅ That was the correct answer.")
         } else {
             print("🚫 That was incorrect.")
+            print("You answered \(answer.answered)")
         }
+        print("\(answer.prompt) = \(answer.correct)")
+        
         answers.append(answer)
         print("=== Score: \(score) ===")
     }

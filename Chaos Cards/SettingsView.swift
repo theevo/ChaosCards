@@ -76,7 +76,6 @@ struct SettingsView: View {
     }
     
     fileprivate func tappedScheduleButton() {
-        print("Begin tapped")
         Task {
             let service = quizService
             service.setupQuestions()
