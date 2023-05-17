@@ -16,4 +16,36 @@ final class QuizResultTests: XCTestCase {
         
         XCTAssertEqual(quizResult.score, 1)
     }
+    
+    func test_quizResult_detectsAnswerCorrectness() {
+        var quizResult = QuizResult()
+        let someAnswer = QuizUserAnswer(
+            prompt: "qwerty",
+            answered: "asdf",
+            correct: "asdf"
+        )
+        
+        quizResult.logAnswer(answer: someAnswer)
+        
+        XCTAssertEqual(quizResult.score, 1)
+    }
+    
+    func test_quizResult_remembersYourAnswer() throws {
+        var quizResult = QuizResult()
+        let someAnswer = QuizUserAnswer(
+            prompt: "Capital of Thailand",
+            answered: "Krung Thep",
+            correct: "Krung Thep"
+        )
+        
+        quizResult.logAnswer(answer: someAnswer)
+        
+        guard let answer = quizResult.answers.first else {
+            XCTFail("Expected 1 answer in the answers array but received nil instead")
+            return
+        }
+        
+        XCTAssertEqual(answer.answered, "Krung Thep")
+    }
+
 }
