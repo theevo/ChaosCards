@@ -11,7 +11,7 @@ import XCTest
 final class QuizServiceTests: XCTestCase {
     func test_handleString_knowsBannerWasTapped() {
         let service = QuizService(deck: Deck.example)
-        XCTAssertNoThrow(try service.handle(actionIdentifier: QuizStrings.userTappedBanner)())
+        XCTAssertNoThrow(try service.handle(actionIdentifier: QuizStrings.userTappedBanner))
         XCTAssertEqual(service.action, .BannerWasLongPressed)
         
     }
@@ -50,6 +50,6 @@ final class QuizServiceTests: XCTestCase {
 
 extension QuizService {
     fileprivate func userTapsNotificationAction(actionIdentifier: String) throws {
-        try handle(actionIdentifier: actionIdentifier)()
+        try handle(actionIdentifier: actionIdentifier)
     }
 }

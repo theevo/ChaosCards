@@ -39,19 +39,18 @@ extension QuizService {
 extension QuizService {
     func handle(response: UNNotificationResponse) {
         do {
-            try handle(actionIdentifier: response.actionIdentifier)()
+            try handle(actionIdentifier: response.actionIdentifier)
             Task { try await popAndSend(in: 0.1) }
         } catch {
             print(error)
         }
     }
     
-    internal func handle(actionIdentifier: String) throws -> () -> Void {
+    internal func handle(actionIdentifier: String) throws {
         guard actionIdentifier != QuizStrings.userTappedBanner else {
-            return {
-                print("you tapped on the banner, silly")
-                self.action = .BannerWasLongPressed
-            }
+            print("you tapped on the banner, silly")
+            self.action = .BannerWasLongPressed
+            return
         }
         
         guard let currentQuestion = currentQuestion else {
@@ -61,17 +60,12 @@ extension QuizService {
         // we got an actual action
         
         if actionIdentifier == currentQuestion.correctChoice.id.uuidString {
-            return {
-                self.action = .Correct
-                print("✅ That was the correct answer.")
-            }
+            self.action = .Correct
+            print("✅ That was the correct answer.")
         } else {
-            return {
-                self.action = .Incorrect
-                print("🚫 That was incorrect.")
-            }
+            self.action = .Incorrect
+            print("🚫 That was incorrect.")
         }
-        
     }
     
     @discardableResult func pop() -> Question? {
