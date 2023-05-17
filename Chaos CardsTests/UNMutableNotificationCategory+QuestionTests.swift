@@ -56,21 +56,30 @@ final class UNNotification_QuestionTests: XCTestCase {
     
     func test_makeWrongChoices_doesNotContainTheCorrectChoice() {
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday = quiz.makeQuestions().first else { fatalError("") }
+        guard let question = quiz.makeQuestions().first else {
+            XCTFail("Expected first question but received nil instead.")
+            return
+        }
         
-        XCTAssertFalse(sunday.wrongChoices.contains { $0.rawValue == sunday.correctChoice.rawValue }, "Expected wrongChoices array NOT to contain the correct choice. The correct choice was found in the wrongChoices array!")
+        XCTAssertFalse(question.wrongChoices.contains { $0.rawValue == question.correctChoice.rawValue }, "Expected wrongChoices array NOT to contain the correct choice. The correct choice was found in the wrongChoices array!")
     }
     
     func test_makeWrongChoices_containsAtLeast1WrongChoice() {
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday = quiz.makeQuestions().first else { fatalError("") }
+        guard let sunday = quiz.makeQuestions().first else {
+            XCTFail("Expected first question but received nil instead.")
+            return
+        }
         
         XCTAssertFalse(sunday.wrongChoices.isEmpty)
     }
     
     func test_makeWrongChoices_doesNotContainDuplicates() {
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday = quiz.makeQuestions().first else { fatalError("Error getting the first question") }
+        guard let sunday = quiz.makeQuestions().first else {
+            XCTFail("Expected first question but received nil instead.")
+            return
+        }
         
         XCTAssertTrue(sunday.wrongChoices.isUnique, "Expected this wrongChoices array to be unique \(sunday.wrongChoices)")
     }
@@ -78,20 +87,30 @@ final class UNNotification_QuestionTests: XCTestCase {
     func test_makeWrongChoices_givesRandomChoicesEachTime() {
         let quiz = Quiz(deck: Deck.example)
         guard let sunday1 = quiz.makeQuestions().first,
-            let sunday2 = quiz.makeQuestions().first else { fatalError("Error getting the first question")
+              let sunday2 = quiz.makeQuestions().first,
+              let sunday3 = quiz.makeQuestions().first else {
+            XCTFail("Expected to receive one question from makeQuestions but received nil for one of them.")
+            return
         }
         
         let wrongChoices1 = sunday1.wrongChoices.map { $0.rawValue }
         let wrongChoices2 = sunday2.wrongChoices.map { $0.rawValue }
+        let wrongChoices3 = sunday3.wrongChoices.map { $0.rawValue }
         
-        XCTAssertNotEqual(wrongChoices1, wrongChoices2)
+        let choices1VS2 = wrongChoices1 == wrongChoices2
+        let choices2vs3 = wrongChoices2 == wrongChoices3
+        
+        XCTAssertFalse(choices1VS2 && choices2vs3)
     }
     
     func test_makeWrongChoices_returnsTheSameNumberOfChoicesAsDeclaredInCountParameter() {
         let count = 2
         
         let quiz = Quiz(deck: Deck.example)
-        guard let sunday = quiz.makeQuestions().first else { fatalError("Error getting the first question") }
+        guard let sunday = quiz.makeQuestions().first else {
+            XCTFail("Expected the first element of makeQuestions() but received nil instead.")
+            return
+        }
         
         XCTAssertEqual(count, sunday.wrongChoices.count)
     }
