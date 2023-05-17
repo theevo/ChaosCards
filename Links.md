@@ -1,5 +1,53 @@
 # Chaos Cards
 
+## 05.16
+
+Chaos Cards
+
+url | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unnotificationattachment/1649984-url
+
+How to preview your layout in light and dark mode - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-preview-your-layout-in-light-and-dark-mode
+
+Chaos Cards | Trello
+https://trello.com/b/mQzwnEWa/chaos-cards
+
+Restoring Your App’s State with SwiftUI | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/restoring_your_app_s_state_with_swiftui
+
+View Implementations | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/table/view-implementations
+
+How to make a SwiftUI view to fill its container width and height | Sarunw
+https://sarunw.com/posts/how-to-make-swiftui-view-fill-container-width-and-height/
+
+How to change SwiftUI font size | Sarunw
+https://sarunw.com/posts/how-to-change-swiftui-font-size/
+
+swiftui largest text - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+largest+text&ie=UTF-8&oe=UTF-8
+
+How to use Dynamic Type with a custom font - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-dynamic-type-with-a-custom-font
+
+xcode - SwiftUI preview layout: size that fits does not work - Stack Overflow
+https://stackoverflow.com/questions/74429078/swiftui-preview-layout-size-that-fits-does-not-work
+
+You can preview your custom SwiftUI View without the iPhone or device frame.
+
+Table | Apple Developer Documentation
+https://developer.apple.com/documentation/SwiftUI/Table
+
+Forget using a `Table()` on iPhone.
+
+> You can define a single table for use on macOS, iOS, and iPadOS. However, in a compact horizontal size class environment — typical on iPhone or on iPad in certain modes, like Slide Over — the table has limited space to display its columns. To conserve space, the table automatically hides headers and all columns after the first when it detects this condition.
+
+
+XCTUnwrap Optionals In Your Tests
+https://useyourloaf.com/blog/xctunwrap-optionals-in-your-tests/
+
+
 ## 05.15
 
 User Action Handler
