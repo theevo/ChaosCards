@@ -33,13 +33,20 @@ struct QuizResult {
 }
 
 extension QuizResult {
-    mutating func correctAnswer() {
+    public mutating func logAnswer(question: Question, userChoice: Choice?) {
+        let answer = QuizUserAnswer(question: question, userChoice: userChoice)
+        logAnswer(answer: answer)
+    }
+}
+
+extension QuizResult {
+    private mutating func addPoint() {
         score += 1
     }
     
-    mutating func logAnswer(answer: QuizUserAnswer) {
+    private mutating func logAnswer(answer: QuizUserAnswer) {
         if answer.isCorrect {
-            correctAnswer()
+            addPoint()
             print("✅ That was the correct answer.")
         } else {
             print("🚫 That was incorrect.")
@@ -49,10 +56,5 @@ extension QuizResult {
         
         answers.append(answer)
         print("=== Score: \(score) ===")
-    }
-    
-    mutating func logAnswer(question: Question, userChoice: Choice?) {
-        let answer = QuizUserAnswer(question: question, userChoice: userChoice)
-        logAnswer(answer: answer)
     }
 }

@@ -9,43 +9,50 @@ import XCTest
 @testable import Chaos_Cards
 
 final class QuizResultTests: XCTestCase {
-    func test_quizResult_keepsScore() {
+    func test_logAnswerwithQuestionAndChoice_detectsWrongChoice() {
         var quizResult = QuizResult()
+        let question = Question(
+            prompt: "Capital of England",
+            correctChoice: Choice("London"),
+            wrongChoices: [Choice("Paris"), Choice("Milan"), Choice("Beijing"), Choice("Bangkok")]
+        )
+        let choice = Choice("Milan")
         
-        quizResult.correctAnswer()
+        quizResult.logAnswer(question: question, userChoice: choice)
+        
+        XCTAssertEqual(quizResult.score, 0)
+    }
+    
+    func test_logAnswerwithQuestionAndChoice_detectsCorrectChoice() {
+        var quizResult = QuizResult()
+        let question = Question(
+            prompt: "Capital of England",
+            correctChoice: Choice("London"),
+            wrongChoices: [Choice("Paris"), Choice("Milan"), Choice("Beijing"), Choice("Bangkok")]
+        )
+        let choice = Choice("London")
+        
+        quizResult.logAnswer(question: question, userChoice: choice)
         
         XCTAssertEqual(quizResult.score, 1)
     }
     
-    func test_quizResult_detectsAnswerCorrectness() {
+    func test_logAnswer_remembersYourAnswer() {
         var quizResult = QuizResult()
-        let someAnswer = QuizUserAnswer(
-            prompt: "qwerty",
-            answered: "asdf",
-            correct: "asdf"
+        let question = Question(
+            prompt: "Capital of England",
+            correctChoice: Choice("London"),
+            wrongChoices: [Choice("Paris"), Choice("Milan"), Choice("Beijing"), Choice("Bangkok")]
         )
+        let choice = Choice("Milan")
         
-        quizResult.logAnswer(answer: someAnswer)
-        
-        XCTAssertEqual(quizResult.score, 1)
-    }
-    
-    func test_quizResult_remembersYourAnswer() throws {
-        var quizResult = QuizResult()
-        let someAnswer = QuizUserAnswer(
-            prompt: "Capital of Thailand",
-            answered: "Krung Thep",
-            correct: "Krung Thep"
-        )
-        
-        quizResult.logAnswer(answer: someAnswer)
+        quizResult.logAnswer(question: question, userChoice: choice)
         
         guard let answer = quizResult.answers.first else {
             XCTFail("Expected 1 answer in the answers array but received nil instead")
             return
         }
         
-        XCTAssertEqual(answer.answered, "Krung Thep")
+        XCTAssertEqual(answer.answered, "Milan")
     }
-
 }
