@@ -106,6 +106,7 @@ extension QuizService {
     }
     
     func setupQuestions(numberOfWrongChoices: UInt = 2) {
+        result = QuizResult()
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
     }
 }
