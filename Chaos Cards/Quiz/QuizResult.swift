@@ -17,10 +17,22 @@ struct QuizUserAnswer {
     }
 }
 
+extension QuizUserAnswer {
+    public init(question: Question, userChoice: Choice?) {
+        let userAnswered = userChoice?.rawValue ?? "<error>"
+        
+        self.prompt = question.prompt
+        self.answered = userAnswered
+        self.correct = question.correctChoice.rawValue
+    }
+}
+
 struct QuizResult {
     private(set) var score: Int = 0
     private(set) var answers: [QuizUserAnswer] = []
-    
+}
+
+extension QuizResult {
     mutating func correctAnswer() {
         score += 1
     }
@@ -28,7 +40,16 @@ struct QuizResult {
     mutating func logAnswer(answer: QuizUserAnswer) {
         if answer.isCorrect {
             correctAnswer()
+            print("✅ That was the correct answer.")
+        } else {
+            print("🚫 That was incorrect.")
         }
         answers.append(answer)
+        print("=== Score: \(score) ===")
+    }
+    
+    mutating func logAnswer(question: Question, userChoice: Choice?) {
+        let answer = QuizUserAnswer(question: question, userChoice: userChoice)
+        logAnswer(answer: answer)
     }
 }

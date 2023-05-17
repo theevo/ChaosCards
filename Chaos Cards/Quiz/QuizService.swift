@@ -10,17 +10,21 @@ import UserNotifications
 
 class QuizService: ObservableObject {
     let deck: Deck
+    let quiz: Quiz
     private(set) var remainingQuestions: [Question] = []
     private(set) var currentQuestion: Question?
+    private(set) var result = QuizResult()
     var action: QuizAction?
     
     /// Creates a QuizService based on the Deck. `.setupQuestions()` will create exactly the same number of multiple-choice questions as the number of cards in the deck. Questions will be randomized.
     /// - Parameter deck: deck can have 1 or more cards
     init(deck: Deck) {
         self.deck = deck
+        self.quiz = Quiz(deck: deck)
     }
 }
 
+// TODO: - move this inside QuizService
 enum ServiceError: Error {
     case NoMoreQuestions
     case NotificationCenter(Error)
@@ -37,6 +41,10 @@ extension QuizService {
 }
 
 extension QuizService {
+    func choice(id: String) -> Choice? {
+        quiz.allChoices.first { $0.id.uuidString == id }
+    }
+    
     func handle(response: UNNotificationResponse) {
         do {
             try handle(actionIdentifier: response.actionIdentifier)
@@ -59,12 +67,13 @@ extension QuizService {
         
         // we got an actual action
         
+        let userChoice = choice(id: actionIdentifier)
+        result.logAnswer(question: currentQuestion, userChoice: userChoice)
+        
         if actionIdentifier == currentQuestion.correctChoice.id.uuidString {
             self.action = .Correct
-            print("✅ That was the correct answer.")
         } else {
             self.action = .Incorrect
-            print("🚫 That was incorrect.")
         }
     }
     
@@ -97,7 +106,6 @@ extension QuizService {
     }
     
     func setupQuestions(numberOfWrongChoices: UInt = 2) {
-        let quiz = Quiz(deck: deck)
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
     }
 }
