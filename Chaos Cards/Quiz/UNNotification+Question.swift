@@ -17,6 +17,15 @@ extension UNMutableNotificationContent {
         self.sound = .default
         self.categoryIdentifier = question.categoryIdentifier
     }
+    
+    convenience init(quizServiceResponse response: QuizServiceResponse) {
+        self.init()
+        self.title = response.title
+        self.subtitle = response.subtitle
+        self.body = response.body
+        self.sound = .default
+        self.categoryIdentifier = response.id.uuidString
+    }
 }
 
 extension UNNotificationAction {
