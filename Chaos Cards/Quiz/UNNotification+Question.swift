@@ -35,7 +35,6 @@ extension UNNotificationAction {
 }
 
 extension Question {
-    // TODO: - make this private.
     /// This is not meant to be called directly
     func makeNotificationActions() -> [UNNotificationAction] {
         
