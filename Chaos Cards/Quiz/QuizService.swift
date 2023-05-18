@@ -43,10 +43,22 @@ extension QuizService {
         quiz.allChoices.first { $0.id.uuidString == id }
     }
     
+    func sendNextQuestion() {
+        Task {
+            do {
+                try await popAndSend(in: 0.1) }
+            catch {
+                if case QuizService.ServiceError.NoMoreQuestions = error {
+                    finish()
+                }
+            }
+        }
+    }
+    
     func handle(response: UNNotificationResponse) {
         do {
             try handle(actionIdentifier: response.actionIdentifier)
-            Task { try await popAndSend(in: 0.1) }
+            sendNextQuestion()
         } catch {
             print(error)
         }
@@ -108,7 +120,12 @@ extension QuizService {
     }
     
     public func start(numberOfWrongChoices: UInt = 2) {
-        resetScoreKeeper()
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
+    }
+    
+    public func finish() {
+        print("******* FINISH *********")
+//        sendResultsNotification()
+        resetScoreKeeper()
     }
 }
