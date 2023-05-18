@@ -105,8 +105,12 @@ extension QuizService {
         }
     }
     
-    func setupQuestions(numberOfWrongChoices: UInt = 2) {
+    fileprivate func resetScoreKeeper() {
         scoreKeeper = ScoreKeeper()
+    }
+    
+    func setupQuestions(numberOfWrongChoices: UInt = 2) {
+        resetScoreKeeper()
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
     }
 }
