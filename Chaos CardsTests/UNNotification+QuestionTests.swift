@@ -128,14 +128,14 @@ final class UNNotification_QuestionTests: XCTestCase {
     func test_quizServiceSetupQuestions_numberOfQuestionsEqualsNumberOfCards() {
         let service = makeQuizService()
         
-        service.setupQuestions()
+        service.start()
         
         XCTAssertEqual(service.remainingQuestions.count, service.deck.cards.count)
     }
     
     func test_quizServicePop_willTakeFirstQuestionFromRemainingQuestions() {
         let service = makeQuizService()
-        service.setupQuestions()
+        service.start()
         let countBeforePop = service.remainingQuestions.count
         
         let question = service.pop()
@@ -163,7 +163,7 @@ final class UNNotification_QuestionTests: XCTestCase {
         QuizService(deck: Deck.example)
     }
     
-    func makeQuestion() -> Question {
+    public func makeQuestion() -> Question {
         return Question(
             prompt: "Capital of England",
             correctChoice: Choice("London"),

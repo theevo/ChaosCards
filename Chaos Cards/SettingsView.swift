@@ -78,7 +78,7 @@ struct SettingsView: View {
     fileprivate func tappedScheduleButton() {
         Task {
             let service = quizService
-            service.setupQuestions()
+            service.start()
             do {
                 let question = try await service.popAndSend(in: startsIn.timeInterval)
                 print("question \(question.prompt) sent!")

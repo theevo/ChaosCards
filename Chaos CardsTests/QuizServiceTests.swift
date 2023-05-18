@@ -36,11 +36,51 @@ final class QuizServiceTests: XCTestCase {
         XCTAssertEqual(service.action, .Correct)
     }
     
+    func test_setupQuestions_fillsAnEqualNumberOfRemainingQuestions() {
+        let service = QuizService(deck: Deck.example)
+        let cardCount = Deck.example.cards.count
+        
+        service.start()
+        
+        XCTAssertEqual(service.remainingQuestions.count, cardCount)
+    }
+    
+    func test_pop_returnsNilwhenThereAreNoMoreQuestions() {
+        let deck = Deck(name: "Thailand days of the week", cards: [Card.example])
+        let service = QuizService(deck: deck)
+        
+        service.start()
+        service.pop()
+        
+        XCTAssertTrue(service.remainingQuestions.isEmpty)
+        
+        let shouldBeNil = service.pop()
+        
+        XCTAssertNil(shouldBeNil)
+    }
+    
+    func test_scoreKeeper_resetsWhenANewQuizStartsAfterFinishingAQuiz() throws {
+        let card = Card.example
+        let deck = Deck(name: "just 1 day from Thailand days of the week", cards: [card])
+        let service = QuizService(deck: deck)
+        
+        service.start()
+        service.pop()
+        try service.handle(actionIdentifier: card.id.uuidString)
+        
+        XCTAssertEqual(service.scoreKeeper.score, 1)
+        XCTAssertEqual(service.scoreKeeper.answers.count, 1)
+        
+        service.start()
+        XCTAssertEqual(service.scoreKeeper.score, 0)
+        XCTAssertEqual(service.scoreKeeper.answers.count, 0)
+    }
+    
     // MARK: - Helpers
     
     func makeSUT() -> QuizService {
         let service = QuizService(deck: Deck.example)
-        service.setupQuestions()
+        service.start()
         service.pop()
         return service
     }

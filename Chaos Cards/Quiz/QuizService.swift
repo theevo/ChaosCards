@@ -16,7 +16,7 @@ class QuizService: ObservableObject {
     private(set) var scoreKeeper = ScoreKeeper()
     var action: QuizAction?
     
-    /// Creates a QuizService based on the Deck. `.setupQuestions()` will create exactly the same number of multiple-choice questions as the number of cards in the deck. Questions will be randomized.
+    /// Creates a QuizService based on the Deck. `.start()` will create exactly the same number of multiple-choice questions as the number of cards in the deck. Questions will be randomized.
     /// - Parameter deck: deck can have 1 or more cards
     init(deck: Deck) {
         self.deck = deck
@@ -109,7 +109,7 @@ extension QuizService {
         scoreKeeper = ScoreKeeper()
     }
     
-    func setupQuestions(numberOfWrongChoices: UInt = 2) {
+    public func start(numberOfWrongChoices: UInt = 2) {
         resetScoreKeeper()
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
     }
