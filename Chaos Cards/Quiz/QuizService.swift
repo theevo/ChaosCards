@@ -13,7 +13,7 @@ class QuizService: ObservableObject {
     let quiz: Quiz
     private(set) var remainingQuestions: [Question] = []
     private(set) var currentQuestion: Question?
-    private(set) var result = QuizResult()
+    private(set) var scoreKeeper = ScoreKeeper()
     var action: QuizAction?
     
     /// Creates a QuizService based on the Deck. `.setupQuestions()` will create exactly the same number of multiple-choice questions as the number of cards in the deck. Questions will be randomized.
@@ -68,7 +68,7 @@ extension QuizService {
         // we got an actual action
         
         let userChoice = choice(id: actionIdentifier)
-        result.logAnswer(question: currentQuestion, userChoice: userChoice)
+        scoreKeeper.logAnswer(question: currentQuestion, userChoice: userChoice)
         
         if actionIdentifier == currentQuestion.correctChoice.id.uuidString {
             self.action = .Correct
@@ -106,7 +106,7 @@ extension QuizService {
     }
     
     func setupQuestions(numberOfWrongChoices: UInt = 2) {
-        result = QuizResult()
+        scoreKeeper = ScoreKeeper()
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
     }
 }

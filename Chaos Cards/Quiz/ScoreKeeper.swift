@@ -1,5 +1,5 @@
 //
-//  QuizResult.swift
+//  ScoreKeeper.swift
 //  Chaos Cards
 //
 //  Created by Theo Vora on 5/17/23.
@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct QuizResult {
+struct ScoreKeeper {
     private(set) var score: Int = 0
     private(set) var answers: [QuizUserAnswer] = []
 }
 
-extension QuizResult {
+extension ScoreKeeper {
     public mutating func logAnswer(question: Question, userChoice: Choice?) {
         let answer = QuizUserAnswer(question: question, userChoice: userChoice)
         logAnswer(answer: answer)
     }
 }
 
-extension QuizResult {
+extension ScoreKeeper {
     private mutating func addPoint() {
         score += 1
     }

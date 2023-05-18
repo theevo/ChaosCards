@@ -26,8 +26,8 @@
 		AC79D4E12A1430F200C76B73 /* QuizServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79D4E02A1430F200C76B73 /* QuizServiceResponse.swift */; };
 		AC8669E52A1293A2009FF5D5 /* QuizServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8669E42A1293A2009FF5D5 /* QuizServiceTests.swift */; };
 		AC95D10D2A152CEF0033BB79 /* QuizServiceResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D10C2A152CEF0033BB79 /* QuizServiceResponseTests.swift */; };
-		AC95D10F2A1561A80033BB79 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D10E2A1561A80033BB79 /* QuizResult.swift */; };
-		AC95D1112A15620B0033BB79 /* QuizResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D1102A15620B0033BB79 /* QuizResultTests.swift */; };
+		AC95D10F2A1561A80033BB79 /* ScoreKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D10E2A1561A80033BB79 /* ScoreKeeper.swift */; };
+		AC95D1112A15620B0033BB79 /* ScoreKeeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D1102A15620B0033BB79 /* ScoreKeeperTests.swift */; };
 		ACA0C6F82A140FD200DFE486 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0C6F72A140FD200DFE486 /* CardViewModel.swift */; };
 		ACAD537B2A1586650090B94A /* QuizUserAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD537A2A1586650090B94A /* QuizUserAnswer.swift */; };
 		ACB1B39B2A0AFD7300607F12 /* UNNotification+QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1B39A2A0AFD7300607F12 /* UNNotification+QuestionTests.swift */; };
@@ -75,8 +75,8 @@
 		AC79D4E02A1430F200C76B73 /* QuizServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceResponse.swift; sourceTree = "<group>"; };
 		AC8669E42A1293A2009FF5D5 /* QuizServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceTests.swift; sourceTree = "<group>"; };
 		AC95D10C2A152CEF0033BB79 /* QuizServiceResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceResponseTests.swift; sourceTree = "<group>"; };
-		AC95D10E2A1561A80033BB79 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
-		AC95D1102A15620B0033BB79 /* QuizResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultTests.swift; sourceTree = "<group>"; };
+		AC95D10E2A1561A80033BB79 /* ScoreKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreKeeper.swift; sourceTree = "<group>"; };
+		AC95D1102A15620B0033BB79 /* ScoreKeeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreKeeperTests.swift; sourceTree = "<group>"; };
 		ACA0C6F72A140FD200DFE486 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		ACAD537A2A1586650090B94A /* QuizUserAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizUserAnswer.swift; sourceTree = "<group>"; };
 		ACB1B39A2A0AFD7300607F12 /* UNNotification+QuestionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotification+QuestionTests.swift"; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 				ACB1B39A2A0AFD7300607F12 /* UNNotification+QuestionTests.swift */,
 				AC95D10C2A152CEF0033BB79 /* QuizServiceResponseTests.swift */,
 				AC8669E42A1293A2009FF5D5 /* QuizServiceTests.swift */,
-				AC95D1102A15620B0033BB79 /* QuizResultTests.swift */,
+				AC95D1102A15620B0033BB79 /* ScoreKeeperTests.swift */,
 			);
 			path = "Chaos CardsTests";
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 				AC14F92B2A0ADE550049D669 /* Quiz.swift */,
 				ACB8C8C32A0E823B005DD4D3 /* QuizService.swift */,
 				AC79D4E02A1430F200C76B73 /* QuizServiceResponse.swift */,
-				AC95D10E2A1561A80033BB79 /* QuizResult.swift */,
+				AC95D10E2A1561A80033BB79 /* ScoreKeeper.swift */,
 				ACAD537A2A1586650090B94A /* QuizUserAnswer.swift */,
 				AC14F92D2A0ADEC30049D669 /* Question.swift */,
 				AC14F9332A0AEE830049D669 /* Choice.swift */,
@@ -342,7 +342,7 @@
 				AC0541CF2A0D555600E24804 /* AppDelegate.swift in Sources */,
 				AC14F8D62A06CD860049D669 /* Chaos_CardsApp.swift in Sources */,
 				AC14F9342A0AEE830049D669 /* Choice.swift in Sources */,
-				AC95D10F2A1561A80033BB79 /* QuizResult.swift in Sources */,
+				AC95D10F2A1561A80033BB79 /* ScoreKeeper.swift in Sources */,
 				AC14F92C2A0ADE550049D669 /* Quiz.swift in Sources */,
 				AC79D4E12A1430F200C76B73 /* QuizServiceResponse.swift in Sources */,
 				AC14F9022A06D7C80049D669 /* Card.swift in Sources */,
@@ -358,7 +358,7 @@
 				AC8669E52A1293A2009FF5D5 /* QuizServiceTests.swift in Sources */,
 				AC95D10D2A152CEF0033BB79 /* QuizServiceResponseTests.swift in Sources */,
 				ACB1B39B2A0AFD7300607F12 /* UNNotification+QuestionTests.swift in Sources */,
-				AC95D1112A15620B0033BB79 /* QuizResultTests.swift in Sources */,
+				AC95D1112A15620B0033BB79 /* ScoreKeeperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

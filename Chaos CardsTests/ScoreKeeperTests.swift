@@ -1,5 +1,5 @@
 //
-//  QuizResultTests.swift
+//  ScoreKeeperTests.swift
 //  Chaos CardsTests
 //
 //  Created by Theo Vora on 5/17/23.
@@ -8,9 +8,9 @@
 import XCTest
 @testable import Chaos_Cards
 
-final class QuizResultTests: XCTestCase {
+final class ScoreKeeperTests: XCTestCase {
     func test_logAnswerwithQuestionAndChoice_detectsWrongChoice() {
-        var quizResult = QuizResult()
+        var quizResult = ScoreKeeper()
         let question = Question(
             prompt: "Capital of England",
             correctChoice: Choice("London"),
@@ -24,7 +24,7 @@ final class QuizResultTests: XCTestCase {
     }
     
     func test_logAnswerwithQuestionAndChoice_detectsCorrectChoice() {
-        var quizResult = QuizResult()
+        var quizResult = ScoreKeeper()
         let question = Question(
             prompt: "Capital of England",
             correctChoice: Choice("London"),
@@ -38,7 +38,7 @@ final class QuizResultTests: XCTestCase {
     }
     
     func test_logAnswer_remembersYourAnswer() {
-        var quizResult = QuizResult()
+        var quizResult = ScoreKeeper()
         let question = Question(
             prompt: "Capital of England",
             correctChoice: Choice("London"),
