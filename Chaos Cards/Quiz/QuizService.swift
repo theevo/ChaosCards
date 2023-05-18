@@ -119,13 +119,22 @@ extension QuizService {
         scoreKeeper = ScoreKeeper()
     }
     
+    fileprivate func sendResultsNotification() {
+        let response = QuizServiceResponse.makeResultsResponse(correct: scoreKeeper.score, outOf: scoreKeeper.outOf)
+        let content = UNMutableNotificationContent(quizServiceResponse: response)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+        let request = UNNotificationRequest(identifier: "asdf", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+    }
+    
     public func start(numberOfWrongChoices: UInt = 2) {
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
     }
     
     public func finish() {
         print("******* FINISH *********")
-//        sendResultsNotification()
+        sendResultsNotification()
         resetScoreKeeper()
     }
 }

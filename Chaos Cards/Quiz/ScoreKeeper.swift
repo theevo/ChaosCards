@@ -13,6 +13,9 @@ struct ScoreKeeper {
 }
 
 extension ScoreKeeper {
+    public var outOf: Int {
+        answers.count
+    }
     public mutating func logAnswer(question: Question, userChoice: Choice?) {
         let answer = QuizUserAnswer(question: question, userChoice: userChoice)
         logAnswer(answer: answer)
