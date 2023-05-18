@@ -1,5 +1,39 @@
 # Chaos Cards
 
+## 05.17
+
+Chaos Cards
+
+Chaos Cards | Trello
+https://trello.com/b/mQzwnEWa/chaos-cards
+
+Jonathan Ruiz (@refactoredd@mastodon.online) - iOS Dev Space
+https://iosdev.space/@refactoredd@mastodon.online
+
+How to Unit Test Enumerations in Swift | Quality Coding
+https://qualitycoding.org/unit-test-enumerations-swift/
+
+xctest something random order - Google Search
+https://www.google.com/search?q=xctest+something+random+order&client=safari&rls=en&sxsrf=APwXEdeKpeyTAjNtAHY33_xOft0W5AjL_Q%3A1684354886047&ei=RjdlZP28ArTh0PEP9LC3oA0&ved=0ahUKEwj996H1lv3-AhW0MDQIHXTYDdQQ4dUDCA8&uact=5&oq=xctest+something+random+order&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCCEQoAEyBQghEKsCOgoIABBHENYEELADSgQIQRgAUI4HWJ4NYIUOaAFwAHgAgAGKAYgB0AWSAQMxLjWYAQCgAQHIAQi4AQPAAQE&sclient=gws-wiz-serp
+
+Linear – A better way to build products
+https://linear.app/
+
+> Mikaela uses this to plan her apps
+
+UNMutableNotificationContent | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent
+
+Basic Operators | Documentation
+https://docs.swift.org/swift-book/documentation/the-swift-programming-language/basicoperators/
+
+unit test for randomness - Google Search
+https://www.google.com/search?client=safari&rls=en&q=unit+test+for+randomness&ie=UTF-8&oe=UTF-8
+
+ios - Find an object in array? - Stack Overflow
+https://stackoverflow.com/questions/28727845/find-an-object-in-array
+
+
 ## 05.16
 
 Chaos Cards
