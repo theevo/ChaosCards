@@ -84,9 +84,9 @@ struct SettingsView: View {
                 print("question \(question.prompt) sent!")
             } catch {
                 switch error {
-                case ServiceError.NoMoreQuestions:
+                case QuizService.ServiceError.NoMoreQuestions:
                     print("no more questions")
-                case ServiceError.NotificationCenter(let error):
+                case QuizService.ServiceError.NotificationCenter(let error):
                     print("Error with Notification Center: \(error)")
                 default:
                     print("Error no idea what went wrong: \(error)")

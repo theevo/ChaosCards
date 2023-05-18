@@ -24,14 +24,12 @@ class QuizService: ObservableObject {
     }
 }
 
-// TODO: - move this inside QuizService
-enum ServiceError: Error {
-    case NoMoreQuestions
-    case NotificationCenter(Error)
-    case CurrentQuestionNil
-}
-
 extension QuizService {
+    enum ServiceError: Error {
+        case NoMoreQuestions
+        case NotificationCenter(Error)
+        case CurrentQuestionNil
+    }
     
     enum QuizAction {
         case BannerWasLongPressed
