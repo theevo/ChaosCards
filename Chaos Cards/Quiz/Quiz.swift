@@ -10,7 +10,12 @@ import Foundation
 struct Quiz {
     let deck: Deck
     var allChoices: [Choice] = []
+    private(set) var currentQuestion: Question?
     private(set) var remainingQuestions: [Question] = []
+    
+    var hasQuestionsRemaining: Bool {
+        !remainingQuestions.isEmpty
+    }
     
     init(deck: Deck) {
         self.deck = deck
@@ -19,7 +24,14 @@ struct Quiz {
     }
     
     @discardableResult public mutating func pop() -> Question? {
-        return remainingQuestions.removeFirst()
+        guard hasQuestionsRemaining else {
+            currentQuestion = nil
+            return nil
+        }
+        
+        let question = remainingQuestions.removeFirst()
+        currentQuestion = question
+        return question
     }
 }
 

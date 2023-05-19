@@ -12,9 +12,12 @@ class QuizService: ObservableObject {
     let deck: Deck
     var quiz: Quiz
     private(set) var state: QuizSequence = .notstarted
-    private(set) var currentQuestion: Question?
     private(set) var scoreKeeper = ScoreKeeper()
     var action: QuizAction?
+    
+    var currentQuestion: Question? {
+        quiz.currentQuestion
+    }
     
     var remainingQuestions: [Question] {
         quiz.remainingQuestions
@@ -119,17 +122,14 @@ extension QuizService {
     }
     
     @discardableResult func pop() -> Question? {
-        guard state == .playing,
-              !remainingQuestions.isEmpty else {
-            state.next()
+        guard quiz.hasQuestionsRemaining else {
+            if state == .playing {
+                state.next()
+            }
             return nil
         }
         
-        let question = quiz.pop()
-        
-        currentQuestion = question
-        
-        return question
+        return quiz.pop()
     }
     
     @discardableResult func popAndSend(in seconds: TimeInterval) async throws -> Question {
