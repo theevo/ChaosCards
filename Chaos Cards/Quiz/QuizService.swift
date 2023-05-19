@@ -8,6 +8,10 @@
 import Foundation
 import UserNotifications
 
+/// QuizService is the interface between the NotificationCenter and an active Quiz.
+/// - delivers Quiz questions via Local Notificaiton
+/// - receives incoming actions from NotificationCenter and dispatches them accordingly
+/// - *QUESTION*: is it responsible for INTERPRETING what the actions mean?
 class QuizService: ObservableObject {
     let deck: Deck
     var quiz: Quiz
