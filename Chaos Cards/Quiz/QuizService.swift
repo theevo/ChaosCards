@@ -11,6 +11,7 @@ import UserNotifications
 class QuizService: ObservableObject {
     let deck: Deck
     let quiz: Quiz
+    private(set) var state: QuizSequence = .notstarted
     private(set) var remainingQuestions: [Question] = []
     private(set) var currentQuestion: Question?
     private(set) var scoreKeeper = ScoreKeeper()
@@ -35,6 +36,23 @@ extension QuizService {
         case BannerWasLongPressed
         case Correct
         case Incorrect
+    }
+    
+    enum QuizSequence {
+        case notstarted
+        case playing
+        case result
+        
+        mutating func next() {
+            switch self {
+            case .notstarted:
+                self = .playing
+            case .playing:
+                self = .result
+            case .result:
+                self = .notstarted
+            }
+        }
     }
 }
 
@@ -130,6 +148,7 @@ extension QuizService {
     
     public func start(numberOfWrongChoices: UInt = 2) {
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
+        state.next()
     }
     
     internal func finish() {
