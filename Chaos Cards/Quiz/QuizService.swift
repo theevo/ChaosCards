@@ -10,12 +10,15 @@ import UserNotifications
 
 class QuizService: ObservableObject {
     let deck: Deck
-    let quiz: Quiz
+    var quiz: Quiz
     private(set) var state: QuizSequence = .notstarted
-    private(set) var remainingQuestions: [Question] = []
     private(set) var currentQuestion: Question?
     private(set) var scoreKeeper = ScoreKeeper()
     var action: QuizAction?
+    
+    var remainingQuestions: [Question] {
+        quiz.remainingQuestions
+    }
     
     /// Creates a QuizService based on the Deck. `.start()` will create exactly the same number of multiple-choice questions as the number of cards in the deck. Questions will be randomized.
     /// - Parameter deck: deck can have 1 or more cards
@@ -122,7 +125,7 @@ extension QuizService {
             return nil
         }
         
-        let question = remainingQuestions.removeFirst()
+        let question = quiz.pop()
         
         currentQuestion = question
         
@@ -161,7 +164,7 @@ extension QuizService {
     }
     
     public func start(numberOfWrongChoices: UInt = 2) {
-        remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
+        quiz.setQuestions(numberOfWrongChoices: numberOfWrongChoices)
         state.next()
     }
     

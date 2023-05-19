@@ -10,16 +10,22 @@ import Foundation
 struct Quiz {
     let deck: Deck
     var allChoices: [Choice] = []
+    private(set) var remainingQuestions: [Question] = []
     
     init(deck: Deck) {
         self.deck = deck
         setChoices()
+        setQuestions()
+    }
+    
+    @discardableResult public mutating func pop() -> Question? {
+        return remainingQuestions.removeFirst()
     }
 }
 
 extension Quiz {
-    func makeQuestions(numberOfWrongChoices count: UInt = 2) -> [Question] {
-        deck.cards.map { card in
+    public mutating func setQuestions(numberOfWrongChoices count: UInt = 2) {
+        remainingQuestions = deck.cards.map { card in
             Question(
                 card: card,
                 wrongChoices: makeWrongChoices(card: card, count: count))
