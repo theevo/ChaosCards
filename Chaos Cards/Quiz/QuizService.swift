@@ -132,9 +132,12 @@ extension QuizService {
         remainingQuestions = quiz.makeQuestions(numberOfWrongChoices: numberOfWrongChoices)
     }
     
-    public func finish() {
-        print("******* FINISH *********")
-        sendResultsNotification()
+    internal func finish() {
         resetScoreKeeper()
+    }
+    
+    public func finishAndSend() {
+        sendResultsNotification()
+        finish()
     }
 }
