@@ -16,6 +16,8 @@ extension ScoreKeeper {
     public var outOf: Int {
         answers.count
     }
+    
+    // TODO: - will be annoying to debug later. if we can't find the id, we should communicate this somewhere.
     public mutating func logAnswer(question: Question, userChoice: Choice?) {
         let answer = QuizUserAnswer(question: question, userChoice: userChoice)
         logAnswer(answer: answer)

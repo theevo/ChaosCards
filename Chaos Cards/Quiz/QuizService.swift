@@ -29,6 +29,7 @@ extension QuizService {
     enum ServiceError: Error {
         case NoMoreQuestions
         case NotificationCenter(Error)
+        // TODO: - better name: CurrentQuestionNotSet?
         case CurrentQuestionNil
     }
     
@@ -76,13 +77,22 @@ extension QuizService {
     func handle(response: UNNotificationResponse) {
         do {
             try handle(actionIdentifier: response.actionIdentifier)
-            sendNextQuestion()
+            
+            switch state {
+            case .playing:
+                sendNextQuestion()
+            case .result:
+                finishAndSend()
+            default:
+                return
+            }
         } catch {
             print(error)
         }
     }
     
     internal func handle(actionIdentifier: String) throws {
+        // TODO: - can we resend the question notification?
         guard actionIdentifier != QuizStrings.userTappedBanner else {
             print("you tapped on the banner, silly")
             self.action = .BannerWasLongPressed
@@ -106,7 +116,11 @@ extension QuizService {
     }
     
     @discardableResult func pop() -> Question? {
-        guard !remainingQuestions.isEmpty else { return nil }
+        guard state == .playing,
+              !remainingQuestions.isEmpty else {
+            state.next()
+            return nil
+        }
         
         let question = remainingQuestions.removeFirst()
         
