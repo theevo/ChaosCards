@@ -27,27 +27,25 @@ final class QuizSequenceTests: XCTestCase {
         let service = makeService()
         service.start()
         
-        let expectation = XCTestExpectation(description: "Wait for sendNextQuestion() to finish")
-        service.sendNextQuestion()
-        expectation.fulfill()
-        wait(for: [expectation], timeout: 0.001)
-        
-        XCTAssertNotNil(service.currentQuestion)
+        waitForSendNextQuestion(service: service)
     }
     
-//    func test_quizService_goesIntoResultStateAfterLastQuestionIsAnswered() async throws {
-//        let service = makeService()
-//        service.start()
-//        service.sendNextQuestion()
-//
-//        let id = try XCTUnwrap(service.currentQuestion?.id.uuidString)
-//
-//        try service.handle(actionIdentifier: id)
-//
-//        XCTAssertEqual(service.state, .result)
-//    }
+    func test_quizService_goesIntoResultStateAfterLastQuestionIsAnswered() throws {
+        let service = makeService()
+        service.start()
+        
+        waitForSendNextQuestion(service: service)
+        
+        let id = try XCTUnwrap(service.currentQuestion?.id.uuidString)
+        
+        try waitForHandle(service: service, id: id)
+
+        XCTAssertEqual(service.state, .result)
+    }
     
     // MARK: - Helpers
+    
+    let microsecond: TimeInterval = 0.0000000000001
     
     func makeService() -> QuizService {
         let card = Card.example
@@ -56,5 +54,21 @@ final class QuizSequenceTests: XCTestCase {
             cards: [card])
         let service = QuizService(deck: deck)
         return service
+    }
+    
+    func waitForSendNextQuestion(service: QuizService, file: StaticString = #filePath, line: UInt = #line) {
+        let expectation = XCTestExpectation(description: "Wait for sendNextQuestion() to finish")
+        service.sendNextQuestion()
+        expectation.fulfill()
+        wait(for: [expectation], timeout: microsecond)
+        
+        XCTAssertNotNil(service.currentQuestion, file: file, line: line)
+    }
+    
+    func waitForHandle(service: QuizService, id: String, file: StaticString = #filePath, line: UInt = #line) throws {
+        let expectation2 = XCTestExpectation(description: "Wait for handle() to finish")
+        try service.handle(actionIdentifier: id)
+        expectation2.fulfill()
+        wait(for: [expectation2], timeout: microsecond)
     }
 }
