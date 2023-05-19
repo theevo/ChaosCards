@@ -11,6 +11,7 @@ import UserNotifications
 class QuizService: ObservableObject {
     let deck: Deck
     var quiz: Quiz
+    var notificationCenter: UNUserNotificationCenter?
     private(set) var state: QuizSequence = .notstarted
     private(set) var scoreKeeper = ScoreKeeper()
     var action: QuizAction?
@@ -25,9 +26,13 @@ class QuizService: ObservableObject {
     
     /// Creates a QuizService based on the Deck. `.start()` will create exactly the same number of multiple-choice questions as the number of cards in the deck. Questions will be randomized.
     /// - Parameter deck: deck can have 1 or more cards
-    init(deck: Deck) {
+    init(
+        deck: Deck,
+        notificationCenter: UNUserNotificationCenter? = UNUserNotificationCenter.current()
+    ) {
         self.deck = deck
         self.quiz = Quiz(deck: deck)
+        self.notificationCenter = notificationCenter
     }
 }
 
@@ -87,8 +92,8 @@ extension QuizService {
             switch state {
             case .playing:
                 sendNextQuestion()
-            case .result:
-                finishAndSend()
+//            case .result:
+//                finishAndSend()
             default:
                 return
             }
@@ -136,14 +141,14 @@ extension QuizService {
         guard let question = pop() else { throw ServiceError.NoMoreQuestions }
         
         // send the notification
-        question.registerNotificationCategory()
+        question.registerNotificationCategory(center: notificationCenter)
         
         let content = UNMutableNotificationContent(question: question)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         do {
-            try await UNUserNotificationCenter.current().add(request)
+            try await notificationCenter?.add(request)
             return question
         } catch {
             throw ServiceError.NotificationCenter(error)
@@ -160,7 +165,7 @@ extension QuizService {
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
         let request = UNNotificationRequest(identifier: "asdf", content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().add(request)
+        notificationCenter?.add(request)
     }
     
     public func start(numberOfWrongChoices: UInt = 2) {

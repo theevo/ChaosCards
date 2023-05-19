@@ -42,10 +42,9 @@ final class UNNotification_QuestionTests: XCTestCase {
     
     func test_registerNotificationCategory_categoryIsInTheNotificationCenterSharedInstance() async {
         let question = makeQuestion()
-        question.registerNotificationCategory()
-        
         let current = UNUserNotificationCenter.current()
-
+        question.registerNotificationCategory(center: current)
+        
         let categories = await current.notificationCategories()
 
         XCTAssertTrue(categories.contains(where: { category in

@@ -47,13 +47,13 @@ extension Question {
         return ([correctAction] + incorrectActions).shuffled()
     }
     
-    func registerNotificationCategory() {
+    func registerNotificationCategory(center: UNUserNotificationCenter?) {
         let category = UNNotificationCategory(
             identifier: categoryIdentifier,
             actions: makeNotificationActions(),
             intentIdentifiers: [],
             options: [])
 
-        UNUserNotificationCenter.current().setNotificationCategories([category])
+        center?.setNotificationCategories([category])
     }
 }

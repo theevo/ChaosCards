@@ -11,8 +11,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     var quizService: QuizService = QuizService(deck: Deck.example)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
+        let center = quizService.notificationCenter
+        center?.delegate = self
         return true
     }
 }
