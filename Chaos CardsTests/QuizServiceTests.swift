@@ -60,14 +60,14 @@ final class QuizServiceTests: XCTestCase {
         XCTAssertNil(shouldBeNil)
     }
     
-    func test_scoreKeeper_resetsWhenANewQuizStartsAfterFinishingAQuiz() throws {
+    func test_scoreKeeper_resetsWhenANewQuizStartsAfterFinishingAQuiz() async throws {
         let card = Card.example
         let deck = Deck(name: "just 1 day from Thailand days of the week", cards: [card])
         let service = QuizService(deck: deck)
         
         service.start()
         service.pop()
-        try service.handle(actionIdentifier: card.id.uuidString)
+        try await service.handle(actionIdentifier: card.id.uuidString)
         
         XCTAssertEqual(service.scoreKeeper.score, 1)
         XCTAssertEqual(service.scoreKeeper.answers.count, 1)

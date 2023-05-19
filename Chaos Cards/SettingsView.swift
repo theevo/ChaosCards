@@ -80,8 +80,9 @@ struct SettingsView: View {
             let service = quizService
             service.start()
             do {
-                let question = try await service.popAndSend(in: startsIn.timeInterval)
-                print("question \(question.prompt) sent!")
+                // TODO: - shouldn't .start() pop and send for us?
+                try await service.popAndSend(in: startsIn.timeInterval)
+                
             } catch {
                 switch error {
                 case QuizService.ServiceError.NoMoreQuestions:

@@ -65,8 +65,8 @@ extension QuizService {
                 self = .playing
             case .playing:
                 self = .result
-            case .result:
-                self = .notstarted
+            default:
+                return
             }
         }
     }
@@ -80,8 +80,8 @@ extension QuizService {
     func sendNextQuestion() {
         Task {
             do {
-                try await popAndSend(in: 0.1) }
-            catch {
+                try popAndSend(in: 0.1)
+            } catch {
                 if case QuizService.ServiceError.NoMoreQuestions = error {
                     finish()
                 }
@@ -92,15 +92,6 @@ extension QuizService {
     func handle(response: UNNotificationResponse) {
         do {
             try handle(actionIdentifier: response.actionIdentifier)
-            
-            switch state {
-            case .playing:
-                sendNextQuestion()
-//            case .result:
-//                finishAndSend()
-            default:
-                return
-            }
         } catch {
             print(error)
         }
@@ -128,22 +119,33 @@ extension QuizService {
         } else {
             self.action = .Incorrect
         }
+        
+        switch state {
+        case .playing:
+            sendNextQuestion()
+        default:
+            return
+        }
     }
     
-    @discardableResult func pop() -> Question? {
-        guard quiz.hasQuestionsRemaining else {
+    func pop() -> Question? {
+        guard let question = quiz.pop() else {
             if state == .playing {
                 state.next()
             }
             return nil
         }
         
-        return quiz.pop()
+        return question
     }
     
-    @discardableResult func popAndSend(in seconds: TimeInterval) async throws -> Question {
+    func popAndSend(in seconds: TimeInterval) throws {
         guard let question = pop() else { throw ServiceError.NoMoreQuestions }
         
+        Task { try await send(question: question, seconds: seconds) }
+    }
+    
+    fileprivate func send(question: Question, seconds: TimeInterval) async throws {
         // send the notification
         question.registerNotificationCategory(center: notificationCenter)
         
@@ -153,7 +155,7 @@ extension QuizService {
         
         do {
             try await notificationCenter?.add(request)
-            return question
+            print("question \(question.prompt) sent!")
         } catch {
             throw ServiceError.NotificationCenter(error)
         }
@@ -173,16 +175,17 @@ extension QuizService {
     }
     
     public func start(numberOfWrongChoices: UInt = 2) {
+        resetScoreKeeper()
         quiz.setQuestions(numberOfWrongChoices: numberOfWrongChoices)
         state.next()
     }
     
-    internal func finish() {
-        resetScoreKeeper()
-    }
-    
-    public func finishAndSend() {
-        sendResultsNotification()
-        finish()
+    public func finish() {
+        print("🏁🏁🏁 FINISH 🏁🏁🏁")
+        
+        if state == .playing {
+            state.next()
+            sendResultsNotification()
+        }
     }
 }
