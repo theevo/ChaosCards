@@ -9,17 +9,21 @@ import XCTest
 @testable import Chaos_Cards
 
 final class QuizServiceTests: XCTestCase {
-    func test_handleString_knowsBannerWasTapped() {
-        let service = QuizService(deck: Deck.example)
-        XCTAssertNoThrow(try service.handle(actionIdentifier: QuizStrings.userTappedBanner))
-        XCTAssertEqual(service.action, .BannerWasLongPressed)
+    func test_sut_notificationCenterIsNilForTesting() {
+        let service = makeSUT()
         
+        XCTAssertNil(service.notificationCenter)
+    }
+    
+    func test_handleString_knowsBannerWasTapped() throws {
+        let service = QuizService(deck: Deck.example)
+        try service.userTapsNotificationAction(actionIdentifier: QuizStrings.userTappedBanner)
+        XCTAssertEqual(service.action, .BannerWasLongPressed)
     }
     
     func test_pop_willSetCurrentQuestion() throws {
         let service = makeSUT()
         let correctId = try XCTUnwrap(service.currentQuestion?.correctChoice.id)
-        XCTAssertNotNil(service.currentQuestion)
         XCTAssertEqual(correctId, service.currentQuestion?.id)
     }
     
@@ -47,10 +51,7 @@ final class QuizServiceTests: XCTestCase {
     
     func test_pop_returnsNilwhenThereAreNoMoreQuestions() {
         let deck = Deck(name: "Thailand days of the week", cards: [Card.example])
-        let service = QuizService(deck: deck)
-        
-        service.start()
-        service.pop()
+        let service = makeSUT(deck: deck)
         
         XCTAssertTrue(service.remainingQuestions.isEmpty)
         
@@ -79,14 +80,12 @@ final class QuizServiceTests: XCTestCase {
     
     // MARK: - Helpers
     
-    func makeSUT() -> QuizService {
-        let service = QuizService(deck: Deck.example)
+    func makeSUT(deck: Deck = Deck.example) -> QuizService {
+        let service = QuizService(deck: deck)
         service.start()
         service.pop()
         return service
     }
-    
-    
 }
 
 extension QuizService {

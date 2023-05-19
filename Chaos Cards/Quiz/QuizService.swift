@@ -32,7 +32,7 @@ class QuizService: ObservableObject {
     /// - Parameter deck: deck can have 1 or more cards
     init(
         deck: Deck,
-        notificationCenter: UNUserNotificationCenter? = UNUserNotificationCenter.current()
+        notificationCenter: UNUserNotificationCenter? = nil
     ) {
         self.deck = deck
         self.quiz = Quiz(deck: deck)

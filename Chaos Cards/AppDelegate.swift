@@ -8,7 +8,10 @@
 import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    var quizService: QuizService = QuizService(deck: Deck.example)
+    var quizService: QuizService = QuizService(
+        deck: Deck.example,
+        notificationCenter: UNUserNotificationCenter.current()
+    )
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let center = quizService.notificationCenter
