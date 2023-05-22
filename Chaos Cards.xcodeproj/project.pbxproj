@@ -74,6 +74,7 @@
 		AC14F92D2A0ADEC30049D669 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		AC14F9332A0AEE830049D669 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		AC2F70F92A0D3FD000AE36D2 /* QuizStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStrings.swift; sourceTree = "<group>"; };
+		AC5CC91D2A1BF42C00395170 /* Chaos-Cards-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Chaos-Cards-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AC79D4E02A1430F200C76B73 /* QuizServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceResponse.swift; sourceTree = "<group>"; };
 		AC8669E42A1293A2009FF5D5 /* QuizServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceTests.swift; sourceTree = "<group>"; };
 		AC95D10C2A152CEF0033BB79 /* QuizServiceResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceResponseTests.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		AC14F8D42A06CD860049D669 /* Chaos Cards */ = {
 			isa = PBXGroup;
 			children = (
+				AC5CC91D2A1BF42C00395170 /* Chaos-Cards-Info.plist */,
 				AC0541CE2A0D555600E24804 /* AppDelegate.swift */,
 				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
 				AC14F9302A0AE5A80049D669 /* Card */,
@@ -520,6 +522,7 @@
 				DEVELOPMENT_TEAM = 6QY69PUF72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Chaos-Cards-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -549,6 +552,7 @@
 				DEVELOPMENT_TEAM = 6QY69PUF72;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Chaos-Cards-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
