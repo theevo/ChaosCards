@@ -98,7 +98,6 @@ extension QuizService {
     }
     
     internal func handle(actionIdentifier: String) throws {
-        // TODO: - can we resend the question notification?
         guard actionIdentifier != QuizStrings.userTappedBanner else {
             print("you tapped on the banner, silly")
             self.action = .BannerWasLongPressed
