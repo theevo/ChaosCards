@@ -26,6 +26,14 @@ extension Deck {
         ])
     }
     
+    static var smallExample: Deck {
+        Deck(name: "🔴🇹🇭 days of the week", cards: [
+            Card(prompt: "Tuesday", answer: "wan ang-kaan"),
+            Card(prompt: "Friday", answer: "wan sook"),
+            Card(prompt: "Saturday", answer: "wan sao"),
+        ])
+    }
+    
     func getCard(from actionIdentifier: String) -> Card? {
         print("looking for \(actionIdentifier)")
         print(cards.map { $0.id.uuidString })

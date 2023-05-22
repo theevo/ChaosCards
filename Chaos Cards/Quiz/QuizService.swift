@@ -83,6 +83,9 @@ extension QuizService {
                 try popAndSend(in: 0.1)
             } catch {
                 if case QuizService.ServiceError.NoMoreQuestions = error {
+                    if state == .playing {
+                        state.next()
+                    }
                     finish()
                 }
             }
@@ -128,12 +131,7 @@ extension QuizService {
     }
     
     func pop() -> Question? {
-        guard let question = quiz.pop() else {
-            if state == .playing {
-                state.next()
-            }
-            return nil
-        }
+        guard let question = quiz.pop() else { return nil }
         
         return question
     }
@@ -165,6 +163,8 @@ extension QuizService {
     }
     
     fileprivate func sendResultsNotification() {
+        print("✈️✈️✈️ sending Results Notification!")
+        
         let response = QuizServiceResponse.makeResultsResponse(correct: scoreKeeper.score, outOf: scoreKeeper.outOf)
         let content = UNMutableNotificationContent(quizServiceResponse: response)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
@@ -182,8 +182,7 @@ extension QuizService {
     public func finish() {
         print("🏁🏁🏁 FINISH 🏁🏁🏁")
         
-        if state == .playing {
-            state.next()
+        if state == .result {
             sendResultsNotification()
         }
     }
