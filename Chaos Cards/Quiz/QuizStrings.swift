@@ -12,6 +12,7 @@ struct QuizStrings {
     static let longPressMe = "Long press this notification to see your answer choices"
     static let questionMark = "?"
     static let results = "Results"
+    static let screenGetResults = "chaosCards_get_results"
     static let tapToOpenApp = "Tap to review your answers"
     static let userTappedBanner = "com.apple.UNNotificationDefaultActionIdentifier"
     static let whatIsAnswerTo = "What is the answer to...\n"

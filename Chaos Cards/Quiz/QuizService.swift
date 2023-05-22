@@ -15,6 +15,7 @@ import UserNotifications
 class QuizService: ObservableObject {
     let deck: Deck
     var quiz: Quiz
+    var response: UNNotificationResponse?
     var notificationCenter: UNUserNotificationCenter?
     private(set) var state: QuizSequence = .notstarted
     private(set) var scoreKeeper = ScoreKeeper()
@@ -52,6 +53,7 @@ extension QuizService {
         case BannerWasLongPressed
         case Correct
         case Incorrect
+        case ShowResults
     }
     
     enum QuizSequence {
@@ -94,16 +96,27 @@ extension QuizService {
     
     func handle(response: UNNotificationResponse) {
         do {
+            self.response = response
             try handle(actionIdentifier: response.actionIdentifier)
         } catch {
             print(error)
         }
     }
     
+    internal func handleBannerTap(actionIdentifier: String) {
+        if response?.notification.request.content.targetContentIdentifier == QuizStrings.screenGetResults {
+            print("🌈 Show the results banner!")
+            self.action = .ShowResults
+            self.response = nil
+        } else {
+            print("you tapped on the banner of a quiz question, silly")
+            self.action = .BannerWasLongPressed
+        }
+    }
+    
     internal func handle(actionIdentifier: String) throws {
         guard actionIdentifier != QuizStrings.userTappedBanner else {
-            print("you tapped on the banner, silly")
-            self.action = .BannerWasLongPressed
+            handleBannerTap(actionIdentifier: actionIdentifier)
             return
         }
         

@@ -25,6 +25,7 @@ extension UNMutableNotificationContent {
         self.body = response.body
         self.sound = .default
         self.categoryIdentifier = response.id.uuidString
+        self.targetContentIdentifier = QuizStrings.screenGetResults
     }
 }
 
