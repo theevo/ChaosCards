@@ -1,11 +1,27 @@
 # Chaos Cards
 
+## 05.18
+
+swift - Shared XCTest unit tests for different implementations of interface - Stack Overflow
+https://stackoverflow.com/questions/34928632/shared-xctest-unit-tests-for-different-implementations-of-interface
+
+Unit testing Swift code that uses async/await | Swift by Sundell
+https://www.swiftbysundell.com/articles/unit-testing-code-that-uses-async-await/
+
+Asynchronous Tests and Expectations | Apple Developer Documentation
+https://developer.apple.com/documentation/xctest/asynchronous_tests_and_expectations
+
+Unit testing async/await Swift code - SwiftLee
+https://www.avanderlee.com/concurrency/unit-testing-async-await/
+
+MainActor usage in Swift explained to dispatch to the main thread
+https://www.avanderlee.com/swift/mainactor-dispatch-main-thread/
+
+Actors in Swift: how to use and prevent data races - SwiftLee
+https://www.avanderlee.com/swift/actors/
+
+
 ## 05.17
-
-Chaos Cards
-
-Chaos Cards | Trello
-https://trello.com/b/mQzwnEWa/chaos-cards
 
 Jonathan Ruiz (@refactoredd@mastodon.online) - iOS Dev Space
 https://iosdev.space/@refactoredd@mastodon.online
