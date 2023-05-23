@@ -81,7 +81,7 @@ struct SettingsView: View {
             service.start()
             do {
                 // TODO: - shouldn't .start() pop and send for us?
-                try await service.popAndSend(in: startsIn.timeInterval)
+                try service.popAndSend(in: startsIn.timeInterval)
                 
             } catch {
                 switch error {

@@ -66,8 +66,8 @@ final class QuizServiceTests: XCTestCase {
         let service = QuizService(deck: deck)
         
         service.start()
-        service.pop()
-        try await service.handle(actionIdentifier: card.id.uuidString)
+        let _ = service.pop()
+        try service.handle(actionIdentifier: card.id.uuidString)
         
         XCTAssertEqual(service.scoreKeeper.score, 1)
         XCTAssertEqual(service.scoreKeeper.answers.count, 1)
@@ -83,7 +83,7 @@ final class QuizServiceTests: XCTestCase {
     func makeSUT(deck: Deck = Deck.example) -> QuizService {
         let service = QuizService(deck: deck)
         service.start()
-        service.pop()
+        let _ = service.pop()
         return service
     }
 }
