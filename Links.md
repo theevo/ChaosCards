@@ -1,5 +1,29 @@
 # Chaos Cards
 
+## 05.22
+
+Complying with Encryption Export Regulations | Apple Developer Documentation
+https://developer.apple.com/documentation/security/complying_with_encryption_export_regulations
+
+Xcode 13 Missing Info.plist
+https://useyourloaf.com/blog/xcode-13-missing-info.plist/
+
+UNMutableNotificationContent | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent
+
+targetContentIdentifier | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent/3235763-targetcontentidentifier
+
+UNNotificationContent | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unnotificationcontent
+
+> NOT AN ISSUE
+> 
+> UNNotificationResponse.targetScene is of type UIScene, which is part of UIKit. I do not think this is makes sense for this SwiftUI app.
+> 
+> I thought I would use this property to tell the app which View to load, but I do not see a clear way to set this property in a UNMutableNotificationContent.
+
+
 ## 05.18
 
 swift - Shared XCTest unit tests for different implementations of interface - Stack Overflow
