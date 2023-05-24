@@ -1,5 +1,69 @@
 # Chaos Cards
 
+## 05.23
+
+How to use programmatic navigation in SwiftUI - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui
+
+ios - Present modal view on navigation to another view in swiftui - Stack Overflow
+https://stackoverflow.com/questions/72065186/present-modal-view-on-navigation-to-another-view-in-swiftui
+
+Sheets in SwiftUI explained with code examples - SwiftLee
+https://www.avanderlee.com/swiftui/presenting-sheets/
+
+swiftui show view from appdelgate - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+show+view+from+appdelgate&ie=UTF-8&oe=UTF-8#ip=1
+
+Using an AppDelegate with the new SwiftUI-based app lifecycle | Swift by Sundell
+https://www.swiftbysundell.com/tips/using-an-app-delegate-with-swiftui-app-lifecycle/
+
+ios - How to access own window within SwiftUI view? - Stack Overflow
+https://stackoverflow.com/questions/60359808/how-to-access-own-window-within-swiftui-view
+
+Understanding the difference between AppDelegate, SceneDelegate and SwiftUI's App protocol
+https://tanaschita.com/20220404-understanding-the-difference-between-appdelegate-scenedelegate-and-swiftui-app-protocol/
+
+ScenePhase | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/scenephase
+
+Understanding Data Flow in SwiftUI | Kodeco
+https://www.kodeco.com/11781349-understanding-data-flow-in-swiftui
+
+Say Goodbye to SceneDelegate in SwiftUI | by Andrew Zheng | Better Programming
+https://betterprogramming.pub/say-goodbye-to-scenedelegate-in-swiftui-444173b23015
+
+SwiftUI - Open a specific View when user opens a Push Notification - Stack Overflow
+https://stackoverflow.com/questions/66283978/swiftui-open-a-specific-view-when-user-opens-a-push-notification
+
+The Complete Guide to NavigationView in SwiftUI – Hacking with Swift
+https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui
+
+init(_:isActive:destination:) | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/navigationlink/init(_:isactive:destination:)-6xw7h
+
+Migrating to new navigation types | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/migrating-to-new-navigation-types
+
+init(_:isActive:destination:) | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/navigationlink/init(_:isactive:destination:)-gn8q
+
+Can't interpolate a Bool in SwiftU… | Apple Developer Forums
+https://developer.apple.com/forums/thread/690479
+
+LocalizedStringKey.StringInterpolation | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/localizedstringkey/stringinterpolation
+
+Previewing Stateful SwiftUI Views - Interactive Previews for your SwiftUI views | Peter Friese
+https://peterfriese.dev/posts/swiftui-previews-interactive/
+
+constant(_:) | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/binding/constant(_:)
+
+state vs binding - Google Search
+https://www.google.com/search?client=safari&rls=en&q=state+vs+binding&ie=UTF-8&oe=UTF-8
+
+
+
 ## 05.22
 
 Complying with Encryption Export Regulations | Apple Developer Documentation
