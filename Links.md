@@ -1,5 +1,70 @@
 # Chaos Cards
 
+## 05.26
+
+How to use programmatic navigation in SwiftUI - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui
+
+ios - Present modal view on navigation to another view in swiftui - Stack Overflow
+https://stackoverflow.com/questions/72065186/present-modal-view-on-navigation-to-another-view-in-swiftui
+
+tunds/SwiftUI-Navigation-Multiplatform-Example: This repo a 100% SwiftUI app showcasing examples of navigation, Multiplatform support & deep linking using the new NavigationStack & NavigationSplitView API's
+https://github.com/tunds/SwiftUI-Navigation-Multiplatform-Example
+
+Sheets in SwiftUI explained with code examples - SwiftLee
+https://www.avanderlee.com/swiftui/presenting-sheets/
+
+swiftui show view from appdelgate - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+show+view+from+appdelgate&ie=UTF-8&oe=UTF-8#ip=1
+
+Using an AppDelegate with the new SwiftUI-based app lifecycle | Swift by Sundell
+https://www.swiftbysundell.com/tips/using-an-app-delegate-with-swiftui-app-lifecycle/
+
+ios - How to access own window within SwiftUI view? - Stack Overflow
+https://stackoverflow.com/questions/60359808/how-to-access-own-window-within-swiftui-view
+
+Understanding the difference between AppDelegate, SceneDelegate and SwiftUI's App protocol
+https://tanaschita.com/20220404-understanding-the-difference-between-appdelegate-scenedelegate-and-swiftui-app-protocol/
+
+ScenePhase | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/scenephase
+
+Understanding Data Flow in SwiftUI | Kodeco
+https://www.kodeco.com/11781349-understanding-data-flow-in-swiftui
+
+Say Goodbye to SceneDelegate in SwiftUI | by Andrew Zheng | Better Programming
+https://betterprogramming.pub/say-goodbye-to-scenedelegate-in-swiftui-444173b23015
+
+swiftui launch view from didReceive response - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+launch+view+from+didReceive+response&ie=UTF-8&oe=UTF-8
+
+SwiftUI by Example - free quick start tutorials for Swift developers
+https://www.hackingwithswift.com/quick-start/swiftui
+
+swiftui publish navigation stack - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+publish+navigation+stack&ie=UTF-8&oe=UTF-8
+
+Type 'any View' cannot conform to 'View' - Google Search
+https://www.google.com/search?client=safari&rls=en&q=Type+%27any+View%27+cannot+conform+to+%27View%27&ie=UTF-8&oe=UTF-8
+
+> if you write a function that returns a View, you have to add @ViewBuilder to the beginning of the function
+
+Method to return a generic View ty… | Apple Developer Forums
+https://developer.apple.com/forums/thread/652844
+
+ViewBuilder | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/viewbuilder
+
+java - Encapsulation vs Abstraction? - Stack Overflow
+https://stackoverflow.com/questions/8960918/encapsulation-vs-abstraction
+
+App Store Connect
+https://appstoreconnect.apple.com/apps/6449135765/testflight/ios
+
+ios - Collect errors in Testflight - Stack Overflow
+https://stackoverflow.com/questions/39475878/collect-errors-in-testflight
+
+
 ## 05.23
 
 How to use programmatic navigation in SwiftUI - a free SwiftUI by Example tutorial
