@@ -54,7 +54,19 @@ extension Question {
             actions: makeNotificationActions(),
             intentIdentifiers: [],
             options: [])
+        
+        center?.add(category: category)
+    }
+}
 
-        center?.setNotificationCategories([category])
+extension UNUserNotificationCenter {
+    func add(category: UNNotificationCategory) {
+        Task {
+            var categories = await self.notificationCategories()
+            
+            categories.insert(category)
+            
+            self.setNotificationCategories(categories)
+        }
     }
 }
