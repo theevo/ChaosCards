@@ -37,6 +37,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     ) {
         // Update the app interface directly
         
-        completionHandler([.banner, .sound])
+        completionHandler([.banner, .sound, .list])
     }
 }
