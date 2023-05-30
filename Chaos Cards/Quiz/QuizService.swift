@@ -17,7 +17,7 @@ class QuizService: ObservableObject {
     var quiz: Quiz
     var response: UNNotificationResponse?
     var notificationCenter: UNUserNotificationCenter?
-    private(set) var state: QuizSequence = .notstarted
+    private(set) var state: QuizSequence = QuizSequence()
     private(set) var scoreKeeper = ScoreKeeper()
     var action: QuizAction?
     
@@ -60,6 +60,10 @@ extension QuizService {
         case notstarted
         case playing
         case result
+        
+        init() {
+            self = .notstarted
+        }
         
         mutating func next() {
             switch self {
@@ -197,6 +201,11 @@ extension QuizService {
         
         if state == .result {
             sendResultsNotification()
+            resetState()
         }
+    }
+    
+    private func resetState() {
+        state = QuizSequence()
     }
 }
