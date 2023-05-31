@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardListView: View {
     @EnvironmentObject var quizService: QuizService
-//    let deck: Deck
+    
     var body: some View {
         NavigationStack {
             ScrollView {

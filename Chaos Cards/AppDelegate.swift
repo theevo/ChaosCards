@@ -9,7 +9,6 @@ import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     var quizService: QuizService = QuizService(
-        deck: Deck.example,
         notificationCenter: UNUserNotificationCenter.current()
     )
     
