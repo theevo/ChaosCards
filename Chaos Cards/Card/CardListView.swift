@@ -9,9 +9,10 @@ import SwiftUI
 
 struct CardListView: View {
     @EnvironmentObject var quizService: QuizService
+    @State private var path: [Card] = []
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ScrollView {
                 VStack {
                     ForEach(deck.cards) { card in
