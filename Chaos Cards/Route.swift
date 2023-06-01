@@ -28,3 +28,9 @@ extension Route: CustomStringConvertible {
         }
     }
 }
+
+extension Route {
+    init(card: Card) {
+        self = .card(card: card)
+    }
+}

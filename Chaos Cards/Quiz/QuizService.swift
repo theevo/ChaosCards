@@ -13,6 +13,8 @@ import UserNotifications
 /// - receives incoming actions from NotificationCenter and dispatches them accordingly
 /// - *QUESTION*: is it responsible for INTERPRETING what the actions mean?
 class QuizService: ObservableObject {
+    @Published var routesOnStack: [Route] = []
+    
     let deck: Deck
     var quiz: Quiz
     var response: UNNotificationResponse?
@@ -101,6 +103,8 @@ extension QuizService {
             print("🌈 Show the results banner!")
             self.action = .ShowResults
             self.response = nil
+//            routesOnStack = [.uhOh(errorText: "what")]
+            routesOnStack.append(.results)
         } else {
             print("you tapped on the banner of a quiz question, silly")
             self.action = .BannerWasLongPressed

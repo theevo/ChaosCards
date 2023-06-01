@@ -24,7 +24,7 @@ struct RouteView: View {
     var body: some View {
         switch route {
         case .card(let card):
-            CardView(viewModel: CardViewModel(card: card))
+            EditCardView(card: card)
         case .settings:
             SettingsView()
         case .results:

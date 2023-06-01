@@ -17,4 +17,8 @@ extension Card {
     static var example: Card {
         return Card(prompt: "Thursday", answer: "wan pha-rue-hat")
     }
+    
+    var route: Route {
+        Route(card: self)
+    }
 }

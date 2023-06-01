@@ -9,14 +9,13 @@ import SwiftUI
 
 struct CardListView: View {
     @EnvironmentObject var quizService: QuizService
-    @State private var path: [Card] = []
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack(path: $quizService.routesOnStack) {
             ScrollView {
                 VStack {
                     ForEach(deck.cards) { card in
-                        NavigationLink(value: card) {
+                        NavigationLink(value: card.route) {
                             let viewModel = CardViewModel(card: card)
                             CardView(viewModel: viewModel)
                         }
@@ -24,8 +23,8 @@ struct CardListView: View {
                 }
             }
             .navigationTitle(deck.name)
-            .navigationDestination(for: Card.self) { card in
-                EditCardView(card: card)
+            .navigationDestination(for: Route.self) { route in
+                RouteView(route: route)
                     .toolbarRole(.editor)
             }
             .toolbar {
