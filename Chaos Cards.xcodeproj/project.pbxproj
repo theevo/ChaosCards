@@ -23,6 +23,9 @@
 		AC14F92E2A0ADEC30049D669 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F92D2A0ADEC30049D669 /* Question.swift */; };
 		AC14F9342A0AEE830049D669 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14F9332A0AEE830049D669 /* Choice.swift */; };
 		AC2F70FA2A0D3FD000AE36D2 /* QuizStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2F70F92A0D3FD000AE36D2 /* QuizStrings.swift */; };
+		AC5147882A290DBA000CF39D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5147872A290DBA000CF39D /* Route.swift */; };
+		AC51478A2A290DFC000CF39D /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5147892A290DFC000CF39D /* RouteView.swift */; };
+		AC51478D2A291174000CF39D /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51478C2A291174000CF39D /* ResultView.swift */; };
 		AC79D4E12A1430F200C76B73 /* QuizServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79D4E02A1430F200C76B73 /* QuizServiceResponse.swift */; };
 		AC8669E52A1293A2009FF5D5 /* QuizServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8669E42A1293A2009FF5D5 /* QuizServiceTests.swift */; };
 		AC95D10D2A152CEF0033BB79 /* QuizServiceResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC95D10C2A152CEF0033BB79 /* QuizServiceResponseTests.swift */; };
@@ -74,6 +77,9 @@
 		AC14F92D2A0ADEC30049D669 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		AC14F9332A0AEE830049D669 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		AC2F70F92A0D3FD000AE36D2 /* QuizStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStrings.swift; sourceTree = "<group>"; };
+		AC5147872A290DBA000CF39D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		AC5147892A290DFC000CF39D /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		AC51478C2A291174000CF39D /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		AC5CC91D2A1BF42C00395170 /* Chaos-Cards-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Chaos-Cards-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AC79D4E02A1430F200C76B73 /* QuizServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceResponse.swift; sourceTree = "<group>"; };
 		AC8669E42A1293A2009FF5D5 /* QuizServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizServiceTests.swift; sourceTree = "<group>"; };
@@ -140,8 +146,11 @@
 				AC5CC91D2A1BF42C00395170 /* Chaos-Cards-Info.plist */,
 				AC0541CE2A0D555600E24804 /* AppDelegate.swift */,
 				AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */,
+				AC5147872A290DBA000CF39D /* Route.swift */,
+				AC5147892A290DFC000CF39D /* RouteView.swift */,
 				AC14F9302A0AE5A80049D669 /* Card */,
 				AC14F92F2A0AE5950049D669 /* Quiz */,
+				AC51478B2A291135000CF39D /* Result */,
 				AC14F9252A09A2DD0049D669 /* SettingsView.swift */,
 				AC14F8D92A06CD870049D669 /* Assets.xcassets */,
 				AC14F8DB2A06CD870049D669 /* Preview Content */,
@@ -206,6 +215,14 @@
 				AC14F9012A06D7C80049D669 /* Card.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		AC51478B2A291135000CF39D /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				AC51478C2A291174000CF39D /* ResultView.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +360,7 @@
 				AC14F9002A06D2E30049D669 /* CardView.swift in Sources */,
 				ACB1B39D2A0BDEB000607F12 /* UNNotification+Question.swift in Sources */,
 				AC14F92E2A0ADEC30049D669 /* Question.swift in Sources */,
+				AC51478D2A291174000CF39D /* ResultView.swift in Sources */,
 				AC14F90A2A0953780049D669 /* EditCardView.swift in Sources */,
 				AC14F9262A09A2DD0049D669 /* SettingsView.swift in Sources */,
 				AC2F70FA2A0D3FD000AE36D2 /* QuizStrings.swift in Sources */,
@@ -354,8 +372,10 @@
 				AC14F92C2A0ADE550049D669 /* Quiz.swift in Sources */,
 				AC79D4E12A1430F200C76B73 /* QuizServiceResponse.swift in Sources */,
 				AC14F9022A06D7C80049D669 /* Card.swift in Sources */,
+				AC51478A2A290DFC000CF39D /* RouteView.swift in Sources */,
 				ACA0C6F82A140FD200DFE486 /* CardViewModel.swift in Sources */,
 				ACAD537B2A1586650090B94A /* QuizUserAnswer.swift in Sources */,
+				AC5147882A290DBA000CF39D /* Route.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
