@@ -48,25 +48,23 @@ extension Question {
         return ([correctAction] + incorrectActions).shuffled()
     }
     
-    func registerNotificationCategory(center: UNUserNotificationCenter?) {
+    func registerNotificationCategory(center: UNUserNotificationCenter?) async {
         let category = UNNotificationCategory(
             identifier: categoryIdentifier,
             actions: makeNotificationActions(),
             intentIdentifiers: [],
             options: [])
         
-        center?.add(category: category)
+        await center?.add(category: category)
     }
 }
 
 extension UNUserNotificationCenter {
-    func add(category: UNNotificationCategory) {
-        Task {
-            var categories = await self.notificationCategories()
-            
-            categories.insert(category)
-            
-            self.setNotificationCategories(categories)
-        }
+    func add(category: UNNotificationCategory) async {
+        var categories = await self.notificationCategories()
+        
+        categories.insert(category)
+        
+        self.setNotificationCategories(categories)
     }
 }

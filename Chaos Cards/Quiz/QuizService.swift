@@ -167,7 +167,7 @@ extension QuizService {
     
     fileprivate func send(question: Question, seconds: TimeInterval) async throws {
         // send the notification
-        question.registerNotificationCategory(center: notificationCenter)
+        await question.registerNotificationCategory(center: notificationCenter)
         
         let content = UNMutableNotificationContent(question: question)
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
