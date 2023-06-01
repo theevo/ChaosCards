@@ -23,18 +23,19 @@ final class QuizSequenceTests: XCTestCase {
         XCTAssertEqual(service.state, .playing)
     }
     
-    func test_currentQuestion_shouldNotBeNilIfThereIsARemainingQuestionAfterCallingSendNextQuestion() {
-        let service = makeService()
-        service.start()
-        
-        waitForSendNextQuestion(service: service)
-    }
+// TODO: - write assertion
+//    func test_currentQuestion_shouldNotBeNilIfThereIsARemainingQuestionAfterCallingSendNextQuestion() {
+//        let service = makeService()
+//        service.start()
+//
+//        try waitForSendNextQuestion(service: service)
+//    }
     
     func test_quizService_goesIntoResultStateAfterLastQuestionIsAnswered() throws {
         let service = makeService()
         service.start()
         
-        waitForSendNextQuestion(service: service)
+        try waitForSendNextQuestion(service: service)
         
         let id = try XCTUnwrap(service.currentQuestion?.id.uuidString)
         
@@ -56,9 +57,9 @@ final class QuizSequenceTests: XCTestCase {
         return service
     }
     
-    func waitForSendNextQuestion(service: QuizService, file: StaticString = #filePath, line: UInt = #line) {
+    func waitForSendNextQuestion(service: QuizService, file: StaticString = #filePath, line: UInt = #line) throws {
         let expectation = XCTestExpectation(description: "Wait for sendNextQuestion() to finish")
-        service.sendNextQuestion()
+        try service.sendNextQuestion()
         expectation.fulfill()
         wait(for: [expectation], timeout: microsecond)
         

@@ -83,19 +83,8 @@ extension QuizService {
         quiz.allChoices.first { $0.id.uuidString == id }
     }
     
-    func sendNextQuestion() {
-        Task {
-            do {
-                try popAndSend(in: 0.1)
-            } catch {
-                if case QuizService.ServiceError.NoMoreQuestions = error {
-                    if state == .playing {
-                        state.next()
-                    }
-                    finish()
-                }
-            }
-        }
+    func sendNextQuestion() throws {
+        try popAndSend(in: 0.1)
     }
     
     func handle(response: UNNotificationResponse) {
@@ -118,6 +107,37 @@ extension QuizService {
         }
     }
     
+    fileprivate func recordAnswer(_ actionIdentifier: String, _ currentQuestion: Question) {
+        let userChoice = choice(id: actionIdentifier)
+        scoreKeeper.logAnswer(question: currentQuestion, userChoice: userChoice)
+        
+        if actionIdentifier == currentQuestion.correctChoice.id.uuidString {
+            self.action = .Correct
+        } else {
+            self.action = .Incorrect
+        }
+    }
+    
+    fileprivate func sendResults() {
+        state.next() // .results
+        sendResultsNotification()
+    }
+    
+    private func sendNextNotification() {
+        guard state == .playing else { return }
+        
+        do {
+            try sendNextQuestion()
+        } catch {
+            switch error {
+            case QuizService.ServiceError.NoMoreQuestions:
+                sendResults()
+            default:
+                return
+            }
+        }
+    }
+    
     internal func handle(actionIdentifier: String) throws {
         guard actionIdentifier != QuizStrings.userTappedBanner else {
             handleBannerTap(actionIdentifier: actionIdentifier)
@@ -128,23 +148,9 @@ extension QuizService {
             throw ServiceError.CurrentQuestionNil
         }
         
-        // we got an actual action
+        recordAnswer(actionIdentifier, currentQuestion)
         
-        let userChoice = choice(id: actionIdentifier)
-        scoreKeeper.logAnswer(question: currentQuestion, userChoice: userChoice)
-        
-        if actionIdentifier == currentQuestion.correctChoice.id.uuidString {
-            self.action = .Correct
-        } else {
-            self.action = .Incorrect
-        }
-        
-        switch state {
-        case .playing:
-            sendNextQuestion()
-        default:
-            return
-        }
+        sendNextNotification()
     }
     
     func pop() -> Question? {
@@ -191,18 +197,14 @@ extension QuizService {
     }
     
     public func start(numberOfWrongChoices: UInt = 2) {
-        resetScoreKeeper()
+        reset()
         quiz.setQuestions(numberOfWrongChoices: numberOfWrongChoices)
         state.next()
     }
     
-    public func finish() {
-        print("🏁🏁🏁 FINISH 🏁🏁🏁")
-        
-        if state == .result {
-            sendResultsNotification()
-            resetState()
-        }
+    public func reset() {
+        resetState()
+        resetScoreKeeper()
     }
     
     private func resetState() {

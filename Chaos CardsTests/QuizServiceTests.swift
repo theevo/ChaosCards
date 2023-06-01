@@ -72,7 +72,7 @@ final class QuizServiceTests: XCTestCase {
         XCTAssertEqual(service.scoreKeeper.score, 1)
         XCTAssertEqual(service.scoreKeeper.answers.count, 1)
         
-        service.finish()
+        service.reset()
         service.start()
         XCTAssertEqual(service.scoreKeeper.score, 0)
         XCTAssertEqual(service.scoreKeeper.answers.count, 0)
