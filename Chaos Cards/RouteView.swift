@@ -28,7 +28,7 @@ struct RouteView: View {
         case .settings:
             SettingsView()
         case .results:
-            ResultsView()
+            ResultsView(viewModel: ResultsViewModel())
         case .uhOh(let errorText):
             UhOhView(errorText: errorText)
         }

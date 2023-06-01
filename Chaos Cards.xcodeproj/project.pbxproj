@@ -38,6 +38,7 @@
 		ACB1B39D2A0BDEB000607F12 /* UNNotification+Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB1B39C2A0BDEB000607F12 /* UNNotification+Question.swift */; };
 		ACB8C8C42A0E823B005DD4D3 /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8C8C32A0E823B005DD4D3 /* QuizService.swift */; };
 		ACBABFC32A16B54000619031 /* QuizSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBABFC22A16B54000619031 /* QuizSequenceTests.swift */; };
+		ACF030BB2A293CA700FCB3A9 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF030BA2A293CA700FCB3A9 /* ResultsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		ACB1B39C2A0BDEB000607F12 /* UNNotification+Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotification+Question.swift"; sourceTree = "<group>"; };
 		ACB8C8C32A0E823B005DD4D3 /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
 		ACBABFC22A16B54000619031 /* QuizSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSequenceTests.swift; sourceTree = "<group>"; };
+		ACF030BA2A293CA700FCB3A9 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				AC51478C2A291174000CF39D /* ResultsView.swift */,
+				ACF030BA2A293CA700FCB3A9 /* ResultsViewModel.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				AC14F90A2A0953780049D669 /* EditCardView.swift in Sources */,
 				AC14F9262A09A2DD0049D669 /* SettingsView.swift in Sources */,
 				AC2F70FA2A0D3FD000AE36D2 /* QuizStrings.swift in Sources */,
+				ACF030BB2A293CA700FCB3A9 /* ResultsViewModel.swift in Sources */,
 				ACB8C8C42A0E823B005DD4D3 /* QuizService.swift in Sources */,
 				AC0541CF2A0D555600E24804 /* AppDelegate.swift in Sources */,
 				AC14F8D62A06CD860049D669 /* Chaos_CardsApp.swift in Sources */,

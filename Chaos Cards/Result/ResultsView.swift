@@ -8,13 +8,47 @@
 import SwiftUI
 
 struct ResultsView: View {
+    let viewModel: ResultsViewModel
+    
     var body: some View {
-        Text("Greetings, Program. You are viewing Results. 🔢")
+        VStack {
+            Text(viewModel.title)
+                .font(.largeTitle)
+            List {
+                Group {
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("❗️ Tuesday = wan-ang-kan\n you answered: 🚫 wan phut 🚫")
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan\n you answered: wan phut")
+                }
+                Group {
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan\n you answered: wan phut")
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                }
+                Group {
+                    Text("✅ Tuesday = wan-ang-kan")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                }
+            }
+        }
     }
 }
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView()
+        ResultsView(viewModel: ResultsViewModel(right: 3, outOf: 13))
     }
 }
