@@ -10,6 +10,7 @@ import Foundation
 struct ListItemViewModel: Identifiable {
     let id = UUID()
     let title: String
+    let title2: String
     let subtitle: String
     let correct: Bool
     
@@ -24,11 +25,13 @@ struct ListItemViewModel: Identifiable {
 
 extension ListItemViewModel {
     static let incorrectSample: ListItemViewModel = ListItemViewModel(
-        title: "Tuesday = wan-ang-kan",
+        title: "Tuesday",
+        title2: "wan-aang-kan",
         subtitle: "you answered: wan phut",
         correct: false)
     static let correctSample: ListItemViewModel = ListItemViewModel(
-        title: "Tuesday = wan-ang-kan",
+        title: "Tuesday",
+        title2: "wan-aang-kan",
         subtitle: "",
         correct: true)
     static let samples: [ListItemViewModel] = (

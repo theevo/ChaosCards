@@ -15,6 +15,10 @@ struct ResultsCellView: View {
             Text(item.emoji)
             VStack {
                 Text(item.title)
+                    .font(.title)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("wan-ang-kan")
+                    .font(.title2)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if item.hasSubtitle {
                     Text(item.subtitle)
