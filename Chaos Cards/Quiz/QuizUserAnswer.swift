@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct QuizUserAnswer {
+struct QuizUserAnswer: Hashable {
+    let id = UUID()
     var prompt: String
     var answered: String
     var correct: String

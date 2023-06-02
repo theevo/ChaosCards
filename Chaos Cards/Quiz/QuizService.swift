@@ -104,7 +104,7 @@ extension QuizService {
             self.action = .ShowResults
             self.response = nil
 //            routesOnStack = [.uhOh(errorText: "what")]
-            routesOnStack.append(.results)
+            routesOnStack.append(.results(scoreKeeper: scoreKeeper))
         } else {
             print("you tapped on the banner of a quiz question, silly")
             self.action = .BannerWasLongPressed

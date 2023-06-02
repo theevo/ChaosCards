@@ -27,8 +27,8 @@ struct RouteView: View {
             EditCardView(card: card)
         case .settings:
             SettingsView()
-        case .results:
-            ResultsView(viewModel: ResultsViewModel.sample)
+        case .results(let scoreKeeper):
+            ResultsView(viewModel: ResultsViewModel(scoreKeeper: scoreKeeper))
         case .uhOh(let errorText):
             UhOhView(errorText: errorText)
         }
@@ -49,7 +49,7 @@ struct RouteToSettings_Previews: PreviewProvider {
 
 struct RouteToResults_Previews: PreviewProvider {
     static var previews: some View {
-        RouteView(route: Route.results)
+        RouteView(route: Route.results(scoreKeeper: ScoreKeeper.sample))
     }
 }
 

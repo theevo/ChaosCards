@@ -12,6 +12,18 @@ struct ResultsViewModel {
     let outOf: Int
     let items: [ListItemViewModel]
     
+    init(right: Int, outOf: Int, items: [ListItemViewModel]) {
+        self.right = right
+        self.outOf = outOf
+        self.items = items
+    }
+    
+    init(scoreKeeper: ScoreKeeper) {
+        self.right = scoreKeeper.score
+        self.outOf = scoreKeeper.outOf
+        self.items = scoreKeeper.answers.map { $0.listItemViewModel }
+    }
+    
     var title: String {
         "\(right) out of \(outOf) correct"
     }
@@ -22,4 +34,14 @@ extension ResultsViewModel {
         right: 3,
         outOf: 13,
         items: ListItemViewModel.samples)
+}
+
+extension QuizUserAnswer {
+    var listItemViewModel: ListItemViewModel {
+        ListItemViewModel(
+            title: prompt,
+            title2: correct,
+            subtitle: "you answered: \(answered)",
+            correct: isCorrect)
+    }
 }

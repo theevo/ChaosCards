@@ -10,7 +10,7 @@ import Foundation
 enum Route: Hashable {
     case card(card: Card)
     case settings
-    case results
+    case results(scoreKeeper: ScoreKeeper)
     case uhOh(errorText: String)
 }
 

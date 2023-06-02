@@ -17,7 +17,7 @@ struct ResultsCellView: View {
                 Text(item.title)
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("wan-ang-kan")
+                Text(item.title2)
                     .font(.title2)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if item.hasSubtitle {
