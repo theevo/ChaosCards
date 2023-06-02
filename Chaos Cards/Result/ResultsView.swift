@@ -9,14 +9,13 @@ import SwiftUI
 
 struct ResultsView: View {
     let viewModel: ResultsViewModel
-    let items: [ListItemViewModel] = ListItemViewModel.samples
     
     var body: some View {
         VStack {
             Text(viewModel.title)
                 .font(.largeTitle)
             List {
-                ForEach(items) { item in
+                ForEach(viewModel.items) { item in
                     ResultsCellView(item: item)
                 }
             }
@@ -26,6 +25,6 @@ struct ResultsView: View {
 
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultsView(viewModel: ResultsViewModel(right: 3, outOf: 13))
+        ResultsView(viewModel: ResultsViewModel.sample)
     }
 }
