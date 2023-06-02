@@ -9,38 +9,15 @@ import SwiftUI
 
 struct ResultsView: View {
     let viewModel: ResultsViewModel
+    let items: [ListItemViewModel] = ListItemViewModel.samples
     
     var body: some View {
         VStack {
             Text(viewModel.title)
                 .font(.largeTitle)
             List {
-                Group {
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("❗️ Tuesday = wan-ang-kan\n you answered: 🚫 wan phut 🚫")
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan\n you answered: wan phut")
-                }
-                Group {
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan\n you answered: wan phut")
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                }
-                Group {
-                    Text("✅ Tuesday = wan-ang-kan")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
-                    Text("🚫 Tuesday = wan-ang-kan, not wan phut")
+                ForEach(items) { item in
+                    ResultsCellView(item: item)
                 }
             }
         }
