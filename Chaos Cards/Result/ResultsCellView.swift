@@ -16,8 +16,10 @@ struct ResultsCellView: View {
             VStack {
                 Text(item.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(item.subtitle)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                if item.hasSubtitle {
+                    Text(item.subtitle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
             }
         }
     }

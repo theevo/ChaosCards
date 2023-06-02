@@ -16,12 +16,16 @@ struct ListItemViewModel: Identifiable {
     var emoji: String {
         correct ? "✅" : "❗️"
     }
+    
+    var hasSubtitle: Bool {
+        !correct
+    }
 }
 
 extension ListItemViewModel {
     static let incorrectSample: ListItemViewModel = ListItemViewModel(
         title: "Tuesday = wan-ang-kan",
-        subtitle: "you answered: 🚫 wan phut 🚫",
+        subtitle: "you answered: wan phut",
         correct: false)
     static let correctSample: ListItemViewModel = ListItemViewModel(
         title: "Tuesday = wan-ang-kan",
