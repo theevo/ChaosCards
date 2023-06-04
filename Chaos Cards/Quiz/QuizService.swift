@@ -103,7 +103,6 @@ extension QuizService {
             print("🌈 Show the results banner!")
             self.action = .ShowResults
             self.response = nil
-//            routesOnStack = [.uhOh(errorText: "what")]
             routesOnStack.append(.results(scoreKeeper: scoreKeeper))
         } else {
             print("you tapped on the banner of a quiz question, silly")
