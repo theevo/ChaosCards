@@ -18,14 +18,7 @@ struct UhOhView: View {
     }
 }
 
-struct ResendQuestionView: View {
-    @EnvironmentObject var quizService: QuizService
-    
-    var body: some View {
-        Text("Greetings program")
-        Text("current question: \(quizService.currentQuestion?.prompt ?? "nil")")
-    }
-}
+
 
 struct RouteView: View {
     var route: Route
