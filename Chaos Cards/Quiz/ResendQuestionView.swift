@@ -12,20 +12,27 @@ struct ResendQuestionView: View {
     
     var body: some View {
         VStack {
-            Text("Questions are meant to be answered within each notification")
+            Image("longpress")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding()
             Text("Long press notifications to reveal the answer choices")
+            Spacer()
             Button("Resend question") {
-                print("resend question")
+                quizService.routesOnStack = []
             }
             .buttonStyle(.borderedProminent)
         }
+        .navigationTitle("Quiz Paused")
     }
 }
 
 struct ResendQuestionView_Previews: PreviewProvider {
     static var previews: some View {
         let quizService = QuizService(deck: Deck.smallExample)
-        ResendQuestionView()
-            .environmentObject(quizService)
+        NavigationStack {
+            ResendQuestionView()
+                .environmentObject(quizService)
+        }
     }
 }
