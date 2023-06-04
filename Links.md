@@ -1,5 +1,71 @@
 # Chaos Cards
 
+## 06.04
+
+providesAppNotificationSettings | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unnotificationsettings/2990404-providesappnotificationsettings?language=objc
+
+> Places a button at the bottom of your app's notifications settings screen WITHIN Settings.app.
+> You should use UNUserNotificationCenter and request authorization for .providesAppNotificationSettings
+
+```
+UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound, .providesAppNotificationSettings])
+```
+
+> Then use UNUserNotificationCenterDelegate method for handling:
+
+```
+func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+    // Open settings view controller
+}
+```
+
+init(path:root:) | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/navigationstack/init(path:root:)-3bt4q
+
+Using Swift protocol delegation on a struct to change values? - Stack Overflow
+https://stackoverflow.com/questions/62406749/using-swift-protocol-delegation-on-a-struct-to-change-values
+
+Swift Generics Tutorial: Getting Started | Kodeco
+https://www.kodeco.com/3535703-swift-generics-tutorial-getting-started
+
+ios - Does not conform to protocol hashable? - Stack Overflow
+https://stackoverflow.com/questions/68893073/does-not-conform-to-protocol-hashable
+
+swift conform to stringprotocol - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swift+conform+to+stringprotocol&ie=UTF-8&oe=UTF-8
+
+What’s the difference between @ObservedObject, @State, and @EnvironmentObject? - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-observedobject-state-and-environmentobject
+
+objective c - Xcode - conditional development or production mode - Stack Overflow
+https://stackoverflow.com/questions/12464386/xcode-conditional-development-or-production-mode
+
+MapAnnotation SwiftUI Runtime Warn… | Apple Developer Forums
+https://developer.apple.com/forums/thread/717478
+
+How to present a new view using sheets - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-present-a-new-view-using-sheets
+
+swiftui - Are there maximum limits to VStack? - Stack Overflow
+https://stackoverflow.com/questions/58397964/are-there-maximum-limits-to-vstack
+
+Building a menu using List - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/building-a-menu-using-list
+
+ios - Can not add subtitle to List item inside ForEach in Swift UI - Stack Overflow
+https://stackoverflow.com/questions/61312248/can-not-add-subtitle-to-list-item-inside-foreach-in-swift-ui
+
+How to align text center/leading/trailing in SwiftUI | Sarunw
+https://sarunw.com/posts/how-to-align-text-in-swiftui/
+
+ios - Fixing Xcode 9 issue: "iPhone is busy: Preparing debugger support for iPhone" - Stack Overflow
+https://stackoverflow.com/questions/46316373/fixing-xcode-9-issue-iphone-is-busy-preparing-debugger-support-for-iphone
+
+watchos - Xcode 13: Build hangs with "iPhone is busy: making Apple Watch ready for development" - Stack Overflow
+https://stackoverflow.com/questions/69517131/xcode-13-build-hangs-with-iphone-is-busy-making-apple-watch-ready-for-develop
+
+
 ## 05.26
 
 How to use programmatic navigation in SwiftUI - a free SwiftUI by Example tutorial
