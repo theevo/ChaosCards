@@ -18,8 +18,6 @@ struct UhOhView: View {
     }
 }
 
-
-
 struct RouteView: View {
     var route: Route
     
