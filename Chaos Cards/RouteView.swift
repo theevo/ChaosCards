@@ -18,6 +18,15 @@ struct UhOhView: View {
     }
 }
 
+struct ResendQuestionView: View {
+    @EnvironmentObject var quizService: QuizService
+    
+    var body: some View {
+        Text("Greetings program")
+        Text("current question: \(quizService.currentQuestion?.prompt ?? "nil")")
+    }
+}
+
 struct RouteView: View {
     var route: Route
     
@@ -29,6 +38,8 @@ struct RouteView: View {
             SettingsView()
         case .results(let scoreKeeper):
             ResultsView(viewModel: ResultsViewModel(scoreKeeper: scoreKeeper))
+        case .resendQuestion:
+            ResendQuestionView()
         case .uhOh(let errorText):
             UhOhView(errorText: errorText)
         }

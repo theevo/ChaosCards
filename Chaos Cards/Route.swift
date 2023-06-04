@@ -11,6 +11,7 @@ enum Route: Hashable {
     case card(card: Card)
     case settings
     case results(scoreKeeper: ScoreKeeper)
+    case resendQuestion
     case uhOh(errorText: String)
 }
 
@@ -23,6 +24,8 @@ extension Route: CustomStringConvertible {
             return "Settings"
         case .results:
             return "Results"
+        case .resendQuestion:
+            return "Resend the Question"
         case .uhOh:
             return "UhOh"
         }

@@ -108,6 +108,8 @@ extension QuizService {
         } else {
             print("you tapped on the banner of a quiz question, silly")
             self.action = .BannerWasLongPressed
+            self.response = nil
+            routesOnStack = [.resendQuestion]
         }
     }
     
