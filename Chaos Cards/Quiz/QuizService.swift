@@ -170,6 +170,12 @@ extension QuizService {
         Task { try await send(question: question, seconds: seconds) }
     }
     
+    public func sendCurrentQuestion() {
+        guard let currentQuestion = currentQuestion else { return }
+        
+        Task { try await send(question: currentQuestion, seconds: 0.1) }
+    }
+    
     fileprivate func send(question: Question, seconds: TimeInterval) async throws {
         // send the notification
         await question.registerNotificationCategory(center: notificationCenter)

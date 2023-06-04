@@ -19,6 +19,7 @@ struct ResendQuestionView: View {
             Text("Long press notifications to reveal the answer choices")
             Spacer()
             Button("Resend question") {
+                quizService.sendCurrentQuestion()
                 quizService.routesOnStack = []
             }
             .buttonStyle(.borderedProminent)
