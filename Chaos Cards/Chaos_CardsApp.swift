@@ -13,8 +13,10 @@ struct Chaos_CardsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CardListView()
-                .environmentObject(appDelegate.quizService)
+//            CardListView()
+//                .environmentObject(appDelegate.quizService)
+            DecksListView()
+                .environment(\.managedObjectContext, DeckContainer().persistentContainer.viewContext)
         }
     }
 }
