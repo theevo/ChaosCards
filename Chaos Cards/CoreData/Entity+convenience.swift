@@ -37,6 +37,7 @@ extension CardEntity {
         self.init(context: moc)
         self.prompt = card.prompt
         self.answer = card.answer
+        self.id = card.id
     }
 }
 
