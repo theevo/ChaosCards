@@ -15,14 +15,22 @@ extension DeckEntity {
     }
 }
 
+extension Deck {
+    init(deckEntity: DeckEntity) {
+        let name = deckEntity.name ?? "<unknown name>"
+        self.init(name: name, cards: [])
+    }
+}
+
 struct DecksListView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) private var decks: FetchedResults<DeckEntity>
+    @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
     
     var body: some View {
         VStack {
-            List(decks) { deckEntity in
-                Text(deckEntity.name ?? "unknown name")
+            List(deckEntities) { deckEntity in
+                let deck = Deck(deckEntity: deckEntity)
+                Text(deck.name)
             }
             Button("Add deck") {
                 let _ = DeckEntity(deck: Deck.example, moc: moc)
