@@ -16,7 +16,9 @@ struct Deck {
 extension Deck {
     init(deckEntity: DeckEntity) {
         let name = deckEntity.name ?? "<unknown name>"
-        self.init(name: name, cards: [])
+        let cards = deckEntity.cards()
+        self.init(name: name, cards: cards)
+        print("♥️ deck has \(cards.count) cards")
     }
 }
 

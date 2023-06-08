@@ -17,6 +17,7 @@ struct DecksListView: View {
                 ForEach(deckEntities) { deckEntity in
                     let deck = Deck(deckEntity: deckEntity)
                     Text(deck.name)
+                        .badge(deck.cards.count)
                 }
                 .onDelete(perform: delete)
             }
