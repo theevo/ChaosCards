@@ -14,6 +14,13 @@ struct Card: Identifiable, Hashable {
 }
 
 extension Card {
+    init(cardEntity: CardEntity) {
+        self.prompt = cardEntity.prompt ?? "<error decoding>"
+        self.answer = cardEntity.answer ?? "<error decoding>"
+    }
+}
+
+extension Card {
     static var example: Card {
         return Card(prompt: "Thursday", answer: "wan pha-rue-hat")
     }

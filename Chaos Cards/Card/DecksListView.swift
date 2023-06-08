@@ -13,14 +13,29 @@ struct DecksListView: View {
     
     var body: some View {
         VStack {
-            List(deckEntities) { deckEntity in
-                let deck = Deck(deckEntity: deckEntity)
-                Text(deck.name)
+            List() {
+                ForEach(deckEntities) { deckEntity in
+                    let deck = Deck(deckEntity: deckEntity)
+                    Text(deck.name)
+                }
+                .onDelete(perform: delete)
             }
             Button("Add deck") {
                 let _ = DeckEntity(deck: Deck.example, moc: moc)
                 try? moc.save()
             }
+        }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        for offset in offsets {
+            let deckEntity = deckEntities[offset]
+            moc.delete(deckEntity)
+        }
+        do {
+            try moc.save()
+        } catch {
+            print("error saving: \(error.localizedDescription)")
         }
     }
 }
