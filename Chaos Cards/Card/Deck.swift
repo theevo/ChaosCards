@@ -14,6 +14,13 @@ struct Deck {
 }
 
 extension Deck {
+    init(deckEntity: DeckEntity) {
+        let name = deckEntity.name ?? "<unknown name>"
+        self.init(name: name, cards: [])
+    }
+}
+
+extension Deck {
     static var example: Deck {
         Deck(name: "🇹🇭 days of the week", cards: [
             Card(prompt: "Sunday", answer: "wan aa-thit"),
