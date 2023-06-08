@@ -8,17 +8,24 @@
 import Foundation
 
 struct Deck {
-    let id = UUID()
+    let id: UUID
     var name: String
     var cards: [Card]
+    
+    internal init(id: UUID = UUID(), name: String, cards: [Card]) {
+        self.id = id
+        self.name = name
+        self.cards = cards
+    }
 }
 
 extension Deck {
     init(deckEntity: DeckEntity) {
         let name = deckEntity.name ?? "<unknown name>"
         let cards = deckEntity.cards()
-        self.init(name: name, cards: cards)
-        print("♥️ deck has \(cards.count) cards")
+        let id = deckEntity.id ?? UUID()
+        self.init(id: id, name: name, cards: cards)
+        print("♥️ deck \(id.uuidString.suffix(4)) has \(cards.count) cards")
     }
 }
 

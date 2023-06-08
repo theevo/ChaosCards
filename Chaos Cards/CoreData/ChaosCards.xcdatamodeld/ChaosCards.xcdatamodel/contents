@@ -6,6 +6,7 @@
         <relationship name="deckEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeckEntity" inverseName="cardsSet" inverseEntity="DeckEntity"/>
     </entity>
     <entity name="DeckEntity" representedClassName="DeckEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="cardsSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardEntity" inverseName="deckEntity" inverseEntity="CardEntity"/>
     </entity>

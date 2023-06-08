@@ -11,12 +11,13 @@ extension DeckEntity {
     convenience init(deck: Deck, moc: NSManagedObjectContext) {
         self.init(context: moc)
         self.name = deck.name
+        self.id = deck.id
         
         for card in deck.cards {
             self.addToCardsSet(CardEntity(card: card, moc: moc))
         }
         
-        print("🍀 deck has \(String(describing: self.cardsSet?.count)) cards")
+        print("🍀 deck \(deck.id.uuidString.suffix(4)) has \(String(describing: self.cardsSet?.count)) cards")
     }
     
     func cards() -> [Card] {
