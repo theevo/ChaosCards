@@ -43,7 +43,7 @@ extension Deck {
     }
     
     static var smallExample: Deck {
-        Deck(name: "🔴🇹🇭 days of the week", cards: [
+        Deck(name: "3️⃣🇹🇭 days of the week", cards: [
             Card(prompt: "Tuesday", answer: "wan ang-kaan"),
             Card(prompt: "Friday", answer: "wan sook"),
             Card(prompt: "Saturday", answer: "wan sao"),
