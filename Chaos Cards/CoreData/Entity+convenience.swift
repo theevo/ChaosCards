@@ -41,3 +41,12 @@ extension CardEntity {
     }
 }
 
+extension NSSet {
+    var decks: [Deck] {
+        guard self.count > 0,
+              let entities = self.allObjects as? [DeckEntity]
+        else { return [] }
+        
+        return entities.compactMap { Deck(deckEntity: $0) }
+    }
+}
