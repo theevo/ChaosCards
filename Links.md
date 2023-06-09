@@ -1,5 +1,122 @@
 # Chaos Cards
 
+## 06.09
+
+ios - How to resize Image with SwiftUI? - Stack Overflow
+https://stackoverflow.com/questions/56505692/how-to-resize-image-with-swiftui
+
+UNNotificationPresentationOptions | Apple Developer Documentation
+https://developer.apple.com/documentation/usernotifications/unnotificationpresentationoptions
+
+ios - How to listen to the changes in notification authorization Status - Stack Overflow
+https://stackoverflow.com/questions/51394245/how-to-listen-to-the-changes-in-notification-authorization-status
+
+The @FetchRequest property wrapper in SwiftUI
+https://tanaschita.com/20210320-swiftui-fetchrequest-property-wrapper
+
+Generating Code | Apple Developer Documentation
+https://developer.apple.com/documentation/coredata/modeling_data/generating_code
+
+ios - Class not found, using default NSManagedObject instead - Stack Overflow
+https://stackoverflow.com/questions/25869231/class-not-found-using-default-nsmanagedobject-instead
+
+ios - Unable to find specific subclass of NSManagedObject - Stack Overflow
+https://stackoverflow.com/questions/25076276/unable-to-find-specific-subclass-of-nsmanagedobject
+
+Configuring Relationships | Apple Developer Documentation
+https://developer.apple.com/documentation/coredata/modeling_data/configuring_relationships
+
+How to create NSManagedObject subsclasses for Core Data entities in Xcode
+https://tanaschita.com/20221024-how-to-create-a-managed-object-subclass-xcode-core-data/
+
+Get started with NSPredicate to filter NSFetchRequest in Core Data
+https://tanaschita.com/20230320-cheatsheet-nspredicate-fetchrequest-core-data/
+
+ios - Use Swift's Date with CoreData - Stack Overflow
+https://stackoverflow.com/questions/39778111/use-swifts-date-with-coredata
+
+loadPersistentStores(completionHandler:) | Apple Developer Documentation
+https://developer.apple.com/documentation/coredata/nspersistentcontainer/1640568-loadpersistentstores
+
+Configuring Relationships | Apple Developer Documentation
+https://developer.apple.com/documentation/coredata/modeling_data/configuring_relationships
+
+How to combine Core Data and SwiftUI - a free Hacking with iOS: SwiftUI Edition tutorial
+https://www.hackingwithswift.com/books/ios-swiftui/how-to-combine-core-data-and-swiftui
+
+Core Data Relationship in Swift 5— made simple | by Megi Sila | Medium
+https://medium.com/@meggsila/core-data-relationship-in-swift-5-made-simple-f51e19b28326
+
+Reduce array to set in Swift - Stack Overflow
+https://stackoverflow.com/questions/34161786/reduce-array-to-set-in-swift
+
+NSSet | Apple Developer Documentation
+https://developer.apple.com/documentation/foundation/nsset
+
+core data - Convert NSSet to Swift Array - Stack Overflow
+https://stackoverflow.com/questions/24422831/convert-nsset-to-swift-array
+
+Swift Logging - NSHipster
+https://nshipster.com/swift-log/
+
+Unified Logging and Activity Tracing - WWDC16 - Videos - Apple Developer
+https://developer.apple.com/videos/play/wwdc2016/721/
+
+Core Data: Basic knowledge & How-to | by Huy Vo | Medium
+https://medium.com/@voxqhuy/core-data-basic-knowledge-how-to-7b8a306e58a0
+
+FetchedResults | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/fetchedresults
+
+Day55 – Making Previews work for DetailView – 100 Days of SwiftUI – Hacking with Swift forums
+https://www.hackingwithswift.com/forums/100-days-of-swiftui/day55-making-previews-work-for-detailview/14794
+
+Core Data Quick Start in SwiftUI
+https://www.bigmountainstudio.com/view/downloads/core-data-quick-start
+
+EnvironmentValues | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/environmentvalues
+
+Every SwiftUI Environment Value explained | FIVE STARS
+https://www.fivestars.blog/articles/swiftui-environment-values/
+
+cocoa - Error with Swift and Core Data: fatal error: use of unimplemented initializer 'init(entity:insertIntoManagedObjectContext:)' - Stack Overflow
+https://stackoverflow.com/questions/26202346/error-with-swift-and-core-data-fatal-error-use-of-unimplemented-initializer-i
+
+How to enable editing on a list using EditButton - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-enable-editing-on-a-list-using-editbutton
+
+How to show badge on List Row in SwiftUI | Sarunw
+https://sarunw.com/posts/swiftui-list-row-badge/
+
+4 Picker styles in SwiftUI Form | Sarunw
+https://sarunw.com/posts/swiftui-form-picker-styles/
+
+swiftui ondelete - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+ondelete&ie=UTF-8&oe=UTF-8#ip=1
+
+coredata id - Google Search
+https://www.google.com/search?client=safari&rls=en&q=coredata+id&ie=UTF-8&oe=UTF-8
+
+How to delete Core Data objects from SwiftUI views - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-delete-core-data-objects-from-swiftui-views
+
+core data - Convert NSSet to Swift Array - Stack Overflow
+https://stackoverflow.com/questions/24422831/convert-nsset-to-swift-array
+
+swift - Optional State or Binding in SwiftUI - Stack Overflow
+https://stackoverflow.com/questions/66916454/optional-state-or-binding-in-swiftui
+
+swift - How can I use Core Data value from picker? #SwiftUI #CoreData - Stack Overflow
+https://stackoverflow.com/questions/67237434/how-can-i-use-core-data-value-from-picker-swiftui-coredata
+
+ios - Conditional map function in Swift - Stack Overflow
+https://stackoverflow.com/questions/58024401/conditional-map-function-in-swift
+
+compactMap(_:) | Apple Developer Documentation
+https://developer.apple.com/documentation/swift/sequence/compactmap(_:)
+
+
 ## 06.04
 
 providesAppNotificationSettings | Apple Developer Documentation
