@@ -10,16 +10,34 @@ import SwiftUI
 struct DecksListView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
+    @State var activeDeck = ""
     
     var body: some View {
-        VStack {
-            List() {
-                ForEach(deckEntities) { deckEntity in
-                    let deck = Deck(deckEntity: deckEntity)
-                    Text(deck.name)
-                        .badge(deck.cards.count)
+        Form {
+            Section("Active Deck") {
+                Text(activeDeck)
+            }
+            Section {
+                List() {
+                    ForEach(deckEntities) { deckEntity in
+                        let deck = Deck(deckEntity: deckEntity)
+                        HStack {
+                            Text(deck.name)
+                                .badge(deck.cards.count)
+                            Spacer()
+                            
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            activeDeck = deck.name
+                        }
+                    }
+                    .onDelete(perform: delete)
                 }
-                .onDelete(perform: delete)
+            } header: {
+                Text("All decks")
+            } footer: {
+                Text("Tap a deck to set it active. Long press to rename it.")
             }
             Button("Add deck") {
                 let _ = DeckEntity(deck: Deck.example, moc: moc)
