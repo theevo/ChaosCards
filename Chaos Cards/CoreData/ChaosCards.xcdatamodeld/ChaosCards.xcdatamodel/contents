@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="BoxEntity" representedClassName="BoxEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="selectedDeckId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="deckEntities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DeckEntity"/>
-    </entity>
     <entity name="CardEntity" representedClassName="CardEntity" syncable="YES" codeGenerationType="class">
         <attribute name="answer" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
