@@ -29,7 +29,7 @@ struct DecksListView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            activeDeck = deck.name
+                            activate(deck: deck)
                         }
                     }
                     .onDelete(perform: delete)
@@ -44,6 +44,15 @@ struct DecksListView: View {
                 try? moc.save()
             }
         }
+    }
+    
+    func activate(deck: Deck) {
+        let defaults = UserDefaults.standard
+        defaults.set(deck.id.uuidString, forKey: "ActiveDeck")
+        activeDeck = deck.name
+        
+        guard let id = defaults.string(forKey: "ActiveDeck") else { return }
+        print("👉 load deck id: ", id)
     }
     
     func delete(at offsets: IndexSet) {
