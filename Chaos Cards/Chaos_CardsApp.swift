@@ -16,7 +16,7 @@ struct Chaos_CardsApp: App {
 //            CardListView()
 //                .environmentObject(appDelegate.quizService)
             DecksListView()
-                .environment(\.managedObjectContext, DeckContainer().persistentContainer.viewContext)
+                .environment(\.managedObjectContext, PersistentContainer().persistentContainer.viewContext)
         }
     }
 }

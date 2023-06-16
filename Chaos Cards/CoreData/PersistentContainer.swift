@@ -1,5 +1,5 @@
 //
-//  DeckContainer.swift
+//  PersistentContainer.swift
 //  Chaos Cards
 //
 //  Created by Theo Vora on 6/7/23.
@@ -7,7 +7,7 @@
 
 import CoreData
 
-class DeckContainer {
+class PersistentContainer {
     let persistentContainer: NSPersistentContainer
     
     init() {
@@ -17,7 +17,7 @@ class DeckContainer {
     }
 }
 
-extension DeckContainer {
+extension PersistentContainer {
     static var previewMoc: NSManagedObjectContext {
         let persistentContainer = NSPersistentContainer(name: "ChaosCards")
         persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
