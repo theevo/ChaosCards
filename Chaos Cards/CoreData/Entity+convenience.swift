@@ -17,7 +17,7 @@ extension DeckEntity {
             self.addToCardsSet(CardEntity(card: card, moc: moc))
         }
         
-        print("🍀 deck \(deck.id.uuidString.suffix(4)) has \(String(describing: self.cardsSet?.count)) cards")
+        print("🍀 DeckEntity \(deck.id.uuidString.suffix(4)) has \(String(describing: self.cardsSet?.count)) cards")
     }
     
     func cards() -> [Card] {

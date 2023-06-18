@@ -16,7 +16,6 @@ struct Card: Identifiable, Hashable {
         self.id = id
         self.prompt = prompt
         self.answer = answer
-        print("♠️ \(prompt) id: \(id.uuidString.suffix(4))")
     }
 }
 
@@ -25,7 +24,6 @@ extension Card {
         self.id = cardEntity.id ?? UUID()
         self.prompt = cardEntity.prompt ?? "<error decoding>"
         self.answer = cardEntity.answer ?? "<error decoding>"
-        print("♦️ \(self.prompt) id: \(self.id.uuidString.suffix(4))")
     }
 }
 

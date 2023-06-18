@@ -11,12 +11,17 @@ struct DecksListView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
     @State var activeDeck = ""
+    @StateObject var deckListViewModel = DeckListViewModel()
     
     var body: some View {
         Form {
             Section("Active Deck") {
                 Text(activeDeck)
             }
+//            .onChange(of: deckListViewModel) { newViewModel in
+//                let id = newViewModel.activeDeckIdString
+//                print("🐷 new id = ", id)
+//            }
             Section {
                 List() {
                     ForEach(deckEntities) { deckEntity in
@@ -44,6 +49,15 @@ struct DecksListView: View {
                 try? moc.save()
             }
         }
+        .onAppear {
+            let id = deckListViewModel.activeDeckIdString
+            guard id.count > 0,
+                  let entity = deckEntities.first(where: { $0.id?.uuidString == id }),
+                  let name = entity.name
+            else { return }
+            activeDeck = name
+            print("✅ this deck is active:", activeDeck)
+        }
     }
     
     func activate(deck: Deck) {
@@ -51,8 +65,10 @@ struct DecksListView: View {
         defaults.set(deck.id.uuidString, forKey: "ActiveDeck")
         activeDeck = deck.name
         
-        guard let id = defaults.string(forKey: "ActiveDeck") else { return }
-        print("👉 load deck id: ", id)
+        print("💾 saved", deck.id.uuidString.suffix(4))
+        
+//        guard let id = defaults.string(forKey: "ActiveDeck") else { return }
+//        print("👉 load deck id: ", id)
     }
     
     func delete(at offsets: IndexSet) {

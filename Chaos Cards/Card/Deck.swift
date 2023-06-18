@@ -25,7 +25,7 @@ extension Deck {
         let cards = deckEntity.cards()
         let id = deckEntity.id ?? UUID()
         self.init(id: id, name: name, cards: cards)
-        print("♥️ deck \(id.uuidString.suffix(4)) has \(cards.count) cards")
+        print("♥️ Deck \(id.uuidString.suffix(4)) has \(cards.count) cards")
     }
 }
 
