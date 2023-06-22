@@ -11,7 +11,7 @@ struct DecksListView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
     @State var activeDeck = ""
-    @StateObject var deckListViewModel = DeckListViewModel()
+    @EnvironmentObject var deckListViewModel: DeckListViewModel
     
     var body: some View {
         Form {

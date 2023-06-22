@@ -13,6 +13,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         deck: Deck.smallExample,
         notificationCenter: UNUserNotificationCenter.current()
     )
+    var deckListViewModel = DeckListViewModel()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let center = quizService.notificationCenter

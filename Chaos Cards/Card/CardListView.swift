@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardListView: View {
     @EnvironmentObject var quizService: QuizService
-    @StateObject var deckListViewModel = DeckListViewModel()
+    @EnvironmentObject var deckListViewModel: DeckListViewModel
     
     var body: some View {
         NavigationStack(path: $quizService.routesOnStack) {
