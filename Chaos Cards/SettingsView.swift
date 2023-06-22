@@ -43,6 +43,12 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
+            Section {
+                NavigationLink("Decks") {
+                    DecksListView()
+                        .environment(\.managedObjectContext, PersistentContainer().persistentContainer.viewContext)
+                }
+            }
             Section(footer: Text("When this is on, you'll receive push notifications. A multiple choice question will be sent for each card in your deck. Long press a notification to answer it.")) {
                 Toggle("Notifications", isOn: $isNotificationsOn.animation())
                     .onChange(of: isNotificationsOn) { newValue in
