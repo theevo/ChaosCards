@@ -61,14 +61,9 @@ struct DecksListView: View {
     }
     
     func activate(deck: Deck) {
-        let defaults = UserDefaults.standard
-        defaults.set(deck.id.uuidString, forKey: "ActiveDeck")
+        deckListViewModel.set(activeDeckId: deck.id.uuidString)
+        
         activeDeck = deck.name
-        
-        print("💾 saved", deck.id.uuidString.suffix(4))
-        
-//        guard let id = defaults.string(forKey: "ActiveDeck") else { return }
-//        print("👉 load deck id: ", id)
     }
     
     func delete(at offsets: IndexSet) {

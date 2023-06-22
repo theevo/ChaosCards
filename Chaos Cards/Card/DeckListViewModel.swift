@@ -20,6 +20,13 @@ class DeckListViewModel: ObservableObject {
     func load(id: String) {
         print("👉 load deck id: ", id.suffix(4))
     }
+    
+    func set(activeDeckId: String) {
+        activeDeckIdString = activeDeckId
+        let defaults = UserDefaults.standard
+        defaults.set(activeDeckId, forKey: "ActiveDeck")
+        print("💾 saved", activeDeckId.suffix(4))
+    }
 }
 
 extension DeckListViewModel: Equatable {
