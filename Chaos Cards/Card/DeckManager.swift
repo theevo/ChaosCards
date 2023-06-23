@@ -1,5 +1,5 @@
 //
-//  DeckListViewModel.swift
+//  DeckManager.swift
 //  Chaos Cards
 //
 //  Created by Theo Vora on 6/17/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DeckListViewModel: ObservableObject {
+class DeckManager: ObservableObject {
     @Published var activeDeckIdString: String = ""
     
     init() {
@@ -29,8 +29,8 @@ class DeckListViewModel: ObservableObject {
     }
 }
 
-extension DeckListViewModel: Equatable {
-    static func == (lhs: DeckListViewModel, rhs: DeckListViewModel) -> Bool {
+extension DeckManager: Equatable {
+    static func == (lhs: DeckManager, rhs: DeckManager) -> Bool {
         lhs.activeDeckIdString == rhs.activeDeckIdString
     }
 }

@@ -11,14 +11,14 @@ struct DecksListView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
     @State var activeDeck = ""
-    @EnvironmentObject var deckListViewModel: DeckListViewModel
+    @EnvironmentObject var deckManager: DeckManager
     
     var body: some View {
         Form {
             Section("Active Deck") {
                 Text(activeDeck)
             }
-//            .onChange(of: deckListViewModel) { newViewModel in
+//            .onChange(of: deckManager) { newViewModel in
 //                let id = newViewModel.activeDeckIdString
 //                print("🐷 new id = ", id)
 //            }
@@ -50,7 +50,7 @@ struct DecksListView: View {
             }
         }
         .onAppear {
-            let id = deckListViewModel.activeDeckIdString
+            let id = deckManager.activeDeckIdString
             guard id.count > 0,
                   let entity = deckEntities.first(where: { $0.id?.uuidString == id }),
                   let name = entity.name
@@ -61,7 +61,7 @@ struct DecksListView: View {
     }
     
     func activate(deck: Deck) {
-        deckListViewModel.set(activeDeckId: deck.id.uuidString)
+        deckManager.set(activeDeckId: deck.id.uuidString)
         
         activeDeck = deck.name
     }

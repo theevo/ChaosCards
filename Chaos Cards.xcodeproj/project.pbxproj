@@ -44,7 +44,7 @@
 		ACD33D0B2A3127870042F81A /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD33D0A2A3127870042F81A /* PersistentContainer.swift */; };
 		ACD33D0D2A3129350042F81A /* DecksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD33D0C2A3129350042F81A /* DecksListView.swift */; };
 		ACD33D0F2A326B490042F81A /* Entity+convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD33D0E2A326B490042F81A /* Entity+convenience.swift */; };
-		ACDDF7922A3E92EA00C8C787 /* DeckListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDDF7912A3E92EA00C8C787 /* DeckListViewModel.swift */; };
+		ACDDF7922A3E92EA00C8C787 /* DeckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDDF7912A3E92EA00C8C787 /* DeckManager.swift */; };
 		ACF030BB2A293CA700FCB3A9 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF030BA2A293CA700FCB3A9 /* ResultsViewModel.swift */; };
 		ACF030BD2A2A68FA00FCB3A9 /* ListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF030BC2A2A68FA00FCB3A9 /* ListItemViewModel.swift */; };
 		ACF030BF2A2A691800FCB3A9 /* ResultsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF030BE2A2A691800FCB3A9 /* ResultsCellView.swift */; };
@@ -109,7 +109,7 @@
 		ACD33D0A2A3127870042F81A /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		ACD33D0C2A3129350042F81A /* DecksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksListView.swift; sourceTree = "<group>"; };
 		ACD33D0E2A326B490042F81A /* Entity+convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+convenience.swift"; sourceTree = "<group>"; };
-		ACDDF7912A3E92EA00C8C787 /* DeckListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListViewModel.swift; sourceTree = "<group>"; };
+		ACDDF7912A3E92EA00C8C787 /* DeckManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckManager.swift; sourceTree = "<group>"; };
 		ACF030BA2A293CA700FCB3A9 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		ACF030BC2A2A68FA00FCB3A9 /* ListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemViewModel.swift; sourceTree = "<group>"; };
 		ACF030BE2A2A691800FCB3A9 /* ResultsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCellView.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 				AC14F9292A0ADBB80049D669 /* Deck.swift */,
 				AC14F9012A06D7C80049D669 /* Card.swift */,
 				ACD33D0C2A3129350042F81A /* DecksListView.swift */,
-				ACDDF7912A3E92EA00C8C787 /* DeckListViewModel.swift */,
+				ACDDF7912A3E92EA00C8C787 /* DeckManager.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -414,7 +414,7 @@
 				ACD33D0F2A326B490042F81A /* Entity+convenience.swift in Sources */,
 				AC79D4E12A1430F200C76B73 /* QuizServiceResponse.swift in Sources */,
 				AC14F9022A06D7C80049D669 /* Card.swift in Sources */,
-				ACDDF7922A3E92EA00C8C787 /* DeckListViewModel.swift in Sources */,
+				ACDDF7922A3E92EA00C8C787 /* DeckManager.swift in Sources */,
 				AC51478A2A290DFC000CF39D /* RouteView.swift in Sources */,
 				ACA0C6F82A140FD200DFE486 /* CardViewModel.swift in Sources */,
 				ACF030BF2A2A691800FCB3A9 /* ResultsCellView.swift in Sources */,

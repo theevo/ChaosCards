@@ -15,7 +15,7 @@ struct Chaos_CardsApp: App {
         WindowGroup {
             CardListView()
                 .environmentObject(appDelegate.quizService)
-                .environmentObject(appDelegate.deckListViewModel)
+                .environmentObject(appDelegate.deckManager)
         }
     }
 }
