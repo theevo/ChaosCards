@@ -16,7 +16,13 @@ class DeckManager: ObservableObject {
         let defaults = UserDefaults.standard
         guard let id = defaults.string(forKey: "ActiveDeck") else { return }
         self.activeDeckIdString = id
+        loadAllDecks()
 //        load(id: id)
+    }
+    
+    func loadAllDecks() {
+        decks = persistentContainer.decks
+        print("😎 all decks:", decks)
     }
     
 //    func load(id: String) {

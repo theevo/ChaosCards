@@ -54,10 +54,9 @@ struct DecksListView: View {
         .onAppear {
             let id = deckManager.activeDeckIdString
             guard id.count > 0,
-                  let entity = deckEntities.first(where: { $0.id?.uuidString == id }),
-                  let name = entity.name
+                  let deck = decks.first(where: { $0.id.uuidString == id })
             else { return }
-            activeDeck = name
+            activeDeck = deck.name
             print("✅ this deck is active:", activeDeck)
         }
     }

@@ -9,6 +9,7 @@ import CoreData
 
 class PersistentContainer {
     let persistentContainer: NSPersistentContainer
+    var decks: [Deck] = []
     
     var moc: NSManagedObjectContext {
         persistentContainer.viewContext
@@ -25,14 +26,15 @@ class PersistentContainer {
         print("👉 load deck id: ", deckId.suffix(4))
     }
     
-    func loadAllDecks() {
+    func loadAllDecks(){
         let fetchRequest = DeckEntity.fetchRequest()
         do {
             let entities = try moc.fetch(fetchRequest)
             let decks = entities.map { Deck(deckEntity: $0) }
-            print("😇 All decks:", decks)
+            self.decks = decks
         } catch {
             print("😫 wah wah", error)
+            print(error.localizedDescription)
         }
     }
 }
