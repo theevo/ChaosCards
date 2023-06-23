@@ -9,17 +9,19 @@ import Foundation
 
 class DeckManager: ObservableObject {
     @Published var activeDeckIdString: String = ""
+    @Published var decks: [Deck] = []
+    let persistentContainer = PersistentContainer()
     
     init() {
         let defaults = UserDefaults.standard
         guard let id = defaults.string(forKey: "ActiveDeck") else { return }
         self.activeDeckIdString = id
-        load(id: id)
+//        load(id: id)
     }
     
-    func load(id: String) {
-        print("👉 load deck id: ", id.suffix(4))
-    }
+//    func load(id: String) {
+//        persistentContainer.load(deckId: id)
+//    }
     
     func set(activeDeckId: String) {
         activeDeckIdString = activeDeckId

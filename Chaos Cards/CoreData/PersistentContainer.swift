@@ -10,9 +10,29 @@ import CoreData
 class PersistentContainer {
     let persistentContainer: NSPersistentContainer
     
+    var moc: NSManagedObjectContext {
+        persistentContainer.viewContext
+    }
+    
     init() {
         self.persistentContainer = NSPersistentContainer(name: "ChaosCards")
         persistentContainer.loadPersistentStores { _, _ in
+        }
+        loadAllDecks()
+    }
+    
+    func load(deckId: String) {
+        print("👉 load deck id: ", deckId.suffix(4))
+    }
+    
+    func loadAllDecks() {
+        let fetchRequest = DeckEntity.fetchRequest()
+        do {
+            let entities = try moc.fetch(fetchRequest)
+            let decks = entities.map { Deck(deckEntity: $0) }
+            print("😇 All decks:", decks)
+        } catch {
+            print("😫 wah wah", error)
         }
     }
 }

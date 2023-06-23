@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DecksListView: View {
-    @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
     @State var activeDeck = ""
     var deckManager: DeckManager
@@ -47,8 +46,9 @@ struct DecksListView: View {
                 Text("Tap a deck to set it active. Long press to rename it.")
             }
             Button("Add deck") {
-                let _ = DeckEntity(deck: Deck.example, moc: moc)
-                try? moc.save()
+                print("add a deck")
+//                let _ = DeckEntity(deck: Deck.example, moc: moc)
+//                try? moc.save()
             }
         }
         .onAppear {
@@ -71,10 +71,12 @@ struct DecksListView: View {
     func delete(at offsets: IndexSet) {
         for offset in offsets {
             let deckEntity = deckEntities[offset]
-            moc.delete(deckEntity)
+//            moc.delete(deckEntity)
+            print("Delete deck")
         }
         do {
-            try moc.save()
+//            try moc.save()
+            print("save moc")
         } catch {
             print("error saving: \(error.localizedDescription)")
         }
