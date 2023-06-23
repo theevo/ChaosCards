@@ -13,6 +13,10 @@ struct DecksListView: View {
     @State var activeDeck = ""
     var deckManager: DeckManager
     
+    var decks: [Deck] {
+        deckEntities.map { Deck(deckEntity: $0) }
+    }
+    
     var body: some View {
         Form {
             Section("Active Deck") {
@@ -24,13 +28,11 @@ struct DecksListView: View {
 //            }
             Section {
                 List() {
-                    ForEach(deckEntities) { deckEntity in
-                        let deck = Deck(deckEntity: deckEntity)
+                    ForEach(decks) { deck in
                         HStack {
                             Text(deck.name)
                                 .badge(deck.cards.count)
                             Spacer()
-                            
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
