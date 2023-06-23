@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct DecksListView: View {
-    @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
+    @StateObject var deckManager: DeckManager
     @State var activeDeck = ""
-    var deckManager: DeckManager
     
     var decks: [Deck] {
-        deckEntities.map { Deck(deckEntity: $0) }
+        deckManager.decks
     }
     
     var body: some View {
@@ -69,7 +68,7 @@ struct DecksListView: View {
     
     func delete(at offsets: IndexSet) {
         for offset in offsets {
-            let deckEntity = deckEntities[offset]
+//            let deckEntity = deckEntities[offset]
 //            moc.delete(deckEntity)
             print("Delete deck")
         }

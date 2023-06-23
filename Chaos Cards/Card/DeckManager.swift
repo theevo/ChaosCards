@@ -44,5 +44,9 @@ extension DeckManager: Equatable {
 }
 
 extension DeckManager {
-    static var mock: DeckManager = DeckManager()
+    static var mock: DeckManager = {
+        let deckManager = DeckManager()
+        deckManager.decks = [Deck.smallExample, Deck.example]
+        return deckManager
+    }()
 }
