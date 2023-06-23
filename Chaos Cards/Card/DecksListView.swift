@@ -20,10 +20,6 @@ struct DecksListView: View {
             Section("Active Deck") {
                 Text(activeDeck)
             }
-//            .onChange(of: deckManager) { newViewModel in
-//                let id = newViewModel.activeDeckIdString
-//                print("🐷 new id = ", id)
-//            }
             Section {
                 List() {
                     ForEach(decks) { deck in

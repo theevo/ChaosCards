@@ -34,7 +34,6 @@ extension DeckManager {
 extension DeckManager {
     private func loadAllDecks() {
         decks = persistentContainer.decks
-        print("😎 all decks:", decks)
     }
     
     private func getActiveDeckId() {
