@@ -51,11 +51,7 @@ struct DecksListView: View {
             }
         }
         .onAppear {
-            let id = deckManager.activeDeckIdString
-            guard id.count > 0,
-                  let deck = decks.first(where: { $0.id.uuidString == id })
-            else { return }
-            activeDeck = deck.name
+            activeDeck = deckManager.activeDeckName
             print("✅ this deck is active:", activeDeck)
         }
     }
@@ -84,6 +80,5 @@ struct DecksListView: View {
 struct DecksListView_Previews: PreviewProvider {
     static var previews: some View {
         DecksListView(deckManager: DeckManager.mock)
-            .environment(\.managedObjectContext, PersistentContainer.previewMock.moc)
     }
 }

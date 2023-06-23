@@ -27,10 +27,6 @@ class PersistentContainer {
         loadAllDecks()
     }
     
-    func load(deckId: String) {
-        print("👉 load deck id: ", deckId.suffix(4))
-    }
-    
     func loadAllDecks(){
         let fetchRequest = DeckEntity.fetchRequest()
         do {

@@ -8,38 +8,48 @@
 import Foundation
 
 class DeckManager: ObservableObject {
-    @Published var activeDeckIdString: String = ""
+    @Published var activeDeckName: String = ""
     @Published var decks: [Deck] = []
+    @Published var activeDeck: Deck?
     let persistentContainer = PersistentContainer()
     
     init() {
-        let defaults = UserDefaults.standard
-        guard let id = defaults.string(forKey: "ActiveDeck") else { return }
-        self.activeDeckIdString = id
         loadAllDecks()
-//        load(id: id)
+        getActiveDeckId()
     }
+}
     
-    func loadAllDecks() {
+// MARK: - Public methods
+extension DeckManager {
+    public func set(activeDeckId: String) {
+        // Save to UserDefaults
+        let defaults = UserDefaults.standard
+        defaults.set(activeDeckId, forKey: "ActiveDeck")
+        
+        load(id: activeDeckId)
+    }
+}
+
+// MARK: - Private methods
+extension DeckManager {
+    private func loadAllDecks() {
         decks = persistentContainer.decks
         print("😎 all decks:", decks)
     }
     
-//    func load(id: String) {
-//        persistentContainer.load(deckId: id)
-//    }
-    
-    func set(activeDeckId: String) {
-        activeDeckIdString = activeDeckId
+    private func getActiveDeckId() {
+        // Get from UserDefaults
         let defaults = UserDefaults.standard
-        defaults.set(activeDeckId, forKey: "ActiveDeck")
-        print("💾 saved", activeDeckId.suffix(4))
+        guard let id = defaults.string(forKey: "ActiveDeck") else { return }
+        
+        load(id: id)
     }
-}
-
-extension DeckManager: Equatable {
-    static func == (lhs: DeckManager, rhs: DeckManager) -> Bool {
-        lhs.activeDeckIdString == rhs.activeDeckIdString
+    
+    private func load(id: String) {
+        activeDeck = decks.first(where: { deck in
+            deck.id.uuidString == id
+        })
+        activeDeckName = activeDeck?.name ?? ""
     }
 }
 
