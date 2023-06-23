@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CardListView: View {
     @EnvironmentObject var quizService: QuizService
-    @EnvironmentObject var deckManager: DeckManager
     
     var body: some View {
         NavigationStack(path: $quizService.routesOnStack) {
@@ -41,7 +40,6 @@ struct CardListView: View {
 
 extension CardListView {
     var deck: Deck {
-        print("🂡 CardList will load this deck id:", deckManager.activeDeckIdString.suffix(4))
         return quizService.deck
     }
 }

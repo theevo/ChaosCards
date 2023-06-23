@@ -45,7 +45,7 @@ struct SettingsView: View {
         Form {
             Section {
                 NavigationLink("Decks") {
-                    DecksListView()
+                    DecksListView(deckManager: quizService.deckManager)
                         .environment(\.managedObjectContext, PersistentContainer().persistentContainer.viewContext)
                 }
             }

@@ -34,3 +34,7 @@ extension DeckManager: Equatable {
         lhs.activeDeckIdString == rhs.activeDeckIdString
     }
 }
+
+extension DeckManager {
+    static var mock: DeckManager = DeckManager()
+}

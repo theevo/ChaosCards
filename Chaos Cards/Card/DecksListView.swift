@@ -11,7 +11,7 @@ struct DecksListView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) private var deckEntities: FetchedResults<DeckEntity>
     @State var activeDeck = ""
-    @EnvironmentObject var deckManager: DeckManager
+    var deckManager: DeckManager
     
     var body: some View {
         Form {
@@ -81,7 +81,7 @@ struct DecksListView: View {
 
 struct DecksListView_Previews: PreviewProvider {
     static var previews: some View {
-        DecksListView()
+        DecksListView(deckManager: DeckManager.mock)
             .environment(\.managedObjectContext, PersistentContainer.previewMoc)
     }
 }

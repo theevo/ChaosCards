@@ -21,6 +21,7 @@ class QuizService: ObservableObject {
     var notificationCenter: UNUserNotificationCenter?
     private(set) var state: QuizSequence = QuizSequence()
     private(set) var scoreKeeper = ScoreKeeper()
+    private(set) var deckManager = DeckManager()
     var action: QuizAction?
     
     var currentQuestion: Question? {
