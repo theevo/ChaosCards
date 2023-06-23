@@ -41,7 +41,7 @@ struct DecksListView: View {
                 Text("Tap a deck to set it active. Long press to rename it.")
             }
             Button("Add deck") {
-                print("add a deck")
+                deckManager.add(deck: Deck.example)
 //                let _ = DeckEntity(deck: Deck.example, moc: moc)
 //                try? moc.save()
             }
@@ -60,15 +60,8 @@ struct DecksListView: View {
     
     func delete(at offsets: IndexSet) {
         for offset in offsets {
-//            let deckEntity = deckEntities[offset]
-//            moc.delete(deckEntity)
-            print("Delete deck")
-        }
-        do {
-//            try moc.save()
-            print("save moc")
-        } catch {
-            print("error saving: \(error.localizedDescription)")
+            let deck = decks[offset]
+            deckManager.delete(deck: deck)
         }
     }
 }

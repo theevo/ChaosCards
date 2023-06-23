@@ -28,6 +28,15 @@ extension DeckManager {
         
         load(id: activeDeckId)
     }
+    
+    public func add(deck: Deck) {
+        persistentContainer.add(deck: deck)
+//        loadAllDecks()
+    }
+    
+    public func delete(deck: Deck) {
+        persistentContainer.delete(deck: deck)
+    }
 }
 
 // MARK: - Private methods

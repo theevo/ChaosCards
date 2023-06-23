@@ -10,6 +10,7 @@ import CoreData
 class PersistentContainer {
     let persistentContainer: NSPersistentContainer
     var decks: [Deck] = []
+    var entities: [DeckEntity] = []
     
     var moc: NSManagedObjectContext {
         persistentContainer.viewContext
@@ -30,13 +31,31 @@ class PersistentContainer {
     func loadAllDecks(){
         let fetchRequest = DeckEntity.fetchRequest()
         do {
-            let entities = try moc.fetch(fetchRequest)
+            self.entities = try moc.fetch(fetchRequest)
             let decks = entities.map { Deck(deckEntity: $0) }
             self.decks = decks
         } catch {
             print("😫 wah wah", error)
             print(error.localizedDescription)
         }
+    }
+    
+    func add(deck: Deck) {
+        let _ = DeckEntity(deck: deck, moc: moc)
+        save()
+    }
+    
+    func delete(deck: Deck) {
+        guard let entity = entities.first(where: { entity in
+            entity.id?.uuidString == deck.id.uuidString
+        }) else { return }
+        print("🙅🏻‍♂️ deleting", entity.name ?? "deck with no name", entity.id?.uuidString.suffix(4) ?? "no id?!? what?")
+        moc.delete(entity)
+        save()
+    }
+    
+    func save() {
+        try? moc.save()
     }
 }
 
