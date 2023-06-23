@@ -15,8 +15,13 @@ class PersistentContainer {
         persistentContainer.viewContext
     }
     
-    init() {
+    init(forPreview: Bool = false) {
         self.persistentContainer = NSPersistentContainer(name: "ChaosCards")
+        
+        if forPreview {
+            persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        }
+        
         persistentContainer.loadPersistentStores { _, _ in
         }
         loadAllDecks()
@@ -40,12 +45,10 @@ class PersistentContainer {
 }
 
 extension PersistentContainer {
-    static var previewMoc: NSManagedObjectContext {
-        let persistentContainer = NSPersistentContainer(name: "ChaosCards")
-        persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-        persistentContainer.loadPersistentStores { _, _ in }
-        addMockData(moc: persistentContainer.viewContext)
-        return persistentContainer.viewContext
+    static var previewMock: PersistentContainer {
+        let persistentContainer = PersistentContainer(forPreview: true)
+        addMockData(moc: persistentContainer.moc)
+        return persistentContainer
     }
     
     static func addMockData(moc: NSManagedObjectContext) {

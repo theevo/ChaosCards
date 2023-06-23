@@ -85,6 +85,6 @@ struct DecksListView: View {
 struct DecksListView_Previews: PreviewProvider {
     static var previews: some View {
         DecksListView(deckManager: DeckManager.mock)
-            .environment(\.managedObjectContext, PersistentContainer.previewMoc)
+            .environment(\.managedObjectContext, PersistentContainer.previewMock.moc)
     }
 }
