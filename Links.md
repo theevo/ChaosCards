@@ -41,6 +41,7 @@ https://cocoacasts.com/fetching-records-with-core-data-type-methods-in-swift
 ios - Deleting CoreData from SwiftUI List with Sections - Stack Overflow
 https://stackoverflow.com/questions/70399514/deleting-coredata-from-swiftui-list-with-sections
 
+
 ## 06.09
 
 ios - How to resize Image with SwiftUI? - Stack Overflow
