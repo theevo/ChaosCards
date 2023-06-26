@@ -42,8 +42,6 @@ struct DecksListView: View {
             }
             Button("Add deck") {
                 deckManager.add(deck: Deck.example)
-//                let _ = DeckEntity(deck: Deck.example, moc: moc)
-//                try? moc.save()
             }
         }
         .onAppear {

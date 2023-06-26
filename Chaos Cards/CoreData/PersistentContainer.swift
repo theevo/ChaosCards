@@ -43,6 +43,8 @@ class PersistentContainer {
     func add(deck: Deck) {
         let _ = DeckEntity(deck: deck, moc: moc)
         save()
+        loadAllDecks()
+        print("👀 entities count = ", entities.count)
     }
     
     func delete(deck: Deck) {

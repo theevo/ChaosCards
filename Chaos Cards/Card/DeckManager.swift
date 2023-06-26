@@ -31,7 +31,7 @@ extension DeckManager {
     
     public func add(deck: Deck) {
         persistentContainer.add(deck: deck)
-//        loadAllDecks()
+        loadAllDecks()
     }
     
     public func delete(deck: Deck) {
