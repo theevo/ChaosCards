@@ -1,5 +1,47 @@
 # Chaos Cards
 
+## 06.25
+
+4 Picker styles in SwiftUI Form | Sarunw
+https://sarunw.com/posts/swiftui-form-picker-styles/
+
+The SwiftUI Equivalents to UICollectionView | by Mohd Hafiz | Better Programming
+https://betterprogramming.pub/the-swiftui-equivalents-to-uicollectionview-60415e3c1bbe
+
+How to use fetched (Core)Data in a Picker? – SwiftUI – Hacking with Swift forums
+https://www.hackingwithswift.com/forums/swiftui/how-to-use-fetched-core-data-in-a-picker/3158
+
+swift - SwiftUI pick a value from a list with ontap gesture - Stack Overflow
+https://stackoverflow.com/questions/58500295/swiftui-pick-a-value-from-a-list-with-ontap-gesture
+
+How to add section header and footer to SwiftUI list | Sarunw
+https://sarunw.com/posts/swiftui-list-section-header-footer/
+
+How to add custom swipe action buttons to a List row - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-custom-swipe-action-buttons-to-a-list-row
+
+UUID | Apple Developer Documentation
+https://developer.apple.com/documentation/foundation/uuid
+
+Core Data and SwiftUI: a Solution | by Santiago Garcia Santos | Medium
+https://medium.com/@santiagogarciasantos/core-data-and-swiftui-a-solution-c0404a01c1aa
+
+How to filter Core Data fetch requests using a predicate - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-filter-core-data-fetch-requests-using-a-predicate
+
+Learn & Master ⚔️ the Basics of Combine in 5 Minutes | by Sebastian Boldt | iOS App Development | Medium
+https://medium.com/ios-os-x-development/learn-master-%EF%B8%8F-the-basics-of-combine-in-5-minutes-639421268219
+
+Combine: Getting Started | Kodeco
+https://www.kodeco.com/7864801-combine-getting-started#toc-anchor-005
+
+Fetching Records With Core Data: Type Methods
+https://cocoacasts.com/fetching-records-with-core-data-type-methods-in-swift
+
+ios - Deleting CoreData from SwiftUI List with Sections - Stack Overflow
+https://stackoverflow.com/questions/70399514/deleting-coredata-from-swiftui-list-with-sections
+
+
 ## 06.09
 
 ios - How to resize Image with SwiftUI? - Stack Overflow

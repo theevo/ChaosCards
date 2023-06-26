@@ -40,7 +40,7 @@ struct CardListView: View {
 
 extension CardListView {
     var deck: Deck {
-        quizService.deck
+        return quizService.deck
     }
 }
 

@@ -7,10 +7,26 @@
 
 import Foundation
 
-struct Deck {
-    let id = UUID()
+struct Deck: Identifiable {
+    let id: UUID
     var name: String
     var cards: [Card]
+    
+    internal init(id: UUID = UUID(), name: String, cards: [Card]) {
+        self.id = id
+        self.name = name
+        self.cards = cards
+    }
+}
+
+extension Deck {
+    init(deckEntity: DeckEntity) {
+        let name = deckEntity.name ?? "<unknown name>"
+        let cards = deckEntity.cards()
+        let id = deckEntity.id ?? UUID()
+        self.init(id: id, name: name, cards: cards)
+        print("♥️ Deck \(id.uuidString.suffix(4)) has \(cards.count) cards")
+    }
 }
 
 extension Deck {
@@ -27,7 +43,7 @@ extension Deck {
     }
     
     static var smallExample: Deck {
-        Deck(name: "🔴🇹🇭 days of the week", cards: [
+        Deck(name: "3️⃣🇹🇭 days of the week", cards: [
             Card(prompt: "Tuesday", answer: "wan ang-kaan"),
             Card(prompt: "Friday", answer: "wan sook"),
             Card(prompt: "Saturday", answer: "wan sao"),
