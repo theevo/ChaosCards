@@ -15,32 +15,41 @@ struct DecksListView: View {
     }
     
     var body: some View {
-        Form {
-            Section("Active Deck") {
-                Text(deckManager.activeDeckName)
-            }
-            Section {
-                List() {
-                    ForEach(decks) { deck in
-                        HStack {
-                            Text(deck.name)
-                                .badge(deck.cards.count)
-                            Spacer()
-                        }
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            activate(deck: deck)
-                        }
-                    }
-                    .onDelete(perform: delete)
+        NavigationView {
+            Form {
+                Section("Active Deck") {
+                    Text(deckManager.activeDeckName)
                 }
-            } header: {
-                Text("All decks")
-            } footer: {
-                Text("Tap a deck to set it active. Long press to rename it.")
+                Section {
+                    List() {
+                        ForEach(decks) { deck in
+                            HStack {
+                                Text(deck.name)
+                                    .badge(deck.cards.count)
+                                Spacer()
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                activate(deck: deck)
+                            }
+                            .onLongPressGesture(minimumDuration: 2.5) {
+                                rename(deck: deck)
+                            }
+                        }
+                        .onDelete(perform: delete)
+                        .onMove(perform: move)
+                    }
+                } header: {
+                    Text("All decks")
+                } footer: {
+                    Text("Tap a deck to set the active deck.")
+                }
+                Button("Add deck") {
+                    deckManager.add(deck: Deck.smallExample)
+                }
             }
-            Button("Add deck") {
-                deckManager.add(deck: Deck.smallExample)
+            .toolbar {
+                EditButton()
             }
         }
     }
@@ -54,6 +63,15 @@ struct DecksListView: View {
             let deck = decks[offset]
             deckManager.delete(deck: deck)
         }
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+//        deckManager.decks.move(fromOffsets: source, toOffset: destination)
+        deckManager.move(fromOffsets: source, toOffset: destination)
+    }
+    
+    func rename(deck: Deck) {
+        print("rename")
     }
 }
 

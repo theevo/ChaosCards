@@ -37,6 +37,13 @@ extension DeckManager {
     public func delete(deck: Deck) {
         persistentContainer.delete(deck: deck)
     }
+    
+    public func move(fromOffsets: IndexSet, toOffset: Int) {
+        persistentContainer.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        print("📞 calling loadAllDecks()")
+        loadAllDecks()
+        print("☎️ called loadAllDecks()")
+    }
 }
 
 // MARK: - Private methods

@@ -9,6 +9,7 @@
     <entity name="DeckEntity" representedClassName="DeckEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="userOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="cardsSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardEntity" inverseName="deckEntity" inverseEntity="CardEntity"/>
     </entity>
 </model>
