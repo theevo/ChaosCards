@@ -1,5 +1,149 @@
 # Chaos Cards
 
+## 07.05
+
+EditMode | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/editmode
+
+swiftui edit state array - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+edit+state+array&ie=UTF-8&oe=UTF-8
+
+How to add custom swipe action buttons to a List row - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-custom-swipe-action-buttons-to-a-list-row
+
+How to use SF Symbols in SwiftUI - Simple Swift Guide
+https://www.simpleswiftguide.com/how-to-use-sf-symbols-in-swiftui/
+
+How to enable editing on a list using EditButton - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-enable-editing-on-a-list-using-editbutton
+
+SwiftUI and the Intermittent EditMode | by Michael Long | Geek Culture | Medium
+https://medium.com/geekculture/swiftui-and-the-intermittent-editmode-b714c923f536
+
+swiftui foreach index - Google Search
+https://www.google.com/search?client=safari&rls=en&q=swiftui+foreach+index&ie=UTF-8&oe=UTF-8
+
+swift - SwiftUI EditButton action on Done - Stack Overflow
+https://stackoverflow.com/questions/57617524/swiftui-editbutton-action-on-done
+
+onChange(of:perform:) | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/view/onchange(of:perform:)
+
+swift - Best Way to Update/Edit an Array Element in SwiftUI - Stack Overflow
+https://stackoverflow.com/questions/62106227/best-way-to-update-edit-an-array-element-in-swiftui
+
+@State variable initialization in SwiftUI | Sarunw
+https://sarunw.com/posts/state-variable-initialization/
+
+What is the @Binding property wrapper? - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/what-is-the-binding-property-wrapper
+
+SwiftUI Swipe Actions
+https://useyourloaf.com/blog/swiftui-swipe-actions/
+
+swift - Get index in ForEach in SwiftUI - Stack Overflow
+https://stackoverflow.com/questions/57244713/get-index-in-foreach-in-swiftui
+
+swift - SwiftUI - Indexset to index in array - Stack Overflow
+https://stackoverflow.com/questions/59868180/swiftui-indexset-to-index-in-array
+
+How to let users move rows in a list - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-let-users-move-rows-in-a-list
+
+swift - Select all text in TextField upon click SwiftUI - Stack Overflow
+https://stackoverflow.com/questions/67502138/select-all-text-in-textfield-upon-click-swiftui
+
+animation - How can I animate individual rows in SwiftUI List? - Stack Overflow
+https://stackoverflow.com/questions/69223787/how-can-i-animate-individual-rows-in-swiftui-list
+
+swift - Insert, update and delete animations with ForEach in SwiftUI - Stack Overflow
+https://stackoverflow.com/questions/61486483/insert-update-and-delete-animations-with-foreach-in-swiftui
+
+How to make a TextField or TextEditor have default focus - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-make-a-textfield-or-texteditor-have-default-focus
+
+How to style text views with fonts, colors, line spacing, and more - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-style-text-views-with-fonts-colors-line-spacing-and-more
+
+How to create basic animations - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-basic-animations
+
+SwiftUI: Animating Color Changes
+https://trailingclosure.com/swiftui-animating-color-changes/
+
+How to let users delete rows from a list - a free SwiftUI by Example tutorial
+https://www.hackingwithswift.com/quick-start/swiftui/how-to-let-users-delete-rows-from-a-list
+
+Create Button with Image in SwiftUI | Sarunw
+https://sarunw.com/posts/swiftui-image-button/#renderingmode-modifier
+
+swift - Is it possible to change "return" key to "done" on keyboard with SwiftUI? - Stack Overflow
+https://stackoverflow.com/questions/60008549/is-it-possible-to-change-return-key-to-done-on-keyboard-with-swiftui
+
+Displaying data in lists | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/displaying-data-in-lists
+
+coredata sequential - Google Search
+https://www.google.com/search?client=safari&rls=en&q=coredata+sequential&ie=UTF-8&oe=UTF-8#ip=1
+
+core data - SwiftUI reorder CoreData Objects in List - Stack Overflow
+https://stackoverflow.com/questions/59742218/swiftui-reorder-coredata-objects-in-list
+
+Core Data: storing ordered values in a one-to-many relationship - Stack Overflow
+https://stackoverflow.com/questions/69787646/core-data-storing-ordered-values-in-a-one-to-many-relationship
+
+core data - SwiftUI reorder CoreData Objects in List - Stack Overflow
+https://stackoverflow.com/questions/59742218/swiftui-reorder-coredata-objects-in-list
+
+core data - SwiftUI reorder CoreData Objects in List - Stack Overflow
+https://stackoverflow.com/questions/59742218/swiftui-reorder-coredata-objects-in-list
+
+```swift
+public class CoreItem: NSManagedObject, Identifiable{
+    @NSManaged public var name: String
+    @NSManaged public var userOrder: Int16
+}
+
+@FetchRequest( entity: CoreItem.entity(),
+                   sortDescriptors:
+                   [
+                       NSSortDescriptor(
+                           keyPath: \CoreItem.userOrder,
+                           ascending: true),
+                       NSSortDescriptor(
+                           keyPath:\CoreItem.name,
+                           ascending: true )
+                   ]
+    ) var coreItems: FetchedResults<CoreItem>
+
+private func move( from source: IndexSet, to destination: Int) 
+{
+    // Make an array of items from fetched results
+    var revisedItems: [ CoreItem ] = coreItems.map{ $0 }
+
+    // change the order of the items in the array
+    revisedItems.move(fromOffsets: source, toOffset: destination )
+
+    // update the userOrder attribute in revisedItems to 
+    // persist the new order. This is done in reverse order 
+    // to minimize changes to the indices.
+    for reverseIndex in stride( from: revisedItems.count - 1,
+                                through: 0,
+                                by: -1 )
+    {
+        revisedItems[ reverseIndex ].userOrder =
+            Int16( reverseIndex )
+    }
+}
+```
+
+How to fix slow List updates in SwiftUI – Hacking with Swift
+https://www.hackingwithswift.com/articles/210/how-to-fix-slow-list-updates-in-swiftui
+
+init(_:id:rowContent:) | Apple Developer Documentation
+https://developer.apple.com/documentation/swiftui/list/init(_:id:rowcontent:)-8x1ph
+
+
 ## 06.25
 
 4 Picker styles in SwiftUI Form | Sarunw
