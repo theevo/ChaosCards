@@ -19,6 +19,9 @@ struct DecksListView: View {
             Form {
                 Section("Active Deck") {
                     Text(deckManager.activeDeckName)
+                        .onTapGesture {
+                            rename(deckname: deckManager.activeDeckName)
+                        }
                 }
                 Section {
                     List() {
@@ -31,9 +34,6 @@ struct DecksListView: View {
                             .contentShape(Rectangle())
                             .onTapGesture {
                                 activate(deck: deck)
-                            }
-                            .onLongPressGesture(minimumDuration: 2.5) {
-                                rename(deck: deck)
                             }
                         }
                         .onDelete(perform: delete)
@@ -70,8 +70,8 @@ struct DecksListView: View {
         deckManager.move(fromOffsets: source, toOffset: destination)
     }
     
-    func rename(deck: Deck) {
-        print("rename")
+    func rename(deckname: String) {
+        print("rename \(deckname)")
     }
 }
 
