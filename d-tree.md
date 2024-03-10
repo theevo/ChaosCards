@@ -1,3 +1,3 @@
 #  Discovery Tree
 
-## Set active deck 
+## Rename Active Deck
