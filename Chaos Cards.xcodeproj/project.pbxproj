@@ -68,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		272C2FFD2B9E4A5900594D9A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		272C2FFE2B9E4A7F00594D9A /* d-tree.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "d-tree.md"; sourceTree = "<group>"; };
 		AC0541CE2A0D555600E24804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC14F8D22A06CD860049D669 /* Chaos Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chaos Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC14F8D52A06CD860049D669 /* Chaos_CardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chaos_CardsApp.swift; sourceTree = "<group>"; };
@@ -143,6 +145,8 @@
 		AC14F8C92A06CD860049D669 = {
 			isa = PBXGroup;
 			children = (
+				272C2FFD2B9E4A5900594D9A /* README.md */,
+				272C2FFE2B9E4A7F00594D9A /* d-tree.md */,
 				AC14F8D42A06CD860049D669 /* Chaos Cards */,
 				AC14F8E52A06CD870049D669 /* Chaos CardsTests */,
 				AC14F8EF2A06CD870049D669 /* Chaos CardsUITests */,
